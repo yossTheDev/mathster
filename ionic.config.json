@@ -1,0 +1,7 @@
+{
+  "name": "thanoscli-website",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
