@@ -23,7 +23,7 @@ export const About: React.FC = () => {
 				</div>
 			</Navbar>
 
-			<div className='overflow-scroll select-none'>
+			<div className='overflow-scroll flex flex-auto select-none'>
 				<div className='flex flex-auto flex-row'>
 					<div className='mx-auto flex-row flex'>
 						<div className='flex flex-col'>
