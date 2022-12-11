@@ -16,6 +16,22 @@
 
 If you have any suggestions or a new feature to add to Mathster I invite you to join the community, where I will share all the progress.  [Telegram](https://t.me/mathster_bitacora) (🇪🇸 Spanish Speakers)
 
+## 📱 App Libraries
+
+Mathster would not be possible without these fantastic libraries. Thanks to their creators and maintainers for making them available to everyone.
+
+* React JS
+* Tailwind CSS
+* DaysiUI
+* CapacitorJS
+* MathJS
+
 ## 👥 Contribution
 
-Mathster is currently under development so your help is always welcome
+![](/img/Contribution%20Banner.png)
+
+Mathster is currently under development so your help is always welcome 😄
+
+## 🖼️ Presentation
+
+![](/img/Presetation%201.png)
