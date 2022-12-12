@@ -42,6 +42,7 @@ export const ExpressionContainer: React.FC<Props> = ({ value }) => {
 						key={i}
 						value={elem.value}
 						type={elem.type as string}
+						index={elem.index}
 					></ExpressionSpan>
 				) : (
 					<span

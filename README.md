@@ -12,6 +12,26 @@
 * Unit calculation and conversion
 * And more coming soon... 🤩
 
+## ⚒ Building Mathster
+
+First prepare the project
+
+``` bash
+yarn install
+```
+
+Building web project and sync Capacitor platforms
+
+``` bash
+npx cap sync
+```
+
+Building for Android (You need the android development environment ready to go)
+
+``` bash
+cd android && gradle build
+```
+
 ## 👨‍💻 Development
 
 If you have any suggestions or a new feature to add to Mathster I invite you to join the community, where I will share all the progress.  [Telegram](https://t.me/mathster_bitacora) (🇪🇸 Spanish Speakers)

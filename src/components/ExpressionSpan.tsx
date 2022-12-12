@@ -1,5 +1,4 @@
 import {
-	IconAsterisk,
 	IconDivide,
 	IconEqual,
 	IconEqualDouble,
@@ -14,130 +13,155 @@ import {
 	IconSquareRoot,
 	IconX,
 } from '@tabler/icons';
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { useStoreActions, useStoreState } from '../stores/Hooks';
 
 interface Props {
 	value: string;
 	type: string;
+	index: number;
 }
 
-export const ExpressionSpan: React.FC<Props> = ({ value, type }) => {
+interface SpanProps {
+	index: number;
+	children: ReactNode;
+}
+
+const Span: React.FC<SpanProps> = ({ children, index }: SpanProps) => {
+	// Store Actions
+	const setCursor = useStoreActions((state) => state.setCursor);
+
+	return <span onClick={() => setCursor(index)}>{children}</span>;
+};
+
+export const ExpressionSpan: React.FC<Props> = ({ value, type, index }) => {
+	// Store Actions
+	const setCursor = useStoreActions((state) => state.setCursor);
+
 	switch (type) {
 		case 'plus':
 			return (
-				<span>
+				<Span index={index}>
 					<IconPlus size={28} className='inline  text-red-400'></IconPlus>
-				</span>
+				</Span>
 			);
 
 		case 'percent':
 			return (
-				<span>
+				<Span index={index}>
 					<IconPercentage
 						size={28}
 						className='inline  text-red-400'
 					></IconPercentage>
-				</span>
+				</Span>
 			);
 		case 'minus':
 			return (
-				<span>
-					<IconMinus size={28} className='inline  text-red-400'></IconMinus>
-				</span>
+				<Span index={index}>
+					<IconMinus
+						onClick={() => setCursor(index)}
+						size={28}
+						className='inline  text-red-400'
+					></IconMinus>
+				</Span>
 			);
 
 		case 'asterisk':
 			return (
-				<span>
+				<Span index={index}>
 					<IconX size={28} className='inline  text-red-400'></IconX>
-				</span>
+				</Span>
 			);
 
 		case 'divide':
 			return (
-				<span>
-					<IconDivide size={28} className='inline  text-red-400'></IconDivide>
-				</span>
+				<Span index={index}>
+					<IconDivide
+						onClick={() => setCursor(index)}
+						size={28}
+						className='inline  text-red-400'
+					></IconDivide>
+				</Span>
 			);
 
 		case 'equal':
 			return (
-				<span>
+				<Span index={index}>
 					<IconEqual size={28} className='inline  text-red-400'></IconEqual>
-				</span>
+				</Span>
 			);
 
 		case 'double_equal':
 			return (
-				<span>
+				<Span index={index}>
 					<IconEqualDouble
 						size={28}
-						className='inline  text-red-400'
+						className='inline text-red-400'
 					></IconEqualDouble>
-				</span>
+				</Span>
 			);
 
 		case 'pi':
 			return (
-				<span>
+				<Span index={index}>
 					<IconMathPi size={28} className='inline  text-red-400'></IconMathPi>
-				</span>
+				</Span>
 			);
 
 		case 'less_than':
 			return (
-				<span>
+				<Span index={index}>
 					<IconMathLower
 						size={28}
 						className='inline  text-red-400'
 					></IconMathLower>
-				</span>
+				</Span>
 			);
 
 		case 'more_than':
 			return (
-				<span>
+				<Span index={index}>
 					<IconMathGreater
 						size={28}
 						className='inline  text-red-400'
 					></IconMathGreater>
-				</span>
+				</Span>
 			);
 
 		case 'equal_greater':
 			return (
-				<span>
+				<Span index={index}>
 					<IconMathEqualGreater
 						size={28}
 						className='inline  text-red-400'
 					></IconMathEqualGreater>
-				</span>
+				</Span>
 			);
 
 		case 'equal_lower':
 			return (
-				<span>
+				<Span index={index}>
 					<IconMathEqualLower
 						size={28}
 						className='inline  text-red-400'
 					></IconMathEqualLower>
-				</span>
+				</Span>
 			);
 
 		case 'square_root':
 			return (
-				<span>
+				<Span index={index}>
 					<IconSquareRoot
 						size={28}
 						className='inline  text-red-400'
 					></IconSquareRoot>
-				</span>
+				</Span>
 			);
 
 		case 'separator':
 			return <span className='text-xl text-gray-500'>{value}</span>;
 
 		default:
-			return <span>{value}</span>;
+			return <Span index={index}>{value}</Span>;
 	}
 };

@@ -23,19 +23,19 @@ export const About: React.FC = () => {
 				</div>
 			</Navbar>
 
-			<div className='overflow-scroll flex flex-auto select-none'>
-				<div className='flex flex-auto flex-row'>
-					<div className='mx-auto flex-row flex'>
-						<div className='flex flex-col'>
-							<img src={math} className='h-16 mt-auto mb-auto'></img>
-						</div>
-						<div className='flex flex-col m-2 mt-6'>
-							<p className='mx-auto font-bold text-2xl'>Mathster</p>
-							<p className='mx-auto text-gray-500'>v 0.0.1 Alpha</p>
-						</div>
+			<div className='overflow-scroll flex flex-auto flex-col select-none'>
+				{/* App Card*/}
+				<div className='mx-auto mt-6 flex-row flex'>
+					<div className='flex flex-auto flex-col'>
+						<img src={math} className='h-16 mt-auto mb-auto'></img>
+					</div>
+					<div className='flex flex-auto flex-col m-2 mt-6'>
+						<p className='mx-auto font-bold text-2xl'>Mathster</p>
+						<p className='mx-auto text-gray-500'>v 0.0.2 Alpha</p>
 					</div>
 				</div>
-				<div className='flex mb-8 flex-auto flex-col shadow-2xl p-6 mt-3 rounded mx-6'>
+				{/* Hero Card*/}
+				<div className='flex flex-col shadow-2xl p-6 rounded mx-6'>
 					<img src={yoss} className='rounded-full h-36 mx-auto'></img>
 					<p className='text-3xl font-bold m-2'>Hi! 👋</p>
 					<p className='font-semibold m-2'>I am Yoannis Sánchez Soto</p>
@@ -71,7 +71,7 @@ export const About: React.FC = () => {
 					</div>
 				</div>
 
-				<div className='bg-black p-4 hidden flex-auto rounded mx-3 m-2'>
+				<div className='bg-black p-4 hidden h-12 rounded-3xl mx-3'>
 					<IconBrandGithub className='inline-block mx-auto text-white'></IconBrandGithub>
 					<p className='inline-block ml-2 text-white font-bold mx-auto'>
 						Project Repository

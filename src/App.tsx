@@ -4,7 +4,6 @@ import { CalcStore } from './stores/CalcStore';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Root } from './pages/Root';
 import { About } from './pages/About';
-import { Calculator } from './components/Calculator';
 import { Home } from './pages/Home';
 
 const router = createBrowserRouter([

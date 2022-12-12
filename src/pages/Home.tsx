@@ -1,7 +1,5 @@
-import { IconMenu, IconMenu2 } from '@tabler/icons';
-import React, { useState } from 'react';
-import { Button, Drawer, Menu, Navbar } from 'react-daisyui';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { Navbar } from 'react-daisyui';
 import { Calculator } from '../components/Calculator';
 import { MenuButton } from '../components/MenuButton';
 

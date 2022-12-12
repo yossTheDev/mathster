@@ -1,6 +1,16 @@
 import { Haptics } from '@capacitor/haptics';
-import { useFloating, autoUpdate } from '@floating-ui/react-dom';
-import React, { ReactNode, useState } from 'react';
+import {
+	useFloating,
+	autoUpdate,
+	offset,
+	flip,
+	shift,
+	arrow,
+	hide,
+} from '@floating-ui/react-dom';
+import { IconArrowDown } from '@tabler/icons';
+import React, { ReactNode, useRef, useState } from 'react';
+import { Tooltip } from 'react-daisyui';
 import { useStoreActions } from '../stores/Hooks';
 import { Button } from './Button';
 
@@ -23,25 +33,32 @@ export const CalcButton: React.FC<ButtonProps> = ({
 	const addCalc = useStoreActions((state) => state.addCalc);
 
 	// Object Store and Actions
+	const arrowRef = useRef(null);
 	const { x, y, reference, floating, strategy } = useFloating({
 		whileElementsMounted: autoUpdate,
+		middleware: [
+			arrow({ element: arrowRef }),
+			offset(10),
+			flip(),
+			shift(),
+			hide(),
+		],
 		placement: 'top',
 	});
 
 	const [tooltipVisibility, settooltipVisibility] = useState('hidden');
 
 	return (
-		<>
-			<Button
-				/*onMouseEnter={() => tooltip && settooltipVisibility('visible')}*/
-				/*onMouseLeave={() => tooltip && settooltipVisibility('hidden')}*/
-				/*onFocus={() => tooltip && settooltipVisibility('visible')}*/
-				className={`flex flex-auto max-w-sm select-none  ${className}`}
-				onClick={() => {
-					Haptics.vibrate({ duration: 40 });
-					addCalc(operation);
-				}}
-			>
+		<div
+			className={`flex flex-auto max-w-sm select-none hover:bg-gray-100 hover:shadow-inner items-center rounded p-2  ${className}`}
+			onMouseEnter={() => tooltip && settooltipVisibility('visible')}
+			onMouseLeave={() => tooltip && settooltipVisibility('hidden')}
+			onClick={() => {
+				Haptics.vibrate({ duration: 40 });
+				addCalc(operation);
+			}}
+		>
+			<button className='mx-auto' ref={reference}>
 				{children ? (
 					children
 				) : label ? (
@@ -49,18 +66,23 @@ export const CalcButton: React.FC<ButtonProps> = ({
 				) : (
 					<p className='mx-auto'>{operation}</p>
 				)}
-			</Button>
+			</button>
 
+			{/* Tooltip */}
 			<div
 				ref={floating}
-				className={`${tooltipVisibility} bg-slate-100 rounded shadow-2xl p-2`}
+				className={`${tooltipVisibility} bg-slate-400 rounded-2xl shadow-2xl p-2`}
 				style={{
 					position: strategy,
 					top: y ?? 0,
 					left: x ?? 0,
 					width: 'max-content',
 				}}
-			></div>
-		</>
+			>
+				{tooltip}
+			</div>
+
+			<div className={`${tooltipVisibility}`} ref={arrowRef}></div>
+		</div>
 	);
 };
