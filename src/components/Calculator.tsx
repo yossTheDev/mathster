@@ -77,8 +77,8 @@ export const Calculator: React.FC = () => {
 			setError(false);
 
 			// Calculate!!!
-			let r = format(evaluate(calc), { precision: 14 });
-			//let r = evaluate(calc);
+			//let r = format(evaluate(calc), { precision: 14 });
+			let r = evaluate(calc);
 
 			// Verify if is a valid result set or single result value
 			if (!r.toString().includes('arguments')) {

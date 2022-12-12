@@ -1,3 +1,4 @@
+import { evaluate, format } from 'mathjs';
 import React from 'react';
 import { useStoreActions } from '../stores/Hooks';
 
@@ -16,7 +17,9 @@ export const ResultItem: React.FC<Props> = ({ value }) => {
 			}}
 			className='shadow hover:bg-gradient-to-tl bg-gradient-to-br from-red-400 to-red-500 text-white font-semibold rounded-2xl text-right m-2 p-2 inline-block'
 		>
-			{value}
+			{value.toString().includes('.')
+				? format(evaluate(value), { precision: 14 })
+				: value}
 		</div>
 	);
 };
