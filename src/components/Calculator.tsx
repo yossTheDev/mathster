@@ -1,6 +1,5 @@
 // Add Animations
 import React, { useEffect, useState } from 'react';
-import { evaluate, format, isResultSet } from 'mathjs';
 import { TabPanel, useTabs } from 'react-headless-tabs';
 import { CalcButton } from '../components/CalcButton';
 import { ExpressionContainer } from '../components/ExpressionContainer';
@@ -10,98 +9,37 @@ import { useStoreActions, useStoreState } from '../stores/Hooks';
 
 import {
 	IconAbc,
-	IconAngle,
-	IconApple,
+	IconAmpersand,
+	IconArrowsExchange,
 	IconBackspace,
-	IconBinary,
-	IconBolt,
 	IconBox,
-	IconBucket,
-	IconBuildingWindTurbine,
-	IconBulb,
+	IconBrackets,
 	IconChevronLeft,
 	IconChevronRight,
 	IconChevronsLeft,
 	IconChevronsRight,
-	IconClock,
 	IconCornerDownLeft,
 	IconDivide,
-	IconEngine,
 	IconEqual,
-	IconFlask,
-	IconHourglass,
-	IconLamp,
-	IconLamp2,
 	IconMathFunction,
 	IconMinus,
 	IconNumbers,
 	IconPercentage,
 	IconPlus,
-	IconRoad,
 	IconScale,
 	IconSpace,
-	IconSquareForbid,
 	IconSquareRoot,
-	IconTemperature,
-	IconVolume3,
-	IconWeight,
+	IconTriangle,
 	IconX,
 } from '@tabler/icons';
 import { Button } from '../components/Button';
 import { QuickAccessBar } from './QuickAccessBar';
+import { TabUnits } from './TabUnits';
+import { evaluate, format, isResultSet } from 'mathjs';
 
 export const Calculator: React.FC = () => {
 	// Consts
-	const letters = [
-		'q',
-		'w',
-		'e',
-		'r',
-		't',
-		'y',
-		'u',
-		'i',
-		'o',
-		'p',
-		'a',
-		's',
-		'd',
-		'f',
-		'g',
-		'h',
-		'j',
-		'k',
-		'l',
-		'y',
-		'x',
-		'c',
-		'v',
-		'b',
-		'n',
-		'm',
-	];
 	const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-	const functions = [
-		'and',
-		'in',
-		'to',
-		'not',
-		'or',
-		'xor',
-		'^',
-		"'",
-		'!',
-		'&',
-		'?',
-		'~',
-		'<',
-		'>',
-		'[',
-		']',
-		'{',
-		'}',
-	];
-
 	const lettersFirstRow = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
 	const lettersSecondRow = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
 	const lettersThirdRow = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
@@ -140,6 +78,7 @@ export const Calculator: React.FC = () => {
 
 			// Calculate!!!
 			let r = format(evaluate(calc), { precision: 14 });
+			//let r = evaluate(calc);
 
 			// Verify if is a valid result set or single result value
 			if (!r.toString().includes('arguments')) {
@@ -150,10 +89,10 @@ export const Calculator: React.FC = () => {
 				}
 			}
 
-			console.log(calc);
+			// console.log(calc);
 		} catch (error) {
 			setError(true);
-			console.log(calc);
+			//console.log(calc);
 
 			// TO-DO manage errors
 		}
@@ -363,12 +302,12 @@ export const Calculator: React.FC = () => {
 				<TabPanel
 					className={
 						selectedTab === 'functions'
-							? 'flex flex-auto flex-col  text-gray-700 text-xl font-semibold overflow-hidden'
+							? 'flex-col  text-gray-700 text-xl font-semibold overflow-scroll'
 							: ''
 					}
 					hidden={selectedTab !== 'functions'}
 				>
-					<div className='flex flex-row flex-auto'>
+					<div className='hidden flex-row flex-auto'>
 						<CalcButton operation='f(x)=' label='f(x)'>
 							<IconMathFunction></IconMathFunction>
 						</CalcButton>
@@ -389,48 +328,208 @@ export const Calculator: React.FC = () => {
 						<CalcButton operation='sin(' label='sin'></CalcButton>
 					</div>
 
-					<div className='flex flex-row flex-auto overflow-scroll'>
-						<CalcButton operation='cos(' label='cos'></CalcButton>
-						<CalcButton operation='tan(' label='tan'></CalcButton>
-						<CalcButton operation='cot(' label='cot'></CalcButton>
-						<CalcButton operation='cot(' label='cot'></CalcButton>
-						<CalcButton operation='and'></CalcButton>
-						<CalcButton operation='in'></CalcButton>
-						<CalcButton operation='to'></CalcButton>
-						<CalcButton operation='not'></CalcButton>
-						<CalcButton operation='re(' label='re'></CalcButton>
-						<CalcButton operation='im(' label='im'></CalcButton>
-						<CalcButton operation='not'></CalcButton>
-					</div>
+					{/* Grouping */}
+					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
+						<div className='bg-white shadow p-2 text-black'>
+							<IconBrackets></IconBrackets>
+						</div>
 
-					<div className='flex flex-row flex-auto'>
-						<CalcButton operation='or'></CalcButton>
-						<CalcButton operation='xor'></CalcButton>
-						<CalcButton operation='^'></CalcButton>
-						<CalcButton operation={"'"}></CalcButton>
-						<CalcButton operation={'!'}></CalcButton>
-						<CalcButton operation={'&'}></CalcButton>
-						<CalcButton operation={'?'}></CalcButton>
-					</div>
-
-					<div className='flex flex-row flex-auto'>
-						<CalcButton operation='~'></CalcButton>
-						<CalcButton operation='<'></CalcButton>
-						<CalcButton operation='>'></CalcButton>
-						<CalcButton operation='['></CalcButton>
-						<CalcButton operation=']'></CalcButton>
 						<CalcButton operation='{'></CalcButton>
 						<CalcButton operation='}'></CalcButton>
+						<CalcButton operation='['></CalcButton>
+						<CalcButton operation=']'></CalcButton>
+						<CalcButton operation='('></CalcButton>
+						<CalcButton operation=')'></CalcButton>
 					</div>
 
-					<div className='hidden  flex-row'>
-						{functions.map((el) => (
-							<CalcButton
-								className='w-12 h-8'
-								key={el}
-								operation={el}
-							></CalcButton>
-						))}
+					{/* Arithmetic Functions */}
+					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
+						<div className='bg-white shadow p-2 text-black'>
+							<IconSquareRoot></IconSquareRoot>
+						</div>
+						<CalcButton operation='sqrt(' label='sqrt'>
+							<IconSquareRoot></IconSquareRoot>
+						</CalcButton>
+						<CalcButton
+							tooltip='Qubic Root'
+							operation='cbrt('
+							label='cbrt'
+						></CalcButton>
+						<CalcButton
+							tooltip='Absolute Value'
+							operation='abs('
+							label='abs'
+						></CalcButton>
+						<CalcButton
+							tooltip='Round Value'
+							operation='ceil('
+							label='ceil'
+						></CalcButton>
+						<CalcButton operation='cube(' label='cube'></CalcButton>
+						<CalcButton
+							tooltip='Exponential Value'
+							operation='exp('
+							label='exp'
+						></CalcButton>
+						<CalcButton operation='fix(' label='fix'></CalcButton>
+						<CalcButton operation='floor(' label='floor'></CalcButton>
+
+						<CalcButton
+							tooltip='Evaluate great common divisor gcd(a,b)'
+							operation='gcd('
+							label='gcd'
+						></CalcButton>
+
+						<CalcButton
+							tooltip='Calculate the hypotenusa of a list with values. hypot(a,b,...)'
+							operation='hypot('
+							label='hypot'
+						></CalcButton>
+
+						<CalcButton
+							tooltip='Logarithm log(x,base)'
+							operation='log('
+							label='log'
+						></CalcButton>
+
+						<CalcButton
+							tooltip='Calculate the 10-base logarithm of a value'
+							operation='log10('
+							label='log10'
+						>
+							<p>
+								log<sub>10</sub>
+							</p>
+						</CalcButton>
+
+						<CalcButton
+							tooltip='Calculates the modulus mod(x,y)'
+							operation='mod('
+							label='mod'
+						></CalcButton>
+						<CalcButton tooltip='Power of x ^ y' operation='^'></CalcButton>
+					</div>
+
+					{/* Complex Functions */}
+					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
+						<div className='bg-white shadow p-2 text-black'>2i</div>
+
+						<CalcButton
+							tooltip='Compute the argument of a complex value'
+							operation='arg('
+							label='arg'
+						></CalcButton>
+						<CalcButton
+							tooltip='Compute the complex conjugate of a complex value'
+							operation='conj('
+							label='conj'
+						></CalcButton>
+						<CalcButton
+							tooltip='Get the imaginary part of a complex number.'
+							operation='im('
+							label='im'
+						></CalcButton>
+						<CalcButton
+							tooltip='Get the real part of a complex number.'
+							operation='re('
+							label='re'
+						></CalcButton>
+					</div>
+
+					{/* Geometry Functions */}
+					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
+						<div className='bg-white shadow p-2 text-black'>
+							<IconBox></IconBox>
+						</div>
+
+						<CalcButton
+							tooltip='Calculates: The eucledian distance between two points in N-dimensional spaces. 
+							Ex: distance([x1, y1], [x2, y2])'
+							operation='distance('
+							label='distance'
+						></CalcButton>
+						<CalcButton
+							tooltip='Calculates the point of intersection Ex: intersect(endPoint1Line1, endPoint2Line1, endPoint1Line2, endPoint2Line2)'
+							operation='conj('
+							label='conj'
+						></CalcButton>
+					</div>
+
+					{/* Logical Functions */}
+					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
+						<div className='bg-white shadow p-2 text-black'>
+							<IconAmpersand></IconAmpersand>
+						</div>
+
+						<CalcButton operation='and(' label='and'></CalcButton>
+						<CalcButton operation='not(' label='not'></CalcButton>
+						<CalcButton operation='or(' label='or'></CalcButton>
+						<CalcButton operation='xor(' label='xor'></CalcButton>
+					</div>
+
+					{/* Trigonometry Functions */}
+					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
+						<div className='bg-white shadow p-2 text-black'>
+							<IconTriangle></IconTriangle>
+						</div>
+
+						<CalcButton operation='acos(' label='acos'></CalcButton>
+						<CalcButton operation='acosh(' label='acosh'></CalcButton>
+						<CalcButton operation='acot(' label='acot'></CalcButton>
+						<CalcButton operation='acoth(' label='acoth'></CalcButton>
+						<CalcButton operation='acsc(' label='acsc'></CalcButton>
+						<CalcButton operation='acsch(' label='acsch'></CalcButton>
+						<CalcButton operation='asec(' label='asec'></CalcButton>
+						<CalcButton operation='asech(' label='asech'></CalcButton>
+						<CalcButton operation='asin(' label='asin'></CalcButton>
+						<CalcButton operation='atan(' label='atan'></CalcButton>
+						<CalcButton operation='atanh(' label='asin'></CalcButton>
+						<CalcButton operation='cos(' label='cos'></CalcButton>
+						<CalcButton operation='cosh(' label='cosh'></CalcButton>
+						<CalcButton operation='cot(' label='cot'></CalcButton>
+						<CalcButton operation='coth(' label='coth'></CalcButton>
+						<CalcButton operation='csc(' label='csc'></CalcButton>
+						<CalcButton operation='csch(' label='csch'></CalcButton>
+						<CalcButton operation='sec(' label='sec'></CalcButton>
+						<CalcButton operation='sech(' label='sech'></CalcButton>
+						<CalcButton operation='sin(' label='sin'></CalcButton>
+						<CalcButton operation='sinh(' label='sinh'></CalcButton>
+						<CalcButton operation='tan(' label='tan'></CalcButton>
+						<CalcButton operation='tanh(' label='tanh'></CalcButton>
+					</div>
+
+					{/* Conversion Functions */}
+					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
+						<div className='bg-white shadow p-2 text-black'>
+							<IconArrowsExchange></IconArrowsExchange>
+						</div>
+
+						<CalcButton
+							tooltip='Change the unit of a value'
+							operation='to'
+						></CalcButton>
+						<CalcButton
+							tooltip='Change the unit of a value'
+							operation='in'
+						></CalcButton>
+
+						<CalcButton
+							tooltip='Format a number as hexadecimal'
+							operation='hex('
+							label='hex'
+						></CalcButton>
+
+						<CalcButton
+							tooltip='Format a number as octal'
+							operation='oct('
+							label='oct'
+						></CalcButton>
+
+						<CalcButton
+							tooltip='Format a number as binary'
+							operation='bin('
+							label='bin'
+						></CalcButton>
 					</div>
 				</TabPanel>
 
@@ -443,260 +542,7 @@ export const Calculator: React.FC = () => {
 					}
 					hidden={selectedTab !== 'units'}
 				>
-					{/* Length Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconRoad></IconRoad>
-						</div>
-						<CalcButton operation='mm '></CalcButton>
-						<CalcButton operation='dm '></CalcButton>
-						<CalcButton operation='cm '></CalcButton>
-						<CalcButton operation='m '></CalcButton>
-						<CalcButton operation='dam '></CalcButton>
-						<CalcButton operation='hm '></CalcButton>
-						<CalcButton operation='km '></CalcButton>
-						<CalcButton tooltip='inch' operation='in '></CalcButton>
-						<CalcButton tooltip='foot' operation='ft '></CalcButton>
-						<CalcButton tooltip='yard' operation='yd '></CalcButton>
-						<CalcButton tooltip='mile' operation='mi '></CalcButton>
-						<CalcButton tooltip='link' operation='li '></CalcButton>
-						<CalcButton tooltip='rod' operation='rd '></CalcButton>
-						<CalcButton tooltip='chain' operation='ch '></CalcButton>
-						<CalcButton operation='angstrom '></CalcButton>
-						<CalcButton operation='mil '></CalcButton>
-					</div>
-
-					{/* Surface Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconSquareForbid></IconSquareForbid>
-						</div>
-						<CalcButton operation='m2 '></CalcButton>
-						<CalcButton operation='sqin '></CalcButton>
-						<CalcButton operation='sqft '></CalcButton>
-						<CalcButton operation='sqyd '></CalcButton>
-						<CalcButton operation='sqmi '></CalcButton>
-						<CalcButton operation='sqrd '></CalcButton>
-						<CalcButton operation='sqch '></CalcButton>
-						<CalcButton operation='acre '></CalcButton>
-						<CalcButton operation='hectare '></CalcButton>
-					</div>
-
-					{/* Volume Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconBox></IconBox>
-						</div>
-						<CalcButton operation='m3 '></CalcButton>
-						<CalcButton tooltip='liter' operation='L '></CalcButton>
-						<CalcButton operation='cc '></CalcButton>
-						<CalcButton operation='cuin '></CalcButton>
-						<CalcButton operation='cuft '></CalcButton>
-						<CalcButton operation='cuyd '></CalcButton>
-						<CalcButton operation='teaspoon '></CalcButton>
-						<CalcButton operation='tablespoon '></CalcButton>
-					</div>
-
-					{/* Liquid Volume Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconBucket></IconBucket>
-						</div>
-						<CalcButton operation='minim '></CalcButton>
-						<CalcButton tooltip='fluiddram' operation='fldr '></CalcButton>
-						<CalcButton tooltip='fluidounce' operation='floz '></CalcButton>
-						<CalcButton tooltip='gill' operation='gi '></CalcButton>
-						<CalcButton tooltip='cup' operation='cp '></CalcButton>
-						<CalcButton tooltip='pint' operation='pt '></CalcButton>
-						<CalcButton tooltip='quart' operation='qt '></CalcButton>
-						<CalcButton tooltip='gallon' operation='gal '></CalcButton>
-						<CalcButton tooltip='beerbarrel' operation='bbl '></CalcButton>
-						<CalcButton tooltip='oilbarrel' operation='obl '></CalcButton>
-						<CalcButton operation='hogshead '></CalcButton>
-						<CalcButton tooltip='drop' operation='gtt '></CalcButton>
-					</div>
-
-					{/* Angles Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconAngle></IconAngle>
-						</div>
-						<CalcButton tooltip='radian' operation='rad '></CalcButton>
-						<CalcButton tooltip='degree' operation='deg '></CalcButton>
-						<CalcButton tooltip='gradian' operation='grad '></CalcButton>
-						<CalcButton tooltip='' operation='cycle '></CalcButton>
-						<CalcButton tooltip='arcsecond' operation='arcsec '></CalcButton>
-						<CalcButton tooltip='arcminute' operation='arcmin '></CalcButton>
-					</div>
-
-					{/* Time Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconClock></IconClock>
-						</div>
-						<CalcButton tooltip='second' operation='s '></CalcButton>
-						<CalcButton tooltip='minute' operation='min '></CalcButton>
-						<CalcButton tooltip='hour' operation='h '></CalcButton>
-						<CalcButton tooltip='days' operation='day '></CalcButton>
-						<CalcButton tooltip='weeks' operation='week '></CalcButton>
-						<CalcButton tooltip='years' operation='year '></CalcButton>
-						<CalcButton tooltip='decades' operation='decade '></CalcButton>
-						<CalcButton tooltip='centuries' operation='century '></CalcButton>
-						<CalcButton
-							tooltip='millennium'
-							operation='millennia '
-						></CalcButton>
-					</div>
-
-					{/* Frequency Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconHourglass></IconHourglass>
-						</div>
-						<CalcButton
-							className='w-16 flex-none'
-							tooltip='hertz'
-							operation='Hz '
-						></CalcButton>
-					</div>
-
-					{/* Mass Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconWeight></IconWeight>
-						</div>
-						<CalcButton tooltip='' operation='mg '></CalcButton>
-						<CalcButton tooltip='' operation='dg '></CalcButton>
-						<CalcButton tooltip='' operation='cg '></CalcButton>
-						<CalcButton tooltip='gram' operation='g '></CalcButton>
-						<CalcButton tooltip='' operation='dag '></CalcButton>
-						<CalcButton tooltip='' operation='hg '></CalcButton>
-						<CalcButton tooltip='' operation='kg '></CalcButton>
-						<CalcButton tooltip='' operation='tonne '></CalcButton>
-						<CalcButton tooltip='' operation='ton '></CalcButton>
-						<CalcButton tooltip='grain' operation='gr '></CalcButton>
-						<CalcButton tooltip='dram' operation='dr '></CalcButton>
-						<CalcButton tooltip='ounce' operation='oz '></CalcButton>
-						<CalcButton tooltip='poundmass' operation='lb '></CalcButton>
-						<CalcButton tooltip='hundredweight' operation='cwt '></CalcButton>
-						<CalcButton tooltip='' operation='stick '></CalcButton>
-						<CalcButton tooltip='' operation='stone '></CalcButton>
-					</div>
-
-					{/* Electric Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconBolt></IconBolt>
-						</div>
-						<CalcButton tooltip='ampere' operation='A '></CalcButton>
-						<CalcButton tooltip='coulomb' operation='C '></CalcButton>
-						<CalcButton tooltip='watt' operation='W '></CalcButton>
-						<CalcButton tooltip='volt' operation='V '></CalcButton>
-						<CalcButton tooltip='' operation='ohm '></CalcButton>
-						<CalcButton tooltip='farad' operation='F '></CalcButton>
-						<CalcButton tooltip='weber' operation='Wb '></CalcButton>
-						<CalcButton tooltip='tesla' operation='T '></CalcButton>
-						<CalcButton tooltip='henry' operation='H '></CalcButton>
-						<CalcButton tooltip='siemens' operation='S '></CalcButton>
-						<CalcButton tooltip='electronvolt' operation='eV '></CalcButton>
-					</div>
-
-					{/* Temperature Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconTemperature></IconTemperature>
-						</div>
-						<CalcButton tooltip='kelvin' operation='K '></CalcButton>
-						<CalcButton tooltip='celsius' operation='degC '></CalcButton>
-						<CalcButton tooltip='fahrenheit' operation='degF '></CalcButton>
-						<CalcButton tooltip='rankine' operation='degR '></CalcButton>
-						<CalcButton tooltip='' operation='ohm '></CalcButton>
-						<CalcButton tooltip='farad' operation='F '></CalcButton>
-						<CalcButton tooltip='weber' operation='Wb '></CalcButton>
-						<CalcButton tooltip='tesla' operation='T '></CalcButton>
-						<CalcButton tooltip='henry' operation='H '></CalcButton>
-						<CalcButton tooltip='siemens' operation='S '></CalcButton>
-						<CalcButton tooltip='electronvolt' operation='eV '></CalcButton>
-					</div>
-
-					{/* Amount of Substance Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconFlask></IconFlask>
-						</div>
-						<CalcButton
-							className='w-16 flex-none'
-							tooltip='mole'
-							operation='mol '
-						></CalcButton>
-					</div>
-
-					{/* Luminous Intencity Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconBulb></IconBulb>
-						</div>
-						<CalcButton
-							className='w-16 flex-none'
-							tooltip='candela'
-							operation='cd '
-						></CalcButton>
-					</div>
-
-					{/* Force Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconApple></IconApple>
-						</div>
-						<CalcButton tooltip='newton' operation='N '></CalcButton>
-						<CalcButton tooltip='dyne' operation='dyn '></CalcButton>
-
-						<CalcButton tooltip='poundforce' operation='ibf '></CalcButton>
-						<CalcButton tooltip='' operation='kip '></CalcButton>
-					</div>
-
-					{/* Energy Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconBuildingWindTurbine></IconBuildingWindTurbine>
-						</div>
-						<CalcButton tooltip='joule' operation='J '></CalcButton>
-						<CalcButton tooltip='' operation='erg '></CalcButton>
-						<CalcButton tooltip='' operation='Wh '></CalcButton>
-						<CalcButton tooltip='' operation='BTU '></CalcButton>
-					</div>
-
-					{/* Pressure Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconEngine></IconEngine>
-						</div>
-						<CalcButton tooltip='' operation='Pa '></CalcButton>
-						<CalcButton tooltip='' operation='psi '></CalcButton>
-						<CalcButton tooltip='' operation='atm '></CalcButton>
-						<CalcButton tooltip='' operation='torr '></CalcButton>
-						<CalcButton tooltip='' operation='bar '></CalcButton>
-						<CalcButton tooltip='' operation='mmHg '></CalcButton>
-						<CalcButton tooltip='' operation='mmH2O '></CalcButton>
-						<CalcButton tooltip='' operation='cmH2O '></CalcButton>
-					</div>
-
-					{/* Binary Units */}
-					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-						<div className='bg-white shadow p-2 text-black'>
-							<IconBinary></IconBinary>
-						</div>
-						<CalcButton
-							className='w-16 flex-none'
-							tooltip='bits'
-							operation='b '
-						></CalcButton>
-						<CalcButton
-							className='w-16 flex-none'
-							tooltip='bytes'
-							operation='B '
-						></CalcButton>
-					</div>
+					<TabUnits></TabUnits>
 				</TabPanel>
 			</div>
 
