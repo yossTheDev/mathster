@@ -307,27 +307,6 @@ export const Calculator: React.FC = () => {
 					}
 					hidden={selectedTab !== 'functions'}
 				>
-					<div className='hidden flex-row flex-auto'>
-						<CalcButton operation='f(x)=' label='f(x)'>
-							<IconMathFunction></IconMathFunction>
-						</CalcButton>
-						<CalcButton operation='sqrt(' label='sqrt'>
-							<IconSquareRoot></IconSquareRoot>
-						</CalcButton>
-						<CalcButton
-							tooltip='log(a,b)'
-							operation='log('
-							label='log'
-						></CalcButton>
-						<CalcButton operation='log10(' label=''>
-							<p>
-								log<sub>10</sub>
-							</p>
-						</CalcButton>
-						<CalcButton operation='mod(' label='mod'></CalcButton>
-						<CalcButton operation='sin(' label='sin'></CalcButton>
-					</div>
-
 					{/* Grouping */}
 					<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
 						<div className='bg-white shadow p-2 text-black'>
@@ -347,6 +326,9 @@ export const Calculator: React.FC = () => {
 						<div className='bg-white shadow p-2 text-black'>
 							<IconSquareRoot></IconSquareRoot>
 						</div>
+						<CalcButton operation='f(x)=' label='f(x)'>
+							<IconMathFunction></IconMathFunction>
+						</CalcButton>
 						<CalcButton operation='sqrt(' label='sqrt'>
 							<IconSquareRoot></IconSquareRoot>
 						</CalcButton>
