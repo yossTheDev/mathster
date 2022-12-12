@@ -19,11 +19,11 @@ import {
 import React from 'react';
 import { CalcButton } from './CalcButton';
 
-export const TabUnits: React.FC = () => {
+export const UnitsTab: React.FC = () => {
 	return (
 		<div>
 			{/* Length Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
+			<div className='flex flex-row flex-auto overflow-x-scroll bg-gray-100'>
 				<div className='bg-white shadow p-2 text-black'>
 					<IconRoad></IconRoad>
 				</div>

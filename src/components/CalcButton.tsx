@@ -1,5 +1,6 @@
 import { Haptics } from '@capacitor/haptics';
 import React, { ReactNode, useState } from 'react';
+import { Tooltip } from 'react-daisyui';
 import { useStoreActions } from '../stores/Hooks';
 
 interface ButtonProps {
@@ -26,8 +27,8 @@ export const CalcButton: React.FC<ButtonProps> = ({
 	return (
 		<div
 			className={`flex flex-auto max-w-sm select-none hover:bg-gray-100 hover:shadow-inner items-center rounded p-2  ${className}`}
-			onContextMenu={() => tooltip && settooltipVisibility('visible')}
-			onMouseLeave={() => tooltip && settooltipVisibility('hidden')}
+			/*onContextMenu={() => tooltip && settooltipVisibility('visible')}*/
+			/*onMouseLeave={() => tooltip && settooltipVisibility('hidden')}*/
 			onClick={() => {
 				Haptics.vibrate({ duration: 40 });
 				addCalc(operation);
@@ -42,8 +43,6 @@ export const CalcButton: React.FC<ButtonProps> = ({
 					<p className='mx-auto'>{operation}</p>
 				)}
 			</button>
-
-			{/* Tooltip */}
 		</div>
 	);
 };

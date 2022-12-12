@@ -34,7 +34,7 @@ import {
 } from '@tabler/icons';
 import { Button } from '../components/Button';
 import { QuickAccessBar } from './QuickAccessBar';
-import { TabUnits } from './TabUnits';
+import { UnitsTab } from './UnitsTab';
 import { evaluate, format, isResultSet } from 'mathjs';
 
 export const Calculator: React.FC = () => {
@@ -542,7 +542,7 @@ export const Calculator: React.FC = () => {
 					}
 					hidden={selectedTab !== 'units'}
 				>
-					<TabUnits></TabUnits>
+					<UnitsTab></UnitsTab>
 				</TabPanel>
 			</div>
 
