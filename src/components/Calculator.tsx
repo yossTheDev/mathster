@@ -9,11 +9,7 @@ import { useStoreActions, useStoreState } from '../stores/Hooks';
 
 import {
 	IconAbc,
-	IconAmpersand,
-	IconArrowsExchange,
 	IconBackspace,
-	IconBox,
-	IconBrackets,
 	IconChevronLeft,
 	IconChevronRight,
 	IconChevronsLeft,
@@ -28,8 +24,6 @@ import {
 	IconPlus,
 	IconScale,
 	IconSpace,
-	IconSquareRoot,
-	IconTriangle,
 	IconX,
 } from '@tabler/icons';
 import { Button } from '../components/Button';
