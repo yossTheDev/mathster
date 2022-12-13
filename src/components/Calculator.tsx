@@ -35,7 +35,7 @@ import {
 import { Button } from '../components/Button';
 import { QuickAccessBar } from './QuickAccessBar';
 import { UnitsTab } from './UnitsTab';
-import { evaluate, format, isResultSet } from 'mathjs';
+import { evaluate, isResultSet } from 'mathjs';
 
 export const Calculator: React.FC = () => {
 	// Consts
