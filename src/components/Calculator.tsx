@@ -190,7 +190,7 @@ export const Calculator: React.FC = () => {
 					}
 					hidden={selectedTab !== 'numbers'}
 				>
-					<NumbersPad></NumbersPad>
+					{selectedTab === 'numbers' && <NumbersPad></NumbersPad>}
 				</TabPanel>
 
 				{/* Letters */}

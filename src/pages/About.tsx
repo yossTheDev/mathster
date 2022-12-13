@@ -19,7 +19,7 @@ export const About: React.FC = () => {
 					<MenuButton></MenuButton>
 				</Navbar.Start>
 				<div className='flex-auto flex w-full '>
-					<p className='normal-cas font-bold mx-auto text-2xl text-center'>
+					<p className='poppins-font-family  normal-cas font-bold mx-auto text-2xl text-center'>
 						About
 					</p>
 				</div>
