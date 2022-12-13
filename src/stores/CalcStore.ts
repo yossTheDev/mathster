@@ -1,4 +1,5 @@
-import { Action, action, createStore } from 'easy-peasy';
+import { Action, action, createStore, thunk, Thunk } from 'easy-peasy';
+import { Preferences } from '@capacitor/preferences';
 
 export interface CalcModel {
 	/* Calculator States and Actions */
@@ -6,6 +7,8 @@ export interface CalcModel {
 	calc: string;
 	// Cursor Index
 	cursorIndex: number;
+	// Save State
+	save: Thunk<CalcModel, string>;
 	// Add new character (number or operation)
 	addCalc: Action<CalcModel, string>;
 	// Set calc
@@ -35,6 +38,11 @@ export const CalcStore = createStore<CalcModel>({
 	calc: '0',
 	cursorIndex: 1,
 	drawerOpen: false,
+	save: thunk(async (state, payload) => {
+		// Save State
+		console.log('save ' + payload);
+		await Preferences.set({ key: 'calc', value: payload });
+	}),
 	addCalc: action((state, payload) => {
 		if (state.calc === '0') {
 			if (payload === '.') {

@@ -6,6 +6,8 @@ import {
 	IconAmpersand,
 	IconTriangle,
 	IconArrowsExchange,
+	IconLetterI,
+	IconSuperscript,
 } from '@tabler/icons';
 import React from 'react';
 import { CalcButton } from './CalcButton';
@@ -27,6 +29,40 @@ export const FunctionsTab: React.FC = () => {
 				<CalcButton operation=')'></CalcButton>
 			</div>
 
+			{/* Algebra Functions */}
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
+				<div className='bg-white shadow p-2 text-black'>
+					<IconSuperscript></IconSuperscript>
+				</div>
+
+				<CalcButton
+					isFunction={true}
+					tooltip='Takes the derivative of an expression expressed in parser Nodes. Ex: derivative(expression,variable)'
+					operation='derivative()'
+					label='derivative'
+				></CalcButton>
+
+				<CalcButton
+					isFunction={true}
+					tooltip='Transform a rationalizable expression in a rational fraction'
+					operation='rationalize()'
+					label='rationalize'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					tooltip="Resolve(expression, scope) replaces variable nodes with their scoped values Ex: resolve('x²',{x:5}'"
+					operation='resolve()'
+					label='resolve'
+				></CalcButton>
+
+				<CalcButton
+					isFunction={true}
+					tooltip='Simplify an expression tree Ex: simplify(expression)'
+					operation='simplify()'
+					label='simplify'
+				></CalcButton>
+			</div>
+
 			{/* Arithmetic Functions */}
 			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
 				<div className='bg-white shadow p-2 text-black'>
@@ -40,44 +76,57 @@ export const FunctionsTab: React.FC = () => {
 				</CalcButton>
 				<CalcButton
 					isFunction={true}
-					tooltip='Qubic Root'
+					tooltip='Calculate the cubic root of a value'
 					operation='cbrt()'
 					label='cbrt'
 				></CalcButton>
 				<CalcButton
 					isFunction={true}
-					tooltip='Absolute Value'
+					tooltip='Calculate the absolute value of a number'
 					operation='abs()'
 					label='abs'
 				></CalcButton>
 				<CalcButton
 					isFunction={true}
-					tooltip='Round Value'
+					tooltip='Round a value towards plus infinity If x is complex, both real and imaginary part are rounded towards plus infinity'
 					operation='ceil()'
 					label='ceil'
 				></CalcButton>
 				<CalcButton
+					tooltip='Compute the cube of a value, x * x * x'
 					isFunction={true}
 					operation='cube()'
 					label='cube'
 				></CalcButton>
 				<CalcButton
 					isFunction={true}
-					tooltip='Exponential Value'
+					tooltip='Calculate the exponential of a value'
 					operation='exp()'
 					label='exp'
 				></CalcButton>
-				<CalcButton isFunction={true} operation='fix(' label='fix'></CalcButton>
 				<CalcButton
+					tooltip='Round a value towards zero'
+					isFunction={true}
+					operation='fix('
+					label='fix'
+				></CalcButton>
+				<CalcButton
+					tooltip='Round a value towards minus infinity'
 					isFunction={true}
 					operation='floor()'
 					label='floor'
 				></CalcButton>
 				<CalcButton
 					isFunction={true}
-					tooltip='Evaluate great common divisor gcd(a,b)'
+					tooltip='Calculate the greatest common divisor for two or more values or arrays Ex: gcd(a,b)'
 					operation='gcd()'
 					label='gcd'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					tooltip='Calculate the least common multiple for two or more values or arrays Ex: lcm(a,b)'
+					operation='lcm()'
+					label='lcm'
 				></CalcButton>
 				<CalcButton
 					isFunction={true}
@@ -85,10 +134,10 @@ export const FunctionsTab: React.FC = () => {
 					operation='hypot()'
 					label='hypot'
 				></CalcButton>
-				)
+
 				<CalcButton
 					isFunction={true}
-					tooltip='Logarithm log(x,base)'
+					tooltip='Calculate the logarithm of a value Ex: log(x,base)'
 					operation='log()'
 					label='log'
 				></CalcButton>
@@ -104,7 +153,7 @@ export const FunctionsTab: React.FC = () => {
 				</CalcButton>
 				<CalcButton
 					isFunction={true}
-					tooltip='Calculates the modulus mod(x,y)'
+					tooltip='Calculates the modulus, the remainder of an integer division. Ex mod(x,y))'
 					operation='mod()'
 					label='mod'
 				></CalcButton>
@@ -117,7 +166,9 @@ export const FunctionsTab: React.FC = () => {
 
 			{/* Complex Functions */}
 			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>2i</div>
+				<div className='bg-white shadow p-2 text-black'>
+					<IconLetterI></IconLetterI>
+				</div>
 
 				<CalcButton
 					isFunction={true}

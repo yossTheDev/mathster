@@ -397,6 +397,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@capacitor/preferences@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "@capacitor/preferences@npm:4.0.2"
+  peerDependencies:
+    "@capacitor/core": ^4.0.0
+  checksum: 6a71ed114b2736e53079354a130dbdaa6f3aa31f41d57117e5e8b9d57c2eb30d3d01cd7396680c108913cbc80a17bc02040239f1b15807753bdd2a20745bd2d5
+  languageName: node
+  linkType: hard
+
 "@capacitor/splash-screen@npm:^4.1.2":
   version: 4.1.2
   resolution: "@capacitor/splash-screen@npm:4.1.2"
@@ -5028,6 +5037,7 @@ __metadata:
     "@capacitor/cli": ^4.5.0
     "@capacitor/core": ^4.5.0
     "@capacitor/haptics": ^4.1.0
+    "@capacitor/preferences": ^4.0.2
     "@capacitor/splash-screen": ^4.1.2
     "@capacitor/status-bar": ^4.1.0
     "@floating-ui/react-dom": ^1.0.1

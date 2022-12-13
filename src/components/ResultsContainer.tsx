@@ -9,7 +9,7 @@ interface ContainerProps {
 
 export const ResultsContainer: React.FC<ContainerProps> = ({ results }) => {
 	return (
-		<div className='flex flex-col items-end'>
+		<div className='flex flex-col items-end select-none'>
 			<div className='w-72 flex flex-row-reverse overflow-scroll'>
 				{/* Single Result */}
 				{!isResultSet(results) && (

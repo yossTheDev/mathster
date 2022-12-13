@@ -1,12 +1,11 @@
 // Add Animations
 import React, { useEffect, useState } from 'react';
 import { TabPanel, useTabs } from 'react-headless-tabs';
-import { CalcButton } from '../components/CalcButton';
+import { Preferences } from '@capacitor/preferences';
 import { ExpressionContainer } from '../components/ExpressionContainer';
 import { ResultsContainer } from '../components/ResultsContainer';
 import { TabSelector } from '../components/TabSelector';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
-import SwipeableViews from 'react-swipeable-views';
 
 import {
 	IconAbc,
@@ -15,24 +14,17 @@ import {
 	IconChevronRight,
 	IconChevronsLeft,
 	IconChevronsRight,
-	IconCornerDownLeft,
-	IconDivide,
-	IconEqual,
 	IconMathFunction,
-	IconMinus,
 	IconNumbers,
-	IconPercentage,
-	IconPlus,
 	IconScale,
 	IconSpace,
-	IconX,
 } from '@tabler/icons';
 import { Button } from '../components/Button';
-import { QuickAccessBar } from './QuickAccessBar';
 import { UnitsTab } from './UnitsTab';
-import { derivative, evaluate, isResultSet } from 'mathjs';
+import { evaluate, isResultSet } from 'mathjs';
 import { LettersTab } from './LettersTab';
 import { FunctionsTab } from './FunctionsTab';
+import { NumbersPad } from './NumbersPad';
 
 export const Calculator: React.FC = () => {
 	// Tabs
@@ -56,11 +48,26 @@ export const Calculator: React.FC = () => {
 	const moveCursorToStart = useStoreActions((state) => state.startCursor);
 	const moveCursorToEnd = useStoreActions((state) => state.endCursor);
 	const addCalc = useStoreActions((state) => state.addCalc);
+	const setCalc = useStoreActions((state) => state.setCalc);
 	const eraseCalc = useStoreActions((state) => state.eraseCalc);
 	const delCalc = useStoreActions((state) => state.delCalc);
 
+	const save = useStoreActions((state) => state.save);
+
+	// Load Saved Data
+	useEffect(() => {
+		const getSavedData = async () => {
+			const { value } = await Preferences.get({ key: 'calc' });
+			console.log('load ' + value);
+			setCalc(value ? value : '0');
+		};
+
+		getSavedData();
+	}, []);
+
 	useEffect(() => {
 		try {
+			// Initial value
 			// Prevent empty values
 			if (calc === '') addCalc('0');
 
@@ -69,7 +76,7 @@ export const Calculator: React.FC = () => {
 
 			// Calculate!!!
 			//let r = format(evaluate(calc), { precision: 14 });
-			console.log('test ' + derivative('x ^ 2', 'x'));
+			//console.log('test ' + derivative('x ^ 2', 'x'));
 
 			let r = evaluate(calc);
 
@@ -83,6 +90,9 @@ export const Calculator: React.FC = () => {
 					setResult(r);
 				}
 			}
+
+			// Save
+			if (calc !== '0') save(calc);
 
 			// console.log(calc);
 		} catch (error) {
@@ -121,7 +131,10 @@ export const Calculator: React.FC = () => {
 			<div className='flex flex-auto max-h-16 flex-row-reverse'>
 				{/* Erase */}
 				<Button
-					onClick={() => eraseCalc()}
+					onClick={() => {
+						eraseCalc();
+						save('0');
+					}}
 					className='hover:bg-gray-100 flex items-center rounded-2xl font-semibold mx-1 w-12 p-2'
 				>
 					<p className='mx-auto text-3xl text-red-400'>C</p>
@@ -177,69 +190,7 @@ export const Calculator: React.FC = () => {
 					}
 					hidden={selectedTab !== 'numbers'}
 				>
-					{/* Special Panel */}
-					<QuickAccessBar></QuickAccessBar>
-
-					{/* Pad */}
-					<div className='flex flex-row flex-auto'>
-						{/* Numbers */}
-						<div className='flex flex-auto flex-row w-56 text-3xl font-bold'>
-							<div className='flex flex-auto flex-col'>
-								<CalcButton operation='7'></CalcButton>
-								<CalcButton operation='4'></CalcButton>
-								<CalcButton operation='1'></CalcButton>
-								<CalcButton
-									className='text-gray-500'
-									operation='('
-								></CalcButton>
-							</div>
-							<div className='flex flex-auto flex-col'>
-								<CalcButton operation='8'></CalcButton>
-								<CalcButton operation='5'></CalcButton>
-								<CalcButton operation='2'></CalcButton>
-								<CalcButton operation='0'></CalcButton>
-							</div>
-							<div className='flex flex-auto flex-col'>
-								<CalcButton operation='9'></CalcButton>
-								<CalcButton operation='6'></CalcButton>
-								<CalcButton operation='3'></CalcButton>
-								<CalcButton
-									className='text-gray-500'
-									operation=')'
-								></CalcButton>
-							</div>
-						</div>
-
-						{/* Symbols */}
-						<div className='flex flex-auto flex-row text-gray-500 font-semibold'>
-							<div className='flex flex-auto flex-col'>
-								<CalcButton className='text-2xl' operation='%'>
-									<IconPercentage className='mx-auto'></IconPercentage>
-								</CalcButton>
-								<CalcButton className='text-2xl' operation='/'>
-									<IconDivide className='mx-auto'></IconDivide>
-								</CalcButton>
-								<CalcButton className='text-2xl' operation='*'>
-									<IconX className='mx-auto'></IconX>
-								</CalcButton>
-								<CalcButton className='text-2xl' operation='.'></CalcButton>
-							</div>
-							<div className='flex flex-auto flex-col'>
-								<CalcButton className='text-2xl' operation='+'>
-									<IconPlus className='mx-auto'></IconPlus>
-								</CalcButton>
-								<CalcButton className='text-2xl' operation='-'>
-									<IconMinus className='mx-auto'></IconMinus>
-								</CalcButton>
-								<CalcButton className='text-2xl' operation={'='}>
-									<IconEqual className='mx-auto'></IconEqual>
-								</CalcButton>
-								<CalcButton operation={'\n'}>
-									<IconCornerDownLeft className='mx-auto'></IconCornerDownLeft>
-								</CalcButton>
-							</div>
-						</div>
-					</div>
+					<NumbersPad></NumbersPad>
 				</TabPanel>
 
 				{/* Letters */}
