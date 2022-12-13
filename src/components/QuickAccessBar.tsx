@@ -18,6 +18,8 @@ export const QuickAccessBar: React.FC = () => {
 			<CalcButton operation='}'></CalcButton>
 			<CalcButton operation='\'></CalcButton>
 			<CalcButton operation='|'></CalcButton>
+			<CalcButton isFunction={true} label="'" operation="''"></CalcButton>
+
 			<CalcButton operation='<'>
 				<IconMathLower size={18}></IconMathLower>
 			</CalcButton>

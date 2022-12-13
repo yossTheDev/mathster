@@ -13,7 +13,9 @@ export const Home: React.FC = () => {
 				</Navbar.Start>
 
 				<div className='flex-auto flex w-full '>
-					<p className='normal-cas font-bold text-2xl text-center'>Mathster</p>
+					<p className='normal-cas font-bold mx-auto text-2xl text-center'>
+						Mathster
+					</p>
 				</div>
 			</Navbar>
 

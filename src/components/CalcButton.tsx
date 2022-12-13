@@ -1,9 +1,9 @@
 import { Haptics } from '@capacitor/haptics';
 import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
 import { IconInfoCircle } from '@tabler/icons';
+import { index } from 'mathjs';
 import React, { ReactNode, useState } from 'react';
-import { Tooltip } from 'react-daisyui';
-import { useStoreActions } from '../stores/Hooks';
+import { useStoreActions, useStoreState } from '../stores/Hooks';
 
 interface ButtonProps {
 	className?: string;
@@ -11,6 +11,7 @@ interface ButtonProps {
 	label?: string;
 	operation: string;
 	tooltip?: string;
+	isFunction?: boolean;
 }
 
 export const CalcButton: React.FC<ButtonProps> = ({
@@ -19,9 +20,13 @@ export const CalcButton: React.FC<ButtonProps> = ({
 	children,
 	operation,
 	label,
+	isFunction = false,
 }) => {
 	// Global Store States and Actions
+	const cursorIndex = useStoreState((state) => state.cursorIndex);
+
 	const addCalc = useStoreActions((state) => state.addCalc);
+	const setIndex = useStoreActions((state) => state.setCursor);
 
 	// Object Store and Actions
 	const { x, y, reference, floating, strategy } = useFloating({
@@ -39,6 +44,14 @@ export const CalcButton: React.FC<ButtonProps> = ({
 			onClick={() => {
 				Haptics.vibrate({ duration: 40 });
 				addCalc(operation);
+
+				if (isFunction === true) {
+					if (cursorIndex === 1) {
+						setIndex(cursorIndex + operation.length - 2);
+					} else {
+						setIndex(cursorIndex + operation.length - 1);
+					}
+				}
 			}}
 		>
 			<button ref={reference} className='mx-auto'>
@@ -54,7 +67,7 @@ export const CalcButton: React.FC<ButtonProps> = ({
 			{/* ToolTip */}
 			{tooltipVisibility && (
 				<div
-					className='bg-gray-300 text-black w-52 h-28 overflow-scroll p-3 rounded'
+					className='bg-gray-200 shadow  text-black w-52 h-28 overflow-scroll p-3 rounded'
 					ref={floating}
 					style={{ position: strategy, top: y ?? 0, left: x ?? 0 }}
 				>

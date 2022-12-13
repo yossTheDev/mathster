@@ -6,6 +6,7 @@ import { ExpressionContainer } from '../components/ExpressionContainer';
 import { ResultsContainer } from '../components/ResultsContainer';
 import { TabSelector } from '../components/TabSelector';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
+import SwipeableViews from 'react-swipeable-views';
 
 import {
 	IconAbc,
@@ -29,7 +30,7 @@ import {
 import { Button } from '../components/Button';
 import { QuickAccessBar } from './QuickAccessBar';
 import { UnitsTab } from './UnitsTab';
-import { evaluate, isResultSet } from 'mathjs';
+import { derivative, evaluate, isResultSet } from 'mathjs';
 import { LettersTab } from './LettersTab';
 import { FunctionsTab } from './FunctionsTab';
 
@@ -68,7 +69,11 @@ export const Calculator: React.FC = () => {
 
 			// Calculate!!!
 			//let r = format(evaluate(calc), { precision: 14 });
+			console.log('test ' + derivative('x ^ 2', 'x'));
+
 			let r = evaluate(calc);
+
+			console.log(r);
 
 			// Verify if is a valid result set or single result value
 			if (!r.toString().includes('arguments')) {
@@ -82,6 +87,8 @@ export const Calculator: React.FC = () => {
 			// console.log(calc);
 		} catch (error) {
 			setError(true);
+			console.log(error);
+
 			//console.log(calc);
 
 			// TO-DO manage errors

@@ -35,67 +35,84 @@ export const FunctionsTab: React.FC = () => {
 				<CalcButton operation='f(x)=' label='f(x)'>
 					<IconMathFunction></IconMathFunction>
 				</CalcButton>
-				<CalcButton operation='sqrt(' label='sqrt'>
+				<CalcButton isFunction={true} operation='sqrt()' label='sqrt'>
 					<IconSquareRoot></IconSquareRoot>
 				</CalcButton>
 				<CalcButton
+					isFunction={true}
 					tooltip='Qubic Root'
-					operation='cbrt('
+					operation='cbrt()'
 					label='cbrt'
 				></CalcButton>
 				<CalcButton
+					isFunction={true}
 					tooltip='Absolute Value'
-					operation='abs('
+					operation='abs()'
 					label='abs'
 				></CalcButton>
 				<CalcButton
+					isFunction={true}
 					tooltip='Round Value'
-					operation='ceil('
+					operation='ceil()'
 					label='ceil'
 				></CalcButton>
-				<CalcButton operation='cube(' label='cube'></CalcButton>
 				<CalcButton
+					isFunction={true}
+					operation='cube()'
+					label='cube'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
 					tooltip='Exponential Value'
-					operation='exp('
+					operation='exp()'
 					label='exp'
 				></CalcButton>
-				<CalcButton operation='fix(' label='fix'></CalcButton>
-				<CalcButton operation='floor(' label='floor'></CalcButton>
-
+				<CalcButton isFunction={true} operation='fix(' label='fix'></CalcButton>
 				<CalcButton
+					isFunction={true}
+					operation='floor()'
+					label='floor'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
 					tooltip='Evaluate great common divisor gcd(a,b)'
-					operation='gcd('
+					operation='gcd()'
 					label='gcd'
 				></CalcButton>
-
 				<CalcButton
+					isFunction={true}
 					tooltip='Calculate the hypotenusa of a list with values. hypot(a,b,...)'
-					operation='hypot('
+					operation='hypot()'
 					label='hypot'
 				></CalcButton>
-
+				)
 				<CalcButton
+					isFunction={true}
 					tooltip='Logarithm log(x,base)'
-					operation='log('
+					operation='log()'
 					label='log'
 				></CalcButton>
-
 				<CalcButton
+					isFunction={true}
 					tooltip='Calculate the 10-base logarithm of a value'
-					operation='log10('
+					operation='log10()'
 					label='log10'
 				>
 					<p>
 						log<sub>10</sub>
 					</p>
 				</CalcButton>
-
 				<CalcButton
+					isFunction={true}
 					tooltip='Calculates the modulus mod(x,y)'
-					operation='mod('
+					operation='mod()'
 					label='mod'
 				></CalcButton>
-				<CalcButton tooltip='Power of x ^ y' operation='^'></CalcButton>
+				<CalcButton
+					isFunction={true}
+					tooltip='Power of x ^ y'
+					operation='^'
+				></CalcButton>
 			</div>
 
 			{/* Complex Functions */}
@@ -103,23 +120,27 @@ export const FunctionsTab: React.FC = () => {
 				<div className='bg-white shadow p-2 text-black'>2i</div>
 
 				<CalcButton
+					isFunction={true}
 					tooltip='Compute the argument of a complex value'
-					operation='arg('
+					operation='arg()'
 					label='arg'
 				></CalcButton>
 				<CalcButton
+					isFunction={true}
 					tooltip='Compute the complex conjugate of a complex value'
-					operation='conj('
+					operation='conj()'
 					label='conj'
 				></CalcButton>
 				<CalcButton
+					isFunction={true}
 					tooltip='Get the imaginary part of a complex number.'
-					operation='im('
+					operation='im()'
 					label='im'
 				></CalcButton>
 				<CalcButton
+					isFunction={true}
 					tooltip='Get the real part of a complex number.'
-					operation='re('
+					operation='re()'
 					label='re'
 				></CalcButton>
 			</div>
@@ -131,14 +152,16 @@ export const FunctionsTab: React.FC = () => {
 				</div>
 
 				<CalcButton
+					isFunction={true}
 					tooltip='Calculates: The eucledian distance between two points in N-dimensional spaces. 
 							Ex: distance([x1, y1], [x2, y2])'
-					operation='distance('
+					operation='distance()'
 					label='distance'
 				></CalcButton>
 				<CalcButton
+					isFunction={true}
 					tooltip='Calculates the point of intersection Ex: intersect(endPoint1Line1, endPoint2Line1, endPoint1Line2, endPoint2Line2)'
-					operation='conj('
+					operation='conj()'
 					label='conj'
 				></CalcButton>
 			</div>
@@ -149,10 +172,22 @@ export const FunctionsTab: React.FC = () => {
 					<IconAmpersand></IconAmpersand>
 				</div>
 
-				<CalcButton operation='and(' label='and'></CalcButton>
-				<CalcButton operation='not(' label='not'></CalcButton>
-				<CalcButton operation='or(' label='or'></CalcButton>
-				<CalcButton operation='xor(' label='xor'></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='and()'
+					label='and'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='not()'
+					label='not'
+				></CalcButton>
+				<CalcButton isFunction={true} operation='or()' label='or'></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='xor()'
+					label='xor'
+				></CalcButton>
 			</div>
 
 			{/* Trigonometry Functions */}
@@ -161,29 +196,121 @@ export const FunctionsTab: React.FC = () => {
 					<IconTriangle></IconTriangle>
 				</div>
 
-				<CalcButton operation='acos(' label='acos'></CalcButton>
-				<CalcButton operation='acosh(' label='acosh'></CalcButton>
-				<CalcButton operation='acot(' label='acot'></CalcButton>
-				<CalcButton operation='acoth(' label='acoth'></CalcButton>
-				<CalcButton operation='acsc(' label='acsc'></CalcButton>
-				<CalcButton operation='acsch(' label='acsch'></CalcButton>
-				<CalcButton operation='asec(' label='asec'></CalcButton>
-				<CalcButton operation='asech(' label='asech'></CalcButton>
-				<CalcButton operation='asin(' label='asin'></CalcButton>
-				<CalcButton operation='atan(' label='atan'></CalcButton>
-				<CalcButton operation='atanh(' label='asin'></CalcButton>
-				<CalcButton operation='cos(' label='cos'></CalcButton>
-				<CalcButton operation='cosh(' label='cosh'></CalcButton>
-				<CalcButton operation='cot(' label='cot'></CalcButton>
-				<CalcButton operation='coth(' label='coth'></CalcButton>
-				<CalcButton operation='csc(' label='csc'></CalcButton>
-				<CalcButton operation='csch(' label='csch'></CalcButton>
-				<CalcButton operation='sec(' label='sec'></CalcButton>
-				<CalcButton operation='sech(' label='sech'></CalcButton>
-				<CalcButton operation='sin(' label='sin'></CalcButton>
-				<CalcButton operation='sinh(' label='sinh'></CalcButton>
-				<CalcButton operation='tan(' label='tan'></CalcButton>
-				<CalcButton operation='tanh(' label='tanh'></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='acos()'
+					label='acos'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='acosh()'
+					label='acosh'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='acot()'
+					label='acot'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='acoth()'
+					label='acoth'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='acsc()'
+					label='acsc'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='acsch()'
+					label='acsch'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='asec()'
+					label='asec'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='asech()'
+					label='asech'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='asin()'
+					label='asin'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='atan()'
+					label='atan'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='atanh()'
+					label='asin'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='cos()'
+					label='cos'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='cosh()'
+					label='cosh'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='cot()'
+					label='cot'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='coth()'
+					label='coth'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='csc()'
+					label='csc'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='csch()'
+					label='csch'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='sec()'
+					label='sec'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='sech()'
+					label='sech'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='sin()'
+					label='sin'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='sinh()'
+					label='sinh'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='tan()'
+					label='tan'
+				></CalcButton>
+				<CalcButton
+					isFunction={true}
+					operation='tanh()'
+					label='tanh'
+				></CalcButton>
 			</div>
 
 			{/* Conversion Functions */}
@@ -202,20 +329,23 @@ export const FunctionsTab: React.FC = () => {
 				></CalcButton>
 
 				<CalcButton
+					isFunction={true}
 					tooltip='Format a number as hexadecimal'
-					operation='hex('
+					operation='hex()'
 					label='hex'
 				></CalcButton>
 
 				<CalcButton
+					isFunction={true}
 					tooltip='Format a number as octal'
-					operation='oct('
+					operation='oct()'
 					label='oct'
 				></CalcButton>
 
 				<CalcButton
+					isFunction={true}
 					tooltip='Format a number as binary'
-					operation='bin('
+					operation='bin()'
 					label='bin'
 				></CalcButton>
 			</div>

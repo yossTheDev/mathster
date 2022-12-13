@@ -19,6 +19,7 @@
     "@floating-ui/react-dom": "^1.0.1",
     "@reacticons/ionicons": "^6.0.4",
     "@tabler/icons": "^1.116.0",
+    "@types/react-swipeable-views": "^0.13.1",
     "daisyui": "^2.41.0",
     "easy-peasy": "^5.2.0",
     "luxon": "^3.1.0",
@@ -28,7 +29,8 @@
     "react-daisyui": "^2.4.6",
     "react-dom": "^18.2.0",
     "react-headless-tabs": "^6.0.3",
-    "react-router": "^6.4.5"
+    "react-router": "^6.4.5",
+    "react-swipeable-views": "^0.14.0"
   },
   "devDependencies": {
     "@capacitor/cli": "^4.5.0",

@@ -9,7 +9,12 @@ export const MenuButton: React.FC = () => {
 	);
 
 	return (
-		<Button onClick={() => toggleVisibiliy()} shape='square' color='ghost'>
+		<Button
+			className='absolute'
+			onClick={() => toggleVisibiliy()}
+			shape='square'
+			color='ghost'
+		>
 			<IconMenu2></IconMenu2>
 		</Button>
 	);
