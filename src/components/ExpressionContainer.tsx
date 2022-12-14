@@ -30,8 +30,6 @@ export const ExpressionContainer: React.FC<Props> = ({ value }) => {
 		// Put cursor character "|" in calc expression
 		setCalc(value.slice(0, cursorIndex) + '_' + value.slice(cursorIndex));
 
-		console.log('cursor index ' + cursorIndex);
-
 		// Auto Scroll Container
 		if (cursorIndex === calc.length)
 			reference.current?.scrollTo(0, reference.current?.scrollHeight);
