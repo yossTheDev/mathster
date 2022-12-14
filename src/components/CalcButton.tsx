@@ -38,7 +38,7 @@ export const CalcButton: React.FC<ButtonProps> = ({
 
 	return (
 		<div
-			className={`flex flex-auto max-w-sm select-none active:bg-gray-100 hover:shadow-inner items-center rounded p-2  ${className}`}
+			className={`flex flex-auto max-w-sm select-none active:bg-gray-100 active:shadow-inner items-center rounded p-2  ${className}`}
 			onContextMenu={() => tooltip && settooltipVisibility(true)}
 			onMouseLeave={() => tooltip && settooltipVisibility(false)}
 			onClick={() => {

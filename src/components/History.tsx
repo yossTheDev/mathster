@@ -16,7 +16,7 @@ export const History: React.FC = () => {
 	const reference = useRef<HTMLDivElement>(null);
 
 	return (
-		<div className='overflow-hidden'>
+		<div className='overflow-hidden  w-full'>
 			<p className='flex flex-row'>
 				<p className='font-bold text-3xl'>History</p>
 				<Button onClick={() => clearHistory()}>
@@ -38,10 +38,10 @@ export const History: React.FC = () => {
 				{history.length > 0 ? (
 					history.map((el, i) => (
 						<div
-							className='p-4 transition ease-in-out delay-150 bg-white rounded m-2 hover:rounded hover:shadow  hover:scale-110 duration-300'
+							className='flex flex-auto flex-col h-auto overflow-hidden p-5 transition ease-in-out delay-150 bg-white rounded m-2 hover:rounded hover:shadow hover:bg-gray-100  hover:scale-110 duration-300'
 							onClick={() => setCalc(el.calc)}
 						>
-							<p className='font-bold  text-2xl'>{el.calc}</p>
+							<p className='font-bold  break-words  '>{el.calc}</p>
 							<p className='text-xs text-gray-500'>
 								{el.dateTime.toLocaleString({ dateStyle: 'full' })}
 							</p>

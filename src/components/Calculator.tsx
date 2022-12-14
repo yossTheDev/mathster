@@ -117,8 +117,8 @@ export const Calculator: React.FC = () => {
 								</div>
 							</div>
 
-							<div className='flex items-start h-64 overflow-hidden bg-gray-100 shadow-inner'>
-								<div className='flex flex-col h-72 p-6 w-96 mr-2 mx-auto'>
+							<div className='flex items-center h-64 overflow-hidden bg-gray-100 shadow-inner'>
+								<div className='flex flex-col h-72 p-11 w-96 mr-2 mx-auto'>
 									<History></History>
 								</div>
 							</div>
