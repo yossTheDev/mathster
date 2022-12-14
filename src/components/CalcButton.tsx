@@ -67,7 +67,7 @@ export const CalcButton: React.FC<ButtonProps> = ({
 			{/* ToolTip */}
 			{tooltipVisibility && (
 				<div
-					className='bg-gray-200 shadow font-sans  text-black w-72 h-28 overflow-scroll p-3 rounded'
+					className='transition ease-in-out delay-150  hover:scale-110 duration-300  bg-gray-200 shadow font-sans  text-black w-72 h-28 overflow-scroll p-3 rounded'
 					ref={floating}
 					style={{ position: strategy, top: y ?? 0, left: x ?? 0 }}
 				>

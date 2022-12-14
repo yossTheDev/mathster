@@ -21,7 +21,7 @@ import { CalcButton } from './CalcButton';
 
 export const UnitsTab: React.FC = () => {
 	return (
-		<div>
+		<div className='h-4'>
 			{/* Length Units */}
 			<div className='flex flex-row flex-auto overflow-x-scroll bg-gray-100'>
 				<div className='bg-white shadow p-2 text-black'>

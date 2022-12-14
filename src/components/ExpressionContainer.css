@@ -1,6 +1,5 @@
 .container-wrap {
 	white-space: pre-wrap;
 	overflow: scroll;
-	width: 300px;
 	overflow-wrap: break-word;
 }

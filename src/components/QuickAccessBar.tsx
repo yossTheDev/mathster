@@ -11,39 +11,44 @@ import { CalcButton } from './CalcButton';
 
 export const QuickAccessBar: React.FC = () => {
 	return (
-		<div className='flex grow-0 shrink-0 max-h-9 items-center w-full overflow-y-hidden overflow-x-scroll font-semibold text-gray-500'>
-			<CalcButton operation='['></CalcButton>
-			<CalcButton operation=']'></CalcButton>
-			<CalcButton operation='{'></CalcButton>
-			<CalcButton operation='}'></CalcButton>
-			<CalcButton operation='\'></CalcButton>
-			<CalcButton operation='|'></CalcButton>
-			<CalcButton isFunction={true} label="'" operation="''"></CalcButton>
+		<div className='flex shrink-0 grow-0 w-full max-h-8 overflow-y-hidden overflow-x-scroll text-gray-500'>
+			<CalcButton className='flex h-6 p-4' operation='['></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation=']'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='{'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='}'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='\'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='|'></CalcButton>
+			<CalcButton
+				className='flex h-6 p-4'
+				isFunction={true}
+				label="'"
+				operation="''"
+			></CalcButton>
 
-			<CalcButton operation='<'>
+			<CalcButton className='flex h-6 p-4' operation='<'>
 				<IconMathLower size={18}></IconMathLower>
 			</CalcButton>
-			<CalcButton operation='>'>
+			<CalcButton className='flex h-6 p-4' operation='>'>
 				<IconMathGreater size={18}></IconMathGreater>
 			</CalcButton>
 
-			<CalcButton operation='<='>
+			<CalcButton className='flex h-6 p-4' operation='<='>
 				<IconMathEqualLower size={18}></IconMathEqualLower>
 			</CalcButton>
-			<CalcButton operation='>='>
+			<CalcButton className='flex h-6 p-4' operation='>='>
 				<IconMathEqualGreater size={18}></IconMathEqualGreater>
 			</CalcButton>
-			<CalcButton operation='^'></CalcButton>
-			<CalcButton operation='x'></CalcButton>
-			<CalcButton operation='!'></CalcButton>
-			<CalcButton operation='i'></CalcButton>
-			<CalcButton operation='?'></CalcButton>
-			<CalcButton operation='pi'>
+			<CalcButton className='flex h-6 p-4' operation='^'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='x'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='!'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='i'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='?'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='pi'>
 				<IconMathPi></IconMathPi>
 			</CalcButton>
-			<CalcButton operation=':'></CalcButton>
-			<CalcButton operation=';'></CalcButton>
-			<CalcButton operation=','></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation=':'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation=';'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation=','></CalcButton>
 		</div>
 	);
 };

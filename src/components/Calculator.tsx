@@ -25,6 +25,7 @@ import { evaluate, isResultSet } from 'mathjs';
 import { LettersTab } from './LettersTab';
 import { FunctionsTab } from './FunctionsTab';
 import { NumbersPad } from './NumbersPad';
+import SwipeableViews from 'react-swipeable-views';
 
 export const Calculator: React.FC = () => {
 	// Tabs
@@ -52,19 +53,6 @@ export const Calculator: React.FC = () => {
 	const eraseCalc = useStoreActions((state) => state.eraseCalc);
 	const delCalc = useStoreActions((state) => state.delCalc);
 
-	const save = useStoreActions((state) => state.save);
-
-	// Load Saved Data
-	useEffect(() => {
-		const getSavedData = async () => {
-			const { value } = await Preferences.get({ key: 'calc' });
-			console.log('load ' + value);
-			setCalc(value ? value : '0');
-		};
-
-		getSavedData();
-	}, []);
-
 	useEffect(() => {
 		try {
 			// Initial value
@@ -91,9 +79,6 @@ export const Calculator: React.FC = () => {
 				}
 			}
 
-			// Save
-			if (calc !== '0') save(calc);
-
 			// console.log(calc);
 		} catch (error) {
 			setError(true);
@@ -111,18 +96,26 @@ export const Calculator: React.FC = () => {
 			{/* Calcs and results*/}
 			<div className='flex flex-auto h-80 max-h-72 flex-col'>
 				<div className='flex flex-auto flex-row-reverse  h-1/2 items-end'>
-					<div className='flex w-96 flex-col items-center'>
-						<ExpressionContainer value={calc}></ExpressionContainer>
-						{/* Loading indicator */}
-						{error ? (
-							<div className='flex flex-col items-end'>
-								<div className='flex w-72 flex-row-reverse'>
-									<div className='bg-gradient-to-br from-gray-200 to-gray-300 w-20 m-2  h-8 p-2 rounded-2xl animate-pulse'></div>
+					<div className='flex items-end w-96 h-full'>
+						<SwipeableViews className='h-full flex'>
+							<div className='flex items-end  h-full'>
+								<div className='flex flex-col mx-auto mr-2'>
+									<ExpressionContainer value={calc}></ExpressionContainer>
+									{/* Loading indicator */}
+									{error ? (
+										<div className='flex flex-col items-end'>
+											<div className='flex w-72 flex-row-reverse'>
+												<div className='bg-gradient-to-br from-gray-200 to-gray-300 w-20 m-2  h-8 p-2 rounded-2xl animate-pulse'></div>
+											</div>
+										</div>
+									) : (
+										<ResultsContainer results={result}></ResultsContainer>
+									)}
 								</div>
 							</div>
-						) : (
-							<ResultsContainer results={result}></ResultsContainer>
-						)}
+
+							<div className='h-full mx-auto'>History</div>
+						</SwipeableViews>
 					</div>
 				</div>
 			</div>
@@ -133,7 +126,6 @@ export const Calculator: React.FC = () => {
 				<Button
 					onClick={() => {
 						eraseCalc();
-						save('0');
 					}}
 					className='hover:bg-gray-100 flex items-center rounded-2xl font-semibold mx-1 w-12 p-2'
 				>
@@ -180,7 +172,7 @@ export const Calculator: React.FC = () => {
 			</div>
 
 			{/*Tab Pad*/}
-			<div className='flex flex-auto h-80 mx-1'>
+			<div className='flex flex-auto h-80  mx-1'>
 				{/* Numbers and basic operations */}
 				<TabPanel
 					className={

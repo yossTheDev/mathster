@@ -14,7 +14,7 @@ import { CalcButton } from './CalcButton';
 
 export const FunctionsTab: React.FC = () => {
 	return (
-		<>
+		<div className='h-4'>
 			{/* Grouping */}
 			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
 				<div className='bg-white shadow p-2 text-black'>
@@ -400,6 +400,6 @@ export const FunctionsTab: React.FC = () => {
 					label='bin'
 				></CalcButton>
 			</div>
-		</>
+		</div>
 	);
 };

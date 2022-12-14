@@ -1,5 +1,5 @@
-import { Action, action, createStore, thunk, Thunk } from 'easy-peasy';
-import { Preferences } from '@capacitor/preferences';
+import { Action, action, createStore, persist } from 'easy-peasy';
+import { CustomStorage } from '../utils/CustomStorage';
 
 export interface CalcModel {
 	/* Calculator States and Actions */
@@ -7,8 +7,6 @@ export interface CalcModel {
 	calc: string;
 	// Cursor Index
 	cursorIndex: number;
-	// Save State
-	save: Thunk<CalcModel, string>;
 	// Add new character (number or operation)
 	addCalc: Action<CalcModel, string>;
 	// Set calc
@@ -34,74 +32,74 @@ export interface CalcModel {
 	toggleDrawerVisibility: Action<CalcModel>;
 }
 
-export const CalcStore = createStore<CalcModel>({
-	calc: '0',
-	cursorIndex: 1,
-	drawerOpen: false,
-	save: thunk(async (state, payload) => {
-		// Save State
-		console.log('save ' + payload);
-		await Preferences.set({ key: 'calc', value: payload });
-	}),
-	addCalc: action((state, payload) => {
-		if (state.calc === '0') {
-			if (payload === '.') {
-				state.calc += payload;
-				state.cursorIndex += payload.length;
-			} else {
+export const CalcStore = createStore<CalcModel>(
+	persist(
+		{
+			calc: '0',
+			cursorIndex: 1,
+			drawerOpen: false,
+			addCalc: action((state, payload) => {
+				if (state.calc === '0') {
+					if (payload === '.') {
+						state.calc += payload;
+						state.cursorIndex += payload.length;
+					} else {
+						state.calc = payload;
+						state.cursorIndex = payload.length;
+					}
+				} else {
+					state.calc =
+						state.calc.slice(0, state.cursorIndex) +
+						payload +
+						state.calc.slice(state.cursorIndex, state.calc.length);
+
+					state.cursorIndex += payload.length;
+				}
+			}),
+			setCalc: action((state, payload) => {
 				state.calc = payload;
 				state.cursorIndex = payload.length;
-			}
-		} else {
-			state.calc =
-				state.calc.slice(0, state.cursorIndex) +
-				payload +
-				state.calc.slice(state.cursorIndex, state.calc.length);
+			}),
+			eraseCalc: action((state) => {
+				state.calc = '0';
+				state.cursorIndex = 1;
+			}),
+			delCalc: action((state) => {
+				if (state.cursorIndex > 0) {
+					state.calc =
+						state.calc.slice(0, state.cursorIndex - 1) +
+						state.calc.slice(state.cursorIndex, state.calc.length);
+					state.cursorIndex--;
+				}
+			}),
+			rightCursor: action((state) => {
+				if (state.cursorIndex <= state.calc.length) {
+					state.cursorIndex = state.cursorIndex + 1;
+				}
+			}),
+			leftCursor: action((state) => {
+				if (state.cursorIndex > 0) {
+					state.cursorIndex = state.cursorIndex - 1;
+				}
+			}),
+			startCursor: action((state) => {
+				state.cursorIndex = 0;
+			}),
+			endCursor: action((state) => {
+				state.cursorIndex = state.calc.length;
+			}),
+			setCursor: action((state, payload) => {
+				state.cursorIndex = payload;
+			}),
 
-			state.cursorIndex += payload.length;
-		}
-	}),
-	setCalc: action((state, payload) => {
-		state.calc = payload;
-		state.cursorIndex = payload.length;
-	}),
-	eraseCalc: action((state) => {
-		state.calc = '0';
-		state.cursorIndex = 1;
-	}),
-	delCalc: action((state) => {
-		if (state.cursorIndex > 0) {
-			state.calc =
-				state.calc.slice(0, state.cursorIndex - 1) +
-				state.calc.slice(state.cursorIndex, state.calc.length);
-			state.cursorIndex--;
-		}
-	}),
-	rightCursor: action((state) => {
-		if (state.cursorIndex <= state.calc.length) {
-			state.cursorIndex = state.cursorIndex + 1;
-		}
-	}),
-	leftCursor: action((state) => {
-		if (state.cursorIndex > 0) {
-			state.cursorIndex = state.cursorIndex - 1;
-		}
-	}),
-	startCursor: action((state) => {
-		state.cursorIndex = 0;
-	}),
-	endCursor: action((state) => {
-		state.cursorIndex = state.calc.length;
-	}),
-	setCursor: action((state, payload) => {
-		state.cursorIndex = payload;
-	}),
-
-	toggleDrawerVisibility: action((state, payload) => {
-		if (state.drawerOpen) {
-			state.drawerOpen = false;
-		} else {
-			state.drawerOpen = true;
-		}
-	}),
-});
+			toggleDrawerVisibility: action((state, payload) => {
+				if (state.drawerOpen) {
+					state.drawerOpen = false;
+				} else {
+					state.drawerOpen = true;
+				}
+			}),
+		},
+		{ storage: CustomStorage }
+	)
+);

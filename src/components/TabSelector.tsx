@@ -14,7 +14,9 @@ export const TabSelector: React.FC<Props> = ({
 	return (
 		<div className='mx-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
 			<button
-				className={isActive ? 'text-black font-bold' : ' text-gray-500'}
+				className={
+					isActive ? 'text-black font-bold scale-110' : ' text-gray-500'
+				}
 				onClick={onClick}
 			>
 				{children}
@@ -22,7 +24,7 @@ export const TabSelector: React.FC<Props> = ({
 				<div
 					className={
 						isActive
-							? `bg-gradient-to-br  from-red-400 to-red-500 p-0.5 rounded`
+							? `bg-gradient-to-br  from-red-400 to-red-500 p-0.5 rounded `
 							: ''
 					}
 				></div>
