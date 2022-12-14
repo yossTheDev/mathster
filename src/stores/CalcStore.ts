@@ -13,8 +13,12 @@ export interface CalcModel {
 	calc: string;
 	// Cursor Index
 	cursorIndex: number;
+
 	// History
 	history: historyItem[];
+
+	// History Actions
+	clearHistory: Action<CalcModel>;
 
 	// Add new character (number or operation)
 	addCalc: Action<CalcModel, string>;
@@ -70,6 +74,10 @@ export const CalcStore = createStore<CalcModel>(
 
 				//console.log('lenght' + s.length);
 				//console.log('number 1 array ' + s[1].calc);
+			}),
+
+			clearHistory: action((state) => {
+				state.history = [];
 			}),
 
 			addCalc: action((state, payload) => {

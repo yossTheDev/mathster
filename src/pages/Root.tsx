@@ -10,9 +10,9 @@ const side = (
 		<div className='rounded mx-auto p-2'>
 			<img className='h-16' src={math}></img>
 		</div>
-		<p className='text-2xl font-bold mx-auto'>MATHSTER</p>
+		<p className='poppins-font-family text-2xl font-bold mx-auto'>MATHSTER</p>
 
-		<p className='text-sm mx-auto text-gray-500 m-2'>Made by @yossthedev</p>
+		<p className='text-xs mx-auto text-gray-500 m-2'>Made by @yossthedev</p>
 
 		<li>
 			<NavLink to={'/'}>
