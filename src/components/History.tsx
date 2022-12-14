@@ -1,5 +1,5 @@
 import { IconArrowDown, IconTrash } from '@tabler/icons';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
 import { Button } from './Button';
 
@@ -8,6 +8,10 @@ export const History: React.FC = () => {
 	const history = useStoreState((state) => state.history);
 	const setCalc = useStoreActions((state) => state.setCalc);
 	const clearHistory = useStoreActions((state) => state.clearHistory);
+
+	useEffect(() => {
+		reference.current?.scrollTo(0, reference.current?.scrollHeight);
+	}, [history]);
 
 	const reference = useRef<HTMLDivElement>(null);
 
