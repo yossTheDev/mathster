@@ -14,11 +14,11 @@ interface Props {
 export const ExpressionContainer: React.FC<Props> = ({ value }) => {
 	// Global store states and actions
 	const cursorIndex = useStoreState((state) => state.cursorIndex);
-	const setCursor = useStoreActions((state) => state.setCursor);
 
 	// Object store and actions
 	const [calc, setCalc] = useState(value);
 	const [fontSize, setFontSize] = useState('text-5xl');
+	const reference = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (value.length > 16) {
@@ -29,11 +29,17 @@ export const ExpressionContainer: React.FC<Props> = ({ value }) => {
 
 		// Put cursor character "|" in calc expression
 		setCalc(value.slice(0, cursorIndex) + '_' + value.slice(cursorIndex));
+
+		console.log('cursor index ' + cursorIndex);
+
+		// Auto Scroll Container
+		if (cursorIndex === calc.length)
+			reference.current?.scrollTo(0, reference.current?.scrollHeight);
 	}, [value, cursorIndex]);
 
 	return (
 		<div
-			onInput={(e) => {}}
+			ref={reference}
 			className={`container-wrap w-80 max-h-36 min-h-16 items-end font-semibold text-end select-none ${fontSize}`}
 		>
 			{parseExpression(calc).map((elem, i) =>
