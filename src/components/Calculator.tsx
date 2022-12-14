@@ -26,6 +26,7 @@ import { LettersTab } from './LettersTab';
 import { FunctionsTab } from './FunctionsTab';
 import { NumbersPad } from './NumbersPad';
 import SwipeableViews from 'react-swipeable-views';
+import { History } from './History';
 
 export const Calculator: React.FC = () => {
 	// Tabs
@@ -52,6 +53,8 @@ export const Calculator: React.FC = () => {
 	const setCalc = useStoreActions((state) => state.setCalc);
 	const eraseCalc = useStoreActions((state) => state.eraseCalc);
 	const delCalc = useStoreActions((state) => state.delCalc);
+	const addCalcToHistory = useStoreActions((state) => state.addCalcToHistory);
+	const history = useStoreState((state) => state.history);
 
 	useEffect(() => {
 		try {
@@ -94,11 +97,11 @@ export const Calculator: React.FC = () => {
 		<>
 			{/* Content*/}
 			{/* Calcs and results*/}
-			<div className='flex flex-auto h-80 max-h-72 flex-col'>
+			<div className='flex flex-auto h-80 max-h-64 flex-col'>
 				<div className='flex flex-auto flex-row-reverse  h-1/2 items-end'>
-					<div className='flex items-end w-96 h-full'>
+					<div className='flex items-end h-full'>
 						<SwipeableViews className='h-full flex'>
-							<div className='flex items-end  h-full'>
+							<div className='flex items-end h-full'>
 								<div className='flex flex-col mx-auto mr-2'>
 									<ExpressionContainer value={calc}></ExpressionContainer>
 									{/* Loading indicator */}
@@ -114,7 +117,11 @@ export const Calculator: React.FC = () => {
 								</div>
 							</div>
 
-							<div className='h-full mx-auto'>History</div>
+							<div className='flex items-start h-full max-h-full bg-gray-100 shadow-inner'>
+								<div className='flex flex-col h-72 p-6 w-96 mr-2 mx-auto'>
+									<History></History>
+								</div>
+							</div>
 						</SwipeableViews>
 					</div>
 				</div>
@@ -125,6 +132,7 @@ export const Calculator: React.FC = () => {
 				{/* Erase */}
 				<Button
 					onClick={() => {
+						addCalcToHistory(calc);
 						eraseCalc();
 					}}
 					className='hover:bg-gray-100 flex items-center rounded-2xl font-semibold mx-1 w-12 p-2'

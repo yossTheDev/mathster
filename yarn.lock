@@ -794,6 +794,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/luxon@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@types/luxon@npm:3.1.0"
+  checksum: 04768029342ad76fc2a9339436c143ea64797b35cf9b03ddded787c13eae30f0ca1246e51c2c5365ed912f98068e13a967a3931b137eb4585248a0ad7ec3fa86
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 18.11.9
   resolution: "@types/node@npm:18.11.9"
@@ -3439,10 +3446,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "luxon@npm:3.1.0"
-  checksum: f8a850b759ba7a2e009d904c522ed7bc264bf4add57578f8948e52a0ed96b627b025b5aad8032295b570ae19fac41f0ffab91bdb128715fb0cc020798a7ba886
+"luxon@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "luxon@npm:3.1.1"
+  checksum: 388fb35d3c51a19d8b305a3338e7e74634b08562e7d2f9ed5c05a7f4bc9ee1c1ab6a2546b6d9c4c104516b24043757d65f5f3fe3d78b206fbf55a9586ab62230
   languageName: node
   linkType: hard
 
@@ -5044,6 +5051,7 @@ __metadata:
     "@reacticons/ionicons": ^6.0.4
     "@tabler/icons": ^1.116.0
     "@tailwindcss/typography": ^0.5.8
+    "@types/luxon": ^3.1.0
     "@types/react": ^18.0.24
     "@types/react-dom": ^18.0.8
     "@types/react-swipeable-views": ^0.13.1
@@ -5060,7 +5068,7 @@ __metadata:
     eslint-plugin-n: ^15.0.0
     eslint-plugin-promise: ^6.0.0
     eslint-plugin-react: latest
-    luxon: ^3.1.0
+    luxon: ^3.1.1
     mathjs: ^11.4.0
     mathsteps: ^0.2.0
     postcss: ^8.4.19

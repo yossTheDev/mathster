@@ -34,7 +34,7 @@ export const ExpressionContainer: React.FC<Props> = ({ value }) => {
 	return (
 		<div
 			onInput={(e) => {}}
-			className={`container-wrap max-h-40  max-w-xs w-80 mx-auto  mr-2 min-h-16 items-center font-semibold text-end select-none ${fontSize}`}
+			className={`container-wrap max-h-36 min-h-16 items-end font-semibold text-end select-none ${fontSize}`}
 		>
 			{parseExpression(calc).map((elem, i) =>
 				elem.value !== '_' ? (

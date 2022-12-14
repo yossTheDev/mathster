@@ -1,12 +1,21 @@
 import { Action, action, createStore, persist } from 'easy-peasy';
 import { CustomStorage } from '../utils/CustomStorage';
+import { DateTime } from 'luxon';
 
+interface historyItem {
+	dateTime: DateTime;
+	calc: string;
+}
 export interface CalcModel {
 	/* Calculator States and Actions */
+
 	// String contains math expressions
 	calc: string;
 	// Cursor Index
 	cursorIndex: number;
+	// History
+	history: historyItem[];
+
 	// Add new character (number or operation)
 	addCalc: Action<CalcModel, string>;
 	// Set calc
@@ -26,6 +35,9 @@ export interface CalcModel {
 	// Set cursor position
 	setCursor: Action<CalcModel, number>;
 
+	// Add calc to history
+	addCalcToHistory: Action<CalcModel, string>;
+
 	/* App General States and Actions */
 	// Drawer Visisblitity
 	drawerOpen: boolean;
@@ -35,9 +47,31 @@ export interface CalcModel {
 export const CalcStore = createStore<CalcModel>(
 	persist(
 		{
+			/* Store */
 			calc: '0',
 			cursorIndex: 1,
+			history: [],
 			drawerOpen: false,
+
+			/* Actions */
+			addCalcToHistory: action((state, payload) => {
+				const item: historyItem = {
+					calc: payload,
+					dateTime: DateTime.now(),
+				};
+				let s = state.history;
+				s.push(item);
+
+				// state.history = s;
+				// console.log(item);
+				//console.log(s.length);
+				//console.log(item);
+				//console.log('calc to history ' + payload);
+
+				//console.log('lenght' + s.length);
+				//console.log('number 1 array ' + s[1].calc);
+			}),
+
 			addCalc: action((state, payload) => {
 				if (state.calc === '0') {
 					if (payload === '.') {
