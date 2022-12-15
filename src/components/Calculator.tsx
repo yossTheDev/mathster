@@ -27,6 +27,7 @@ import { FunctionsTab } from './FunctionsTab';
 import { NumbersPad } from './NumbersPad';
 import SwipeableViews from 'react-swipeable-views';
 import { History } from './History';
+import MathView from 'react-math-view';
 
 export const Calculator: React.FC = () => {
 	// Tabs

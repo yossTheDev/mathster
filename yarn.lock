@@ -424,6 +424,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cortex-js/compute-engine@npm:^0.12.2":
+  version: 0.12.2
+  resolution: "@cortex-js/compute-engine@npm:0.12.2"
+  dependencies:
+    complex.js: ^2.1.1
+    decimal.js: ^10.4.0
+  checksum: 005af6930322b7681b0025d40ea048b9d7a2a352f13ed1d0baa9fa779b707150b9c8da37864897219555d77dc74283729b7905f27a71198faf7982e8f359f232
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-arm@npm:0.15.13":
   version: 0.15.13
   resolution: "@esbuild/android-arm@npm:0.15.13"
@@ -667,6 +677,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@matejmazur/react-katex@npm:^3.1.3":
+  version: 3.1.3
+  resolution: "@matejmazur/react-katex@npm:3.1.3"
+  peerDependencies:
+    katex: ">=0.9"
+    react: ">=16"
+  checksum: db9e9aa03d3b094fcb9854abeab3676732b04dbe4fbfe2dbf26782a6d50c197351d06ad833c78b90f7e418d769b77c30460a60906e80e800d84e16c938f3d6d1
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -768,6 +788,13 @@ __metadata:
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
   checksum: ad87447820dd3f24825d2d947ebc03072b20a42bfc96cbafec16bff8bbda6c1a81fcb0be56d5b21968560c5359a0af4038a68ba150c3e1694fe4c109a063bed8
+  languageName: node
+  linkType: hard
+
+"@types/algebra.js@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@types/algebra.js@npm:0.2.2"
+  checksum: d17478576b9b746ed711fa3c01d55cce9e49c200a5025f2fa5f1f54e456e577aeabb45c793ee4bee2404032f114ae427df149c205b64aeae2db0aeb6cdc94188
   languageName: node
   linkType: hard
 
@@ -1093,6 +1120,13 @@ __metadata:
     json-schema-traverse: ^0.4.1
     uri-js: ^4.2.2
   checksum: 874972efe5c4202ab0a68379481fbd3d1b5d0a7bd6d3cc21d40d3536ebff3352a2a1fabb632d4fd2cc7fe4cbdcd5ed6782084c9bbf7f32a1536d18f9da5007d4
+  languageName: node
+  linkType: hard
+
+"algebra.js@npm:^0.2.6":
+  version: 0.2.6
+  resolution: "algebra.js@npm:0.2.6"
+  checksum: 81ddcc1854248b0dfbbe113bae1caf2acbf02a17a3df15bf34543fa8772d3efd6f2854cc4cc9fc1a8e881efd7e454fcc9d90ed2f443a0d193f7c114588b2f1aa
   languageName: node
   linkType: hard
 
@@ -1472,6 +1506,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"coffeequate@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "coffeequate@npm:1.3.0"
+  checksum: 708ef7d4c86564e9e8af63d3be938a13b3d3bb069fa57c423976d9a24b6a9d0e4466d8aae90434152b6f1bf632dcd6f05ca7ea2f55e40b3337506d43b7f37fa7
+  languageName: node
+  linkType: hard
+
 "color-convert@npm:^1.9.0":
   version: 1.9.3
   resolution: "color-convert@npm:1.9.3"
@@ -1530,6 +1571,13 @@ __metadata:
     color-convert: ^2.0.1
     color-string: ^1.9.0
   checksum: 0579629c02c631b426780038da929cca8e8d80a40158b09811a0112a107c62e10e4aad719843b791b1e658ab4e800558f2e87ca4522c8b32349d497ecb6adeb4
+  languageName: node
+  linkType: hard
+
+"commander@npm:^8.0.0":
+  version: 8.3.0
+  resolution: "commander@npm:8.3.0"
+  checksum: 0f82321821fc27b83bd409510bb9deeebcfa799ff0bf5d102128b500b7af22872c0c92cb6a0ebc5a4cf19c6b550fba9cedfa7329d18c6442a625f851377bacf0
   languageName: node
   linkType: hard
 
@@ -1677,6 +1725,13 @@ __metadata:
   version: 7.1.1
   resolution: "decimal.js@npm:7.1.1"
   checksum: 3cc4ac7366e905ea85a09b46fd42e76ecefce835e566639336924f23f1411d7224ee4bc1ec11fb2955ceac9bf03324981643c848b76738e382cd1d633dbcc5f0
+  languageName: node
+  linkType: hard
+
+"decimal.js@npm:^10.4.0":
+  version: 10.4.3
+  resolution: "decimal.js@npm:10.4.3"
+  checksum: 796404dcfa9d1dbfdc48870229d57f788b48c21c603c3f6554a1c17c10195fc1024de338b0cf9e1efe0c7c167eeb18f04548979bcc5fdfabebb7cc0ae3287bae
   languageName: node
   linkType: hard
 
@@ -1893,6 +1948,19 @@ __metadata:
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
   checksum: 65b5df55a8bab92229ab2b40dad3b387fad24613263d103a97f91c9fe43ceb21965cd3392b1ccb5d77088021e525c4e0481adb309625d0cb94ade1d1fb8dc17e
+  languageName: node
+  linkType: hard
+
+"equation-editor-react@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "equation-editor-react@npm:0.0.10"
+  dependencies:
+    jquery: ^3.4.1
+    mathquill: ^0.10.1-a
+  peerDependencies:
+    react: ^16.0.0
+    react-dom: ^16.0.0
+  checksum: 37214294688f196b6af643d5abdd0509d3926fe7c5c7d9b17746788c053f8f3421101539647b4086165135e47348b90749fa55f6d194a3075f03a888f862d37a
   languageName: node
   linkType: hard
 
@@ -3260,6 +3328,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jquery@npm:^1.12.3":
+  version: 1.12.4
+  resolution: "jquery@npm:1.12.4"
+  checksum: 17641485debde58d8da6fef707487a75dc2999f272576b8dc0addc352ac7db090bb1706e235299304f95313122f964c78b10dc5a51929f881b080420864979a1
+  languageName: node
+  linkType: hard
+
+"jquery@npm:^3.4.1":
+  version: 3.6.2
+  resolution: "jquery@npm:3.6.2"
+  checksum: b8ca408b9447e67e614204dbc4b2e71c6ea76eff281942d233769d969eed97fe28ffa34976e9ad9d3faad9b0a0d947d7e326ed272243679a9f5812a586c84168
+  languageName: node
+  linkType: hard
+
 "js-sdsl@npm:^4.1.4":
   version: 4.1.5
   resolution: "js-sdsl@npm:4.1.5"
@@ -3351,6 +3433,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"katex@npm:^0.16.4":
+  version: 0.16.4
+  resolution: "katex@npm:0.16.4"
+  dependencies:
+    commander: ^8.0.0
+  bin:
+    katex: cli.js
+  checksum: 94eaf1fbd8365792308527695c09baa6d2d84e2d0170e4af44fb12be3ed403fb3430caff2410117f2f1a9dfdb329f61ab9611d97e645d9c89ee60940698a45cc
+  languageName: node
+  linkType: hard
+
 "keycode@npm:^2.1.7":
   version: 2.2.1
   resolution: "keycode@npm:2.2.1"
@@ -3402,6 +3495,13 @@ __metadata:
   version: 4.4.0
   resolution: "lodash.castarray@npm:4.4.0"
   checksum: fca8c7047e0ae2738b0b2503fb00157ae0ff6d8a1b716f87ed715b22560e09de438c75b65e01a7e44ceb41c5b31dce2eb576e46db04beb9c699c498e03cbd00f
+  languageName: node
+  linkType: hard
+
+"lodash.isequal@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.isequal@npm:4.5.0"
+  checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
   languageName: node
   linkType: hard
 
@@ -3518,6 +3618,22 @@ __metadata:
   bin:
     mathjs: bin/cli.js
   checksum: 7c5d9bdca22bc299a8f0f19195a8873c45b7175a14f87f9283260fb6b9c29cc9e989568ac4424da86f356fc18ed974a58bbadae5fbd97562408732f3b53d6889
+  languageName: node
+  linkType: hard
+
+"mathlive@npm:>=0.64.0, mathlive@npm:^0.86.0":
+  version: 0.86.0
+  resolution: "mathlive@npm:0.86.0"
+  checksum: bc174dbca1874f64d679573d14098f5f58da30b146e8d2f2572300e99e899c35ae189ba6056c1db3b9e06ea55f70ccb35c2bceb9fbab7c3861fb0b2887387bcf
+  languageName: node
+  linkType: hard
+
+"mathquill@npm:^0.10.1-a":
+  version: 0.10.1
+  resolution: "mathquill@npm:0.10.1"
+  dependencies:
+    jquery: ^1.12.3
+  checksum: 535cc7dcef57b9d7c0b3e6fadd8938f3a2de0b82cf224adb40ac394ae096fce28f62d2bc12569efdce14ce7299676cea2c196ff81916685c444ce576131e0d43
   languageName: node
   linkType: hard
 
@@ -3741,6 +3857,13 @@ __metadata:
   version: 0.6.3
   resolution: "negotiator@npm:0.6.3"
   checksum: b8ffeb1e262eff7968fc90a2b6767b04cfd9842582a9d0ece0af7049537266e7b2506dfb1d107a32f06dd849ab2aea834d5830f7f4d0e5cb7d36e1ae55d021d9
+  languageName: node
+  linkType: hard
+
+"nerdamer@npm:^1.1.13":
+  version: 1.1.13
+  resolution: "nerdamer@npm:1.1.13"
+  checksum: d1665b1acc649b027c64f0253ca5df7802fd0a7c925ba3231b382ad4bb71c4093eca15c0c93ef816fcd64a60e51cb069a0c28fc3dcacae7db1483a4fd0826df2
   languageName: node
   linkType: hard
 
@@ -4305,6 +4428,19 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-math-view@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "react-math-view@npm:1.3.2"
+  dependencies:
+    lodash.isequal: ^4.5.0
+    mathlive: ">=0.64.0"
+  peerDependencies:
+    react: ">=16.0.0"
+    react-dom: ">=17.0.1"
+  checksum: 628b3743ac255415d0fa5fc771114407b25733902829270f6df6f96f9a3f4a33bf41957e1324cd9eb19077184adaa75b93ecf1c9b0bb36262434a58f51ddbe94
   languageName: node
   linkType: hard
 
@@ -5047,20 +5183,26 @@ __metadata:
     "@capacitor/preferences": ^4.0.2
     "@capacitor/splash-screen": ^4.1.2
     "@capacitor/status-bar": ^4.1.0
+    "@cortex-js/compute-engine": ^0.12.2
     "@floating-ui/react-dom": ^1.0.1
+    "@matejmazur/react-katex": ^3.1.3
     "@reacticons/ionicons": ^6.0.4
     "@tabler/icons": ^1.116.0
     "@tailwindcss/typography": ^0.5.8
+    "@types/algebra.js": ^0.2.2
     "@types/luxon": ^3.1.0
     "@types/react": ^18.0.24
     "@types/react-dom": ^18.0.8
     "@types/react-swipeable-views": ^0.13.1
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@vitejs/plugin-react": ^2.2.0
+    algebra.js: ^0.2.6
     autoprefixer: ^10.4.13
+    coffeequate: ^1.3.0
     cordova-res: ^0.15.4
     daisyui: ^2.41.0
     easy-peasy: ^5.2.0
+    equation-editor-react: ^0.0.10
     eslint: ^8.0.1
     eslint-config-prettier: ^8.5.0
     eslint-config-standard-with-typescript: latest
@@ -5068,15 +5210,19 @@ __metadata:
     eslint-plugin-n: ^15.0.0
     eslint-plugin-promise: ^6.0.0
     eslint-plugin-react: latest
+    katex: ^0.16.4
     luxon: ^3.1.1
     mathjs: ^11.4.0
+    mathlive: ^0.86.0
     mathsteps: ^0.2.0
+    nerdamer: ^1.1.13
     postcss: ^8.4.19
     prettier: ^2.7.1
     react: ^18.2.0
     react-daisyui: ^2.4.6
     react-dom: ^18.2.0
     react-headless-tabs: ^6.0.3
+    react-math-view: ^1.3.2
     react-router: ^6.4.5
     react-router-dom: ^6.4.3
     react-swipeable-views: ^0.14.0

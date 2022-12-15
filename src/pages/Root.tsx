@@ -1,8 +1,4 @@
-import {
-	IconCalculator,
-	IconInfoCircle,
-	IconMathIntegral,
-} from '@tabler/icons';
+import { IconCalculator, IconInfoCircle, IconSuperscript } from '@tabler/icons';
 import React from 'react';
 import { Drawer } from 'react-daisyui';
 import { NavLink, Outlet } from 'react-router-dom';
@@ -33,7 +29,7 @@ const side = (
 
 		<li>
 			<NavLink to={'/algebra'}>
-				<IconMathIntegral></IconMathIntegral>
+				<IconSuperscript></IconSuperscript>
 				<p>Algebra</p>
 			</NavLink>
 		</li>
