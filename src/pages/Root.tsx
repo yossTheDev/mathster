@@ -2,8 +2,8 @@ import { IconCalculator, IconInfoCircle, IconSuperscript } from '@tabler/icons';
 import React from 'react';
 import { Drawer } from 'react-daisyui';
 import { NavLink, Outlet } from 'react-router-dom';
-import { useStoreActions, useStoreState } from '../stores/Hooks';
 import math from '../assets/mathsterlogonew6.svg';
+import { useStoreActions, useStoreState } from '../stores/Hooks';
 
 const side = (
 	<ul className='menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content'>
@@ -20,17 +20,18 @@ const side = (
 				<p>Home</p>
 			</NavLink>
 		</li>
-		<li>
-			<NavLink to={'/about'}>
-				<IconInfoCircle></IconInfoCircle>
-				<p>About</p>
-			</NavLink>
-		</li>
 
 		<li>
 			<NavLink to={'/algebra'}>
 				<IconSuperscript></IconSuperscript>
 				<p>Algebra</p>
+			</NavLink>
+		</li>
+
+		<li>
+			<NavLink to={'/about'}>
+				<IconInfoCircle></IconInfoCircle>
+				<p>About</p>
 			</NavLink>
 		</li>
 	</ul>

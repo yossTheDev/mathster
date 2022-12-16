@@ -39,7 +39,15 @@ export const QuickAccessBar: React.FC = () => {
 				<IconMathEqualGreater size={18}></IconMathEqualGreater>
 			</CalcButton>
 			<CalcButton className='flex h-6 p-4' operation='^'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='^2'>
+				<sup>2</sup>
+			</CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='^3'>
+				<sup>3</sup>
+			</CalcButton>
+
 			<CalcButton className='flex h-6 p-4' operation='x'></CalcButton>
+			<CalcButton className='flex h-6 p-4' operation='y'></CalcButton>
 			<CalcButton className='flex h-6 p-4' operation='!'></CalcButton>
 			<CalcButton className='flex h-6 p-4' operation='i'></CalcButton>
 			<CalcButton className='flex h-6 p-4' operation='?'></CalcButton>

@@ -19,32 +19,23 @@ export const AlgebraResultContainer: React.FC<{
 
 	useEffect(() => {
 		try {
+			// Resolve Equation qith Nerdamer
 			const r = nerdamer.solve(expression, variable);
-			//setResult(nerdamer.solve(expression, variable).toTeX());
-			//const s = nerdamer.simplify(r.text().replace('[', '').replace(']', ''));
+
+			// Initailize new Compute Engine
 			const ces = new ce.ComputeEngine();
-			//const t = r.toTeX() as string;
-			//const s = ces.parse(t).evaluate();
 
-			//console.log('t = ' + t);
-			//console.log('s = ' + s);
-			//console.log('eval ' + ces.parse(t).evaluate());
-			//const e = nerdamer(expression).solveFor('x').toString();
-			//const t = e.text();
-
-			// Resultado Numerico
+			// Get numeric result of the expression resolved by Nerdamer
 			const t = ces
 				.parse(r.toTeX().replace('[', '').replace(']', '') as string)
 				.N().latex;
-			//const t = ces.parse(r.toTeX().replace('[', '').replace(']', ''));
-			console.log('t = ' + t);
 
-			//console.log(('exp ' + s) as any);
 			setResult(r.toTeX());
 			setNumericResult(t);
-			//setResult(t?.latex);
+
+			//console.log(r.text());
 		} catch (error) {
-			console.log(error);
+			//console.log(error);
 		}
 	}, [variable, expression]);
 	return result !== '[]' && result !== '[0]' ? (

@@ -33,7 +33,7 @@ export const About: React.FC = () => {
 					</div>
 					<div className='flex flex-auto flex-col m-2 mt-6'>
 						<p className='mx-auto font-bold text-2xl'>Mathster</p>
-						<p className='mx-auto text-gray-500'>v 0.0.2 Alpha</p>
+						<p className='mx-auto text-gray-500'>v 0.0.3 Alpha</p>
 					</div>
 				</div>
 				{/* Hero Card*/}

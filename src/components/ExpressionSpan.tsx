@@ -31,7 +31,14 @@ const Span: React.FC<SpanProps> = ({ children, index }: SpanProps) => {
 	// Store Actions
 	const setCursor = useStoreActions((state) => state.setCursor);
 
-	return <span onClick={() => setCursor(index)}>{children}</span>;
+	return (
+		<span
+			className='transition ease-in-out delay-150  duration-300 hover:bg-gray-100 hover:rounded'
+			onClick={() => setCursor(index)}
+		>
+			{children}
+		</span>
+	);
 };
 
 export const ExpressionSpan: React.FC<Props> = ({ value, type, index }) => {
@@ -155,6 +162,31 @@ export const ExpressionSpan: React.FC<Props> = ({ value, type, index }) => {
 						size={28}
 						className='inline  text-red-400'
 					></IconSquareRoot>
+				</Span>
+			);
+
+		case 'qubic_root':
+			return (
+				<Span index={index}>
+					<sup className='inline text-2xl text-red-400 mt-2'>3</sup>
+					<IconSquareRoot
+						size={28}
+						className='inline  text-red-400'
+					></IconSquareRoot>
+				</Span>
+			);
+
+		case 'power_of':
+			return (
+				<Span index={index}>
+					<sup className='text-xl -ml-2 text-gray-800'>{value}</sup>{' '}
+				</Span>
+			);
+
+		case 'letters':
+			return (
+				<Span index={index}>
+					<span className='font-serif'>{value}</span>
 				</Span>
 			);
 

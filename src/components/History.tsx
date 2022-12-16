@@ -1,5 +1,6 @@
 import { IconArrowDown, IconTrash } from '@tabler/icons';
 import React, { useEffect, useRef } from 'react';
+import MathView from 'react-math-view';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
 import { Button } from './Button';
 
@@ -16,7 +17,7 @@ export const History: React.FC = () => {
 	const reference = useRef<HTMLDivElement>(null);
 
 	return (
-		<div className='overflow-hidden  w-full'>
+		<div className='overflow-hidden  flex flex-auto flex-col w-full'>
 			<p className='flex flex-row'>
 				<p className='font-bold text-3xl'>History</p>
 				<Button onClick={() => clearHistory()}>
@@ -33,22 +34,21 @@ export const History: React.FC = () => {
 
 			<div
 				ref={reference}
-				className='max-h-52 h-full overflow-y-scroll overflow-x-hidden'
+				className=' h-full flex flex-col overflow-y-scroll overflow-x-hidden'
 			>
 				{history.length > 0 ? (
 					history.map((el, i) => (
 						<div
-							className='flex flex-auto flex-col h-auto overflow-hidden p-5 transition ease-in-out delay-150 bg-white rounded m-2 hover:rounded hover:shadow hover:bg-gray-100  hover:scale-110 duration-300'
+							className='hover:bg-white hover:rounded p-2 m-2 select-none'
+							key={i}
 							onClick={() => setCalc(el.calc)}
 						>
-							<p className='font-bold  break-words  '>{el.calc}</p>
-							<p className='text-xs text-gray-500'>
-								{el.dateTime.toLocaleString({ dateStyle: 'full' })}
-							</p>
+							<p className='font-bold text-2xl  break-words  '>{el.calc}</p>
+							<p className='text-xs text-gray-500'>{el.dateTime}</p>
 						</div>
 					))
 				) : (
-					<div className='mx-auto'>Nothing Here</div>
+					<div className='mx-auto mb-auto mt-auto'>{'Nothing Here :('}</div>
 				)}
 			</div>
 		</div>

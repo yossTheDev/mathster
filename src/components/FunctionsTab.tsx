@@ -79,7 +79,12 @@ export const FunctionsTab: React.FC = () => {
 					tooltip='Calculate the cubic root of a value'
 					operation='cbrt()'
 					label='cbrt'
-				></CalcButton>
+				>
+					<div className='flex flex-row'>
+						<sup className='inline-block mt-2'>3</sup>
+						<IconSquareRoot className='inline-block'></IconSquareRoot>
+					</div>
+				</CalcButton>
 				<CalcButton
 					isFunction={true}
 					tooltip='Calculate the absolute value of a number'
@@ -107,7 +112,7 @@ export const FunctionsTab: React.FC = () => {
 				<CalcButton
 					tooltip='Round a value towards zero'
 					isFunction={true}
-					operation='fix('
+					operation='fix()'
 					label='fix'
 				></CalcButton>
 				<CalcButton

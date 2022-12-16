@@ -27,7 +27,6 @@ import { FunctionsTab } from './FunctionsTab';
 import { NumbersPad } from './NumbersPad';
 import SwipeableViews from 'react-swipeable-views';
 import { History } from './History';
-import MathView from 'react-math-view';
 
 export const Calculator: React.FC = () => {
 	// Tabs
@@ -51,11 +50,9 @@ export const Calculator: React.FC = () => {
 	const moveCursorToStart = useStoreActions((state) => state.startCursor);
 	const moveCursorToEnd = useStoreActions((state) => state.endCursor);
 	const addCalc = useStoreActions((state) => state.addCalc);
-	const setCalc = useStoreActions((state) => state.setCalc);
 	const eraseCalc = useStoreActions((state) => state.eraseCalc);
 	const delCalc = useStoreActions((state) => state.delCalc);
 	const addCalcToHistory = useStoreActions((state) => state.addCalcToHistory);
-	const history = useStoreState((state) => state.history);
 
 	useEffect(() => {
 		try {
@@ -82,7 +79,6 @@ export const Calculator: React.FC = () => {
 					setResult(r);
 				}
 			}
-
 			// console.log(calc);
 		} catch (error) {
 			setError(true);

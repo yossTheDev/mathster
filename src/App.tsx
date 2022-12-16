@@ -6,10 +6,12 @@ import { Root } from './pages/Root';
 import { About } from './pages/About';
 import { Home } from './pages/Home';
 import { AlgebraPage } from './pages/AlgebraPage';
+import { ErrorPage } from './pages/ErrorPage';
 
 const router = createBrowserRouter([
 	{
 		path: '',
+		errorElement: <ErrorPage></ErrorPage>,
 		element: <Root></Root>,
 		children: [
 			{

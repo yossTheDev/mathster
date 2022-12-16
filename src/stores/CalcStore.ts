@@ -3,7 +3,7 @@ import { CustomStorage } from '../utils/CustomStorage';
 import { DateTime } from 'luxon';
 
 interface historyItem {
-	dateTime: DateTime;
+	dateTime: string;
 	calc: string;
 }
 export interface CalcModel {
@@ -61,7 +61,7 @@ export const CalcStore = createStore<CalcModel>(
 			addCalcToHistory: action((state, payload) => {
 				const item: historyItem = {
 					calc: payload,
-					dateTime: DateTime.now(),
+					dateTime: DateTime.now().toLocaleString({ dateStyle: 'full' }),
 				};
 				let s = state.history;
 				s.push(item);

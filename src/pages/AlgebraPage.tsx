@@ -1,4 +1,4 @@
-import { IconSubscript } from '@tabler/icons';
+import { IconClipboardCopy, IconSubscript, IconTrash } from '@tabler/icons';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Input, Navbar } from 'react-daisyui';
 import { MenuButton } from '../components/MenuButton';
@@ -12,6 +12,7 @@ import TeX from '@matejmazur/react-katex';
 import 'katex/dist/katex.min.css';
 import MathView, { MathViewRef } from 'react-math-view';
 import { AlgebraResultContainer } from '../components/AlgebraResultContainer';
+import { Button } from '../components/Button';
 
 function onlyUnique(value: string, index: any, self: any) {
 	return self.indexOf(value) === index;
@@ -46,13 +47,11 @@ export const AlgebraPage: React.FC = () => {
 		'z',
 	];
 
+	const supportedVariables = ['x', 'y', 'z'];
+
 	const [value, setValue] = useState('');
 	const [variables, setVariables] = useState(['']);
 	const ref = useRef<MathViewRef>(null);
-	const getSpokenValue = useCallback(
-		() => ref.current?.getValue('spoken'),
-		[ref]
-	);
 
 	useEffect(() => {
 		try {
@@ -60,7 +59,7 @@ export const AlgebraPage: React.FC = () => {
 			const letters = [];
 			for (let i of value) {
 				//console.log(i);
-				if (allLetters.includes(i)) letters.push(i);
+				if (supportedVariables.includes(i)) letters.push(i);
 			}
 			setVariables(letters.filter(onlyUnique));
 
@@ -96,7 +95,7 @@ export const AlgebraPage: React.FC = () => {
 			//const r = value.split('=');
 		} catch (error) {
 			//setResult(error.toString());
-			console.log(error);
+			//console.log(error);
 		}
 	}, [value]);
 
@@ -109,7 +108,6 @@ export const AlgebraPage: React.FC = () => {
 				</Navbar.Start>
 				<div className='flex-auto flex w-full '>
 					<div className='flex-row flex mx-auto'>
-						<IconSubscript className='mt-auto mb-auto mx-autos'></IconSubscript>
 						<p className='poppins-font-family normal-cas font-bold  text-2xl text-center'>
 							Algebra
 						</p>
@@ -117,12 +115,20 @@ export const AlgebraPage: React.FC = () => {
 				</div>
 			</Navbar>
 
-			<div className='overflow-scroll flex flex-auto flex-col select-none'>
-				<Input
-					className='mx-6 h-8'
-					onInput={(e) => setValue(e.currentTarget.value)}
-					value={value}
-				></Input>
+			<div className='overflow-scroll flex flex-auto flex-col select-none mt-2'>
+				<div className='flex flex-row mx-auto'>
+					<Input
+						className='border-gray-500 hover:border-2'
+						onInput={(e) => setValue(e.currentTarget.value)}
+						value={value}
+					></Input>
+					<div
+						onClick={() => setValue('')}
+						className='mt-auto mb-auto hover:bg-gray-100 p-3 rounded'
+					>
+						<IconTrash></IconTrash>
+					</div>
+				</div>
 
 				<MathView
 					ref={ref}
@@ -137,12 +143,74 @@ export const AlgebraPage: React.FC = () => {
 					value={value}
 				></MathView>
 
-				{variables.map((el, i) => (
-					<AlgebraResultContainer
-						value={el}
-						expression={value}
-					></AlgebraResultContainer>
-				))}
+				{variables.length > 0 ? (
+					variables.map((el, i) => (
+						<AlgebraResultContainer
+							key={i}
+							value={el}
+							expression={value}
+						></AlgebraResultContainer>
+					))
+				) : (
+					<div className='m-6'>
+						<p className='font-bold'>Some Examples</p>
+
+						<div
+							className='hover:bg-gray-100 flex  rounded p-2 select-none'
+							onClick={() => setValue('3x-5')}
+						>
+							<MathView className='select-none' readOnly>
+								3x-5
+							</MathView>
+
+							<button className='ml-auto' onClick={() => setValue('3x-5')}>
+								<IconClipboardCopy></IconClipboardCopy>
+							</button>
+						</div>
+
+						<div
+							className='hover:bg-gray-100 flex  rounded p-2 select-none'
+							onClick={() => setValue('2x+5y=7')}
+						>
+							<MathView className='select-none' readOnly>
+								2x+5y=7
+							</MathView>
+
+							<button className='ml-auto' onClick={() => setValue('2x+5y=7')}>
+								<IconClipboardCopy></IconClipboardCopy>
+							</button>
+						</div>
+
+						<div
+							className='hover:bg-gray-100 flex  rounded p-2 select-none'
+							onClick={() => setValue('2^2+5y=z')}
+						>
+							<MathView className='select-none' readOnly>
+								{'2^2+5y=z'}
+							</MathView>
+
+							<button className='ml-auto' onClick={() => setValue('2^2+5y=z')}>
+								<IconClipboardCopy></IconClipboardCopy>
+							</button>
+						</div>
+
+						<div
+							className='hover:bg-gray-100 flex  rounded p-2 select-none'
+							onClick={() => setValue('cos(30)+6y=x')}
+						>
+							<MathView className='select-none' readOnly>
+								{'cos(30)+6y=x'}
+							</MathView>
+
+							<button
+								className='ml-auto'
+								onClick={() => setValue('cos(30)+6y=x')}
+							>
+								<IconClipboardCopy></IconClipboardCopy>
+							</button>
+						</div>
+					</div>
+				)}
 			</div>
 		</>
 	);
