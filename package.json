@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@capacitor/android": "^4.5.0",
+    "@capacitor/clipboard": "^4.1.0",
     "@capacitor/core": "^4.5.0",
     "@capacitor/haptics": "^4.1.0",
     "@capacitor/preferences": "^4.0.2",
@@ -28,8 +29,10 @@
     "daisyui": "^2.41.0",
     "easy-peasy": "^5.2.0",
     "equation-editor-react": "^0.0.10",
+    "function-plot": "^1.23.2",
     "katex": "^0.16.4",
     "luxon": "^3.1.1",
+    "mathjax-react": "^2.0.1",
     "mathjs": "^11.4.0",
     "mathlive": "^0.86.0",
     "mathsteps": "^0.2.0",

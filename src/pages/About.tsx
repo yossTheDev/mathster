@@ -8,7 +8,7 @@ import {
 } from '@tabler/icons';
 
 import yoss from '../assets/yoss.png';
-import math from '../assets/mathsterlogonew6.svg';
+import math from '../assets/newlogo.svg';
 
 export const About: React.FC = () => {
 	return (
