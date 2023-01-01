@@ -433,6 +433,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@capacitor/toast@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@capacitor/toast@npm:4.1.0"
+  peerDependencies:
+    "@capacitor/core": ^4.0.0
+  checksum: 24a617c14835ee0da92417bed919880a4dda1af850ea7ebe6c43abab6ad712e5d54d23f997db125f0e6eaf1a1b0d06fa7a9052b77157b6afecdec149f0704f4f
+  languageName: node
+  linkType: hard
+
 "@cortex-js/compute-engine@npm:^0.12.2":
   version: 0.12.2
   resolution: "@cortex-js/compute-engine@npm:0.12.2"
@@ -5523,6 +5532,7 @@ __metadata:
     "@capacitor/preferences": ^4.0.2
     "@capacitor/splash-screen": ^4.1.2
     "@capacitor/status-bar": ^4.1.0
+    "@capacitor/toast": ^4.1.0
     "@cortex-js/compute-engine": ^0.12.2
     "@floating-ui/react-dom": ^1.0.1
     "@matejmazur/react-katex": ^3.1.3
