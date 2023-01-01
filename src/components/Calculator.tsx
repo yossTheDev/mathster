@@ -38,6 +38,7 @@ export const Calculator: React.FC = () => {
 	]);
 
 	// Component States
+	const [index, setIndex] = useState(0);
 	const [result, setResult] = useState('');
 	const [error, setError] = useState(false);
 
@@ -97,10 +98,17 @@ export const Calculator: React.FC = () => {
 			<div className='flex flex-auto h-80 max-h-64 flex-col dark:bg-base-200'>
 				<div className='flex flex-auto flex-row-reverse  h-1/2 items-end'>
 					<div className='flex items-end h-full'>
-						<SwipeableViews className='h-full flex'>
+						<SwipeableViews
+							onChangeIndex={(e) => setIndex(e)}
+							index={index}
+							className='h-full flex'
+						>
 							<div className='flex items-end h-full'>
 								<div className='flex flex-col mx-auto mr-2'>
-									<ExpressionContainer value={calc}></ExpressionContainer>
+									{index === 0 && (
+										<ExpressionContainer value={calc}></ExpressionContainer>
+									)}
+
 									{/* Loading indicator */}
 									{error ? (
 										<div className='flex flex-col items-end'>
@@ -116,7 +124,7 @@ export const Calculator: React.FC = () => {
 
 							<div className='flex items-center h-64 overflow-hidden dark:bg-gray-800 bg-gray-100 shadow-inner'>
 								<div className='flex flex-col h-72 p-11 w-96 mr-2 mx-auto'>
-									<History></History>
+									{index === 1 && <History></History>}
 								</div>
 							</div>
 						</SwipeableViews>

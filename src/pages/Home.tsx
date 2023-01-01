@@ -99,25 +99,27 @@ export const Home: React.FC = () => {
 				</Navbar.End>
 			</Navbar>
 
-			<Modal
-				className='dark:bg-gray-800'
-				open={shareQr}
-				onClickBackdrop={toggleVisible}
-			>
-				<Modal.Header className='font-bold dark:text-white'>
-					Share QR Code
-				</Modal.Header>
+			{shareQr && (
+				<Modal
+					className='dark:bg-gray-800'
+					open={shareQr}
+					onClickBackdrop={toggleVisible}
+				>
+					<Modal.Header className='font-bold dark:text-white'>
+						Share QR Code
+					</Modal.Header>
 
-				<Modal.Body>
-					<QRCode className='mx-auto' value={calc}></QRCode>
-				</Modal.Body>
+					<Modal.Body>
+						<QRCode className='mx-auto' value={calc}></QRCode>
+					</Modal.Body>
 
-				<Modal.Actions>
-					<button className='dark:text-white' onClick={() => toggleVisible()}>
-						OK
-					</button>
-				</Modal.Actions>
-			</Modal>
+					<Modal.Actions>
+						<button className='dark:text-white' onClick={() => toggleVisible()}>
+							OK
+						</button>
+					</Modal.Actions>
+				</Modal>
+			)}
 
 			<Calculator></Calculator>
 		</>
