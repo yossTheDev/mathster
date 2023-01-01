@@ -20,7 +20,7 @@ export const NumbersPad: React.FC = () => {
 			{/* Pad */}
 			<div className='flex flex-row flex-auto'>
 				{/* Numbers */}
-				<div className='flex flex-auto flex-row w-56 text-3xl font-bold'>
+				<div className='flex flex-auto flex-row w-56 text-3xl font-bold dark:text-white'>
 					<div className='flex flex-auto flex-col'>
 						<CalcButton operation='7'></CalcButton>
 						<CalcButton operation='4'></CalcButton>

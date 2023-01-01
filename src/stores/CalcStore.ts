@@ -9,6 +9,9 @@ interface historyItem {
 export interface CalcModel {
 	/* Calculator States and Actions */
 
+	// App Configs
+	darkMode: boolean;
+
 	// String contains math expressions
 	calc: string;
 	// Cursor Index
@@ -16,6 +19,9 @@ export interface CalcModel {
 
 	// History
 	history: historyItem[];
+
+	// App Config Actions
+	toggleDarkMode: Action<CalcModel>;
 
 	// History Actions
 	clearHistory: Action<CalcModel>;
@@ -52,12 +58,29 @@ export const CalcStore = createStore<CalcModel>(
 	persist(
 		{
 			/* Store */
+			darkMode: false,
 			calc: '0',
 			cursorIndex: 1,
 			history: [],
 			drawerOpen: false,
 
 			/* Actions */
+			toggleDarkMode: action((state) => {
+				if (state.darkMode) {
+					state.darkMode = false;
+				} else {
+					state.darkMode = true;
+				}
+
+				if (state.darkMode) {
+					document.documentElement.classList.add('dark');
+				} else {
+					document.documentElement.classList.remove('dark');
+				}
+
+				console.log('dark mode state' + state.darkMode);
+			}),
+
 			addCalcToHistory: action((state, payload) => {
 				const item: historyItem = {
 					calc: payload,

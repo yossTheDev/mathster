@@ -15,7 +15,9 @@ export const TabSelector: React.FC<Props> = ({
 		<div className='mx-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
 			<button
 				className={
-					isActive ? 'text-black font-bold scale-110' : ' text-gray-500'
+					isActive
+						? 'text-black dark:text-white font-bold scale-110'
+						: ' text-gray-500'
 				}
 				onClick={onClick}
 			>

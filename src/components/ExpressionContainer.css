@@ -1,5 +1,5 @@
 .container-wrap {
 	white-space: pre-wrap;
-	overflow: scroll;
+	overflow-y: scroll;
 	overflow-wrap: break-word;
 }

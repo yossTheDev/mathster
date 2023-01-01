@@ -7,6 +7,11 @@
 	font-display: swap;
 }
 
+.dark-background {
+	background: local;
+	background-color: #0f111a;
+}
+
 .poppins-font-family {
 	font-family: 'Poppins-Bold';
 	font-weight: bold;

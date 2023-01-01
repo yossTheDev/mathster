@@ -1,6 +1,5 @@
 import { IconArrowDown, IconTrash } from '@tabler/icons';
 import React, { useEffect, useRef } from 'react';
-import MathView from 'react-math-view';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
 import { Button } from './Button';
 
@@ -11,6 +10,7 @@ export const History: React.FC = () => {
 	const clearHistory = useStoreActions((state) => state.clearHistory);
 
 	useEffect(() => {
+		// Auto Scroll to Bottom
 		reference.current?.scrollTo(0, reference.current?.scrollHeight);
 	}, [history]);
 
@@ -19,17 +19,19 @@ export const History: React.FC = () => {
 	return (
 		<div className='overflow-hidden  flex flex-auto flex-col w-full'>
 			<p className='flex flex-row'>
-				<p className='font-bold text-3xl'>History</p>
-				<Button onClick={() => clearHistory()}>
-					<IconTrash></IconTrash>
-				</Button>
-				<Button
-					onClick={() =>
-						reference.current?.scrollTo(0, reference.current?.scrollHeight)
-					}
-				>
-					<IconArrowDown></IconArrowDown>
-				</Button>
+				<p className='font-bold text-3xl dark:text-white'>History</p>
+				<div className='flex flex-row ml-auto'>
+					<Button onClick={() => clearHistory()}>
+						<IconTrash className='dark:text-white'></IconTrash>
+					</Button>
+					<Button
+						onClick={() =>
+							reference.current?.scrollTo(0, reference.current?.scrollHeight)
+						}
+					>
+						<IconArrowDown className='dark:text-white'></IconArrowDown>
+					</Button>
+				</div>
 			</p>
 
 			<div
@@ -37,18 +39,22 @@ export const History: React.FC = () => {
 				className=' h-full flex flex-col overflow-y-scroll overflow-x-hidden'
 			>
 				{history.length > 0 ? (
-					history.map((el, i) => (
+					history.slice(0, 10).map((el, i) => (
 						<div
-							className='hover:bg-white hover:rounded p-2 m-2 select-none'
+							className='dark:hover:bg-gray-800 dark:bg-gray-700 bg-gray-200 shadow rounded hover:bg-white hover:rounded p-2 m-2 select-none'
 							key={i}
 							onClick={() => setCalc(el.calc)}
 						>
-							<p className='font-bold text-2xl  break-words  '>{el.calc}</p>
+							<p className='font-bold text-2xl  break-words whitespace-pre-wrap  dark:text-white'>
+								{el.calc}
+							</p>
 							<p className='text-xs text-gray-500'>{el.dateTime}</p>
 						</div>
 					))
 				) : (
-					<div className='mx-auto mb-auto mt-auto'>{'Nothing Here :('}</div>
+					<div className='dark:text-white mx-auto mb-auto mt-auto'>
+						{'Nothing Here :('}
+					</div>
 				)}
 			</div>
 		</div>

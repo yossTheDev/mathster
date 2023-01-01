@@ -14,10 +14,10 @@ import { CalcButton } from './CalcButton';
 
 export const FunctionsTab: React.FC = () => {
 	return (
-		<div className='h-4'>
+		<div className='h-4 dark:text-gray-400'>
 			{/* Grouping */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll dark:bg-gray-800 bg-gray-100'>
+				<div className='bg-white dark:bg-base-200 shadow p-2 text-black dark:text-white'>
 					<IconBrackets></IconBrackets>
 				</div>
 
@@ -30,8 +30,8 @@ export const FunctionsTab: React.FC = () => {
 			</div>
 
 			{/* Algebra Functions */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconSuperscript></IconSuperscript>
 				</div>
 
@@ -64,8 +64,8 @@ export const FunctionsTab: React.FC = () => {
 			</div>
 
 			{/* Arithmetic Functions */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconSquareRoot></IconSquareRoot>
 				</div>
 				<CalcButton operation='f(x)=' label='f(x)'>
@@ -170,8 +170,8 @@ export const FunctionsTab: React.FC = () => {
 			</div>
 
 			{/* Complex Functions */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconLetterI></IconLetterI>
 				</div>
 
@@ -202,8 +202,8 @@ export const FunctionsTab: React.FC = () => {
 			</div>
 
 			{/* Geometry Functions */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconBox></IconBox>
 				</div>
 
@@ -223,8 +223,8 @@ export const FunctionsTab: React.FC = () => {
 			</div>
 
 			{/* Logical Functions */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconAmpersand></IconAmpersand>
 				</div>
 
@@ -247,8 +247,8 @@ export const FunctionsTab: React.FC = () => {
 			</div>
 
 			{/* Trigonometry Functions */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconTriangle></IconTriangle>
 				</div>
 
@@ -370,8 +370,8 @@ export const FunctionsTab: React.FC = () => {
 			</div>
 
 			{/* Conversion Functions */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconArrowsExchange></IconArrowsExchange>
 				</div>
 

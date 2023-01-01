@@ -3,7 +3,7 @@ module.exports = {
   content: ['./src/**/*.{html,js,ts,jsx,tsx}', 'node_modules/daisyui/dist/**/*.js', 'node_modules/react-daisyui/dist/**/*.js'],
 
   // enable dark mode via class strategy
-  // darkMode: 'class',
+  darkMode: 'class',
 
   plugins: [require('daisyui'), require('@tailwindcss/typography')],
 
@@ -30,8 +30,8 @@ module.exports = {
           'neutral-content': '#ffffff',
 
           'base-100': '#ffffff',
-          'base-200': '#191919',
-          'base-300': '#ced3d9',
+          'base-200': '#0f111a',
+          'base-300': '#12101A',
           'base-content': '#000000',
           tertiary: '#92675D',
 

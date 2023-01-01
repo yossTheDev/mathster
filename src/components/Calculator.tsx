@@ -94,7 +94,7 @@ export const Calculator: React.FC = () => {
 		<>
 			{/* Content*/}
 			{/* Calcs and results*/}
-			<div className='flex flex-auto h-80 max-h-64 flex-col'>
+			<div className='flex flex-auto h-80 max-h-64 flex-col dark:bg-base-200'>
 				<div className='flex flex-auto flex-row-reverse  h-1/2 items-end'>
 					<div className='flex items-end h-full'>
 						<SwipeableViews className='h-full flex'>
@@ -105,7 +105,7 @@ export const Calculator: React.FC = () => {
 									{error ? (
 										<div className='flex flex-col items-end'>
 											<div className='flex w-72 flex-row-reverse'>
-												<div className='bg-gradient-to-br from-gray-200 to-gray-300 w-20 m-2  h-8 p-2 rounded-2xl animate-pulse'></div>
+												<div className='bg-gradient-to-br dark:from-gray-800 from-gray-200 dark:to-gray-700 to-gray-300 w-20 m-2  h-8 p-2 rounded-2xl animate-pulse'></div>
 											</div>
 										</div>
 									) : (
@@ -114,7 +114,7 @@ export const Calculator: React.FC = () => {
 								</div>
 							</div>
 
-							<div className='flex items-center h-64 overflow-hidden bg-gray-100 shadow-inner'>
+							<div className='flex items-center h-64 overflow-hidden dark:bg-gray-800 bg-gray-100 shadow-inner'>
 								<div className='flex flex-col h-72 p-11 w-96 mr-2 mx-auto'>
 									<History></History>
 								</div>
@@ -125,14 +125,14 @@ export const Calculator: React.FC = () => {
 			</div>
 
 			{/*Controls*/}
-			<div className='flex flex-auto max-h-16 flex-row-reverse'>
+			<div className='flex flex-auto max-h-16 flex-row-reverse dark:bg-base-200 p-1'>
 				{/* Erase */}
 				<Button
 					onClick={() => {
 						addCalcToHistory(calc);
 						eraseCalc();
 					}}
-					className='hover:bg-gray-100 flex items-center rounded-2xl font-semibold mx-1 w-12 p-2'
+					className=' flex items-center rounded-2xl font-semibold mx-1 w-12 p-2'
 				>
 					<p className='mx-auto text-3xl text-red-400'>C</p>
 				</Button>
@@ -140,7 +140,7 @@ export const Calculator: React.FC = () => {
 				{/* Back */}
 				<Button
 					onClick={() => delCalc()}
-					className='hover:bg-gray-100 flex items-center rounded-2xl font-semibold w-12 p-2'
+					className=' flex items-center rounded-2xl font-semibold w-12 p-2'
 				>
 					<IconBackspace className='text-red-400 mx-auto'></IconBackspace>
 				</Button>
@@ -177,7 +177,7 @@ export const Calculator: React.FC = () => {
 			</div>
 
 			{/*Tab Pad*/}
-			<div className='flex flex-auto h-80  mx-1'>
+			<div className='flex flex-auto h-80  dark:bg-base-200 w-full'>
 				{/* Numbers and basic operations */}
 				<TabPanel
 					className={
@@ -228,7 +228,7 @@ export const Calculator: React.FC = () => {
 			</div>
 
 			{/* Cursor Buttons */}
-			<div className='flex flex-auto max-h-12'>
+			<div className='flex flex-auto max-h-12 dark:bg-base-200'>
 				{/* To Start */}
 				<button
 					className='flex flex-auto rounded items-center hover:bg-gray-200 p-4'

@@ -21,10 +21,10 @@ import { CalcButton } from './CalcButton';
 
 export const UnitsTab: React.FC = () => {
 	return (
-		<div className='h-4'>
+		<div className='h-4 dark:text-gray-400'>
 			{/* Length Units */}
-			<div className='flex flex-row flex-auto overflow-x-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-x-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconRoad></IconRoad>
 				</div>
 				<CalcButton operation='mm '></CalcButton>
@@ -46,8 +46,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Surface Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconSquareForbid></IconSquareForbid>
 				</div>
 				<CalcButton operation='m2 '></CalcButton>
@@ -62,8 +62,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Volume Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconBox></IconBox>
 				</div>
 				<CalcButton operation='m3 '></CalcButton>
@@ -77,8 +77,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Liquid Volume Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconBucket></IconBucket>
 				</div>
 				<CalcButton operation='minim '></CalcButton>
@@ -96,8 +96,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Angles Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconAngle></IconAngle>
 				</div>
 				<CalcButton tooltip='radian' operation='rad '></CalcButton>
@@ -109,8 +109,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Time Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconClock></IconClock>
 				</div>
 				<CalcButton tooltip='second' operation='s '></CalcButton>
@@ -125,8 +125,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Frequency Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconHourglass></IconHourglass>
 				</div>
 				<CalcButton
@@ -137,8 +137,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Mass Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconWeight></IconWeight>
 				</div>
 				<CalcButton tooltip='' operation='mg '></CalcButton>
@@ -160,8 +160,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Electric Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconBolt></IconBolt>
 				</div>
 				<CalcButton tooltip='ampere' operation='A '></CalcButton>
@@ -178,8 +178,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Temperature Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconTemperature></IconTemperature>
 				</div>
 				<CalcButton tooltip='kelvin' operation='K '></CalcButton>
@@ -196,8 +196,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Amount of Substance Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconFlask></IconFlask>
 				</div>
 				<CalcButton
@@ -208,8 +208,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Luminous Intencity Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconBulb></IconBulb>
 				</div>
 				<CalcButton
@@ -220,8 +220,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Force Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconApple></IconApple>
 				</div>
 				<CalcButton tooltip='newton' operation='N '></CalcButton>
@@ -232,8 +232,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Energy Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconBuildingWindTurbine></IconBuildingWindTurbine>
 				</div>
 				<CalcButton tooltip='joule' operation='J '></CalcButton>
@@ -243,8 +243,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Pressure Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconEngine></IconEngine>
 				</div>
 				<CalcButton tooltip='' operation='Pa '></CalcButton>
@@ -258,8 +258,8 @@ export const UnitsTab: React.FC = () => {
 			</div>
 
 			{/* Binary Units */}
-			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100'>
-				<div className='bg-white shadow p-2 text-black'>
+			<div className='flex flex-row flex-auto overflow-scroll bg-gray-100 dark:bg-gray-800'>
+				<div className='bg-white shadow p-2 text-black  dark:bg-base-200 dark:text-white'>
 					<IconBinary></IconBinary>
 				</div>
 				<CalcButton

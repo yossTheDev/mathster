@@ -415,6 +415,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@capacitor/share@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@capacitor/share@npm:4.1.0"
+  peerDependencies:
+    "@capacitor/core": ^4.0.0
+  checksum: 4e78864da8f801d3bb252bae60791e504f88ce9734d4245c6ddd838636df4b70c096acc6b934b1ed29ab5c1998be7ea3bdb87b78f4797c09aaf382638c9151e8
+  languageName: node
+  linkType: hard
+
 "@capacitor/splash-screen@npm:^4.1.2":
   version: 4.1.2
   resolution: "@capacitor/splash-screen@npm:4.1.2"
@@ -3692,6 +3701,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"katex@npm:^0.13.0":
+  version: 0.13.24
+  resolution: "katex@npm:0.13.24"
+  dependencies:
+    commander: ^8.0.0
+  bin:
+    katex: cli.js
+  checksum: 1b7c8295867073d0db4f6fb41ef1c0e3418b8e23924ff61b446b36134cb74cdadc7242dfbfb922d9c32f0b15eda6160a08cd30948c4e78141966ca2991a1726b
+  languageName: node
+  linkType: hard
+
 "katex@npm:^0.16.4":
   version: 0.16.4
   resolution: "katex@npm:0.16.4"
@@ -4766,6 +4786,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-latex-next@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "react-latex-next@npm:2.2.0"
+  dependencies:
+    katex: ^0.13.0
+  peerDependencies:
+    prop-types: ^15.5.4
+    react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 2e4af63ae1b7a166f9b4a2e6b4aaa108acd6ca5994464c78ae1e14c8e45e035cb307f043172a839f91667c6b6cb503ec2e3f8f3b109b86e04f5162370e5a8e9f
+  languageName: node
+  linkType: hard
+
 "react-math-view@npm:^1.3.2":
   version: 1.3.2
   resolution: "react-math-view@npm:1.3.2"
@@ -5530,6 +5563,7 @@ __metadata:
     "@capacitor/core": ^4.5.0
     "@capacitor/haptics": ^4.1.0
     "@capacitor/preferences": ^4.0.2
+    "@capacitor/share": ^4.1.0
     "@capacitor/splash-screen": ^4.1.2
     "@capacitor/status-bar": ^4.1.0
     "@capacitor/toast": ^4.1.0
@@ -5574,6 +5608,7 @@ __metadata:
     react-daisyui: ^2.4.6
     react-dom: ^18.2.0
     react-headless-tabs: ^6.0.3
+    react-latex-next: ^2.2.0
     react-math-view: ^1.3.2
     react-router: ^6.4.5
     react-router-dom: ^6.4.3

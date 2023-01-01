@@ -16,7 +16,7 @@ export const Button: React.FC<Props> = ({ className, children, onClick }) => {
 					onClick();
 				}
 			}}
-			className={`hover:bg-gray-100 select-none hover:shadow-inner flex items-center rounded p-2 ${className}`}
+			className={`active:bg-gray-100 dark:active:bg-gray-800 select-none hover:shadow-inner flex items-center rounded p-2 ${className}`}
 		>
 			{children}
 		</button>

@@ -11,7 +11,7 @@ export const LettersTab: React.FC = () => {
 	return (
 		<>
 			{/* Numbers Row */}
-			<div className='flex flex-auto w-full'>
+			<div className='flex flex-auto w-full dark:text-gray-400'>
 				{numbers.map((el, i) => (
 					<CalcButton
 						key={el}
@@ -21,7 +21,7 @@ export const LettersTab: React.FC = () => {
 				))}
 			</div>
 			{/* First Row */}
-			<div className='flex flex-auto w-full'>
+			<div className='flex flex-auto w-full dark:text-gray-400'>
 				{lettersFirstRow.map((el) => (
 					<CalcButton
 						key={el}
@@ -32,7 +32,7 @@ export const LettersTab: React.FC = () => {
 			</div>
 
 			{/* First Row */}
-			<div className='flex flex-auto w-full'>
+			<div className='flex flex-auto w-full dark:text-gray-400'>
 				{lettersSecondRow.map((el) => (
 					<CalcButton
 						key={el}
@@ -43,7 +43,7 @@ export const LettersTab: React.FC = () => {
 			</div>
 
 			{/* First Row */}
-			<div className='flex  flex-auto w-full'>
+			<div className='flex  flex-auto w-full dark:text-gray-400'>
 				{lettersThirdRow.map((el) => (
 					<CalcButton
 						key={el}

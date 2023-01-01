@@ -8,36 +8,43 @@ import {
 } from '@tabler/icons';
 
 import yoss from '../assets/yoss.png';
-import math from '../assets/newlogo.svg';
+import { MathsterLogo } from '../components/Icons';
 
 export const About: React.FC = () => {
 	return (
 		<>
 			{/* Nav Bar */}
-			<Navbar>
+			<Navbar className='dark:bg-base-200'>
 				<Navbar.Start>
 					<MenuButton></MenuButton>
 				</Navbar.Start>
-				<div className='flex-auto flex w-full '>
-					<p className='poppins-font-family  normal-cas font-bold mx-auto text-2xl text-center'>
-						About
-					</p>
-				</div>
+
+				<Navbar.Center>
+					<div className='flex-auto flex w-full mx-auto'>
+						<p className='poppins-font-family normal-cas font-bold  text-2xl text-center dark:text-white'>
+							About
+						</p>
+					</div>
+				</Navbar.Center>
+
+				<Navbar.End></Navbar.End>
 			</Navbar>
 
-			<div className='overflow-scroll flex flex-auto flex-col select-none'>
+			<div className='overflow-scroll flex flex-auto flex-col select-none dark:bg-base-200'>
 				{/* App Card*/}
 				<div className='mx-auto mt-6 flex-row flex'>
 					<div className='flex flex-auto flex-col'>
-						<img src={math} className='h-16 mt-auto mb-auto'></img>
+						<MathsterLogo className='dark:fill-white h-20 w-20'></MathsterLogo>
 					</div>
 					<div className='flex flex-auto flex-col m-2 mt-6'>
-						<p className='mx-auto font-bold text-2xl'>Mathster</p>
+						<p className='mx-auto font-bold text-2xl dark:text-white'>
+							Mathster
+						</p>
 						<p className='mx-auto text-gray-500'>v 0.0.4 r</p>
 					</div>
 				</div>
 				{/* Hero Card*/}
-				<div className='flex flex-col shadow-2xl p-6 rounded mx-6'>
+				<div className='flex flex-col shadow-xl p-6 rounded mx-6 '>
 					<img src={yoss} className='rounded-full h-36 mx-auto'></img>
 					<p className='text-3xl font-bold m-2'>Hi! 👋</p>
 					<p className='font-semibold m-2'>I am Yoannis Sánchez Soto</p>
@@ -50,25 +57,25 @@ export const About: React.FC = () => {
 						<a
 							href='https://t.me/yossthedev'
 							target={'_blank'}
-							className='shadow rounded-full inline-block m-2 p-2 bg-gray-50 hover:bg-gray-300'
+							className='shadow rounded-full inline-block m-2 p-2 dark:bg-gray-900 bg-gray-50 hover:bg-gray-300'
 						>
-							<IconBrandTelegram></IconBrandTelegram>
+							<IconBrandTelegram className='dark:text-white'></IconBrandTelegram>
 						</a>
 
 						<a
 							href='https://twitter.com/yossthedev'
 							target={'_blank'}
-							className='shadow rounded-full inline-block m-2 p-2 bg-gray-50 hover:bg-gray-300'
+							className='shadow rounded-full inline-block m-2 p-2 dark:bg-gray-900 bg-gray-50 hover:bg-gray-300'
 						>
-							<IconBrandTwitter></IconBrandTwitter>
+							<IconBrandTwitter className='dark:text-white'></IconBrandTwitter>
 						</a>
 
 						<a
 							href='https://github.com/yossthedev'
 							target={'_blank'}
-							className='shadow rounded-full inline-block m-2 p-2 bg-gray-50 hover:bg-gray-300'
+							className='shadow rounded-full inline-block m-2 p-2 dark:bg-gray-900 bg-gray-50 hover:bg-gray-300'
 						>
-							<IconBrandGithub></IconBrandGithub>
+							<IconBrandGithub className='dark:text-white'></IconBrandGithub>
 						</a>
 					</div>
 				</div>
