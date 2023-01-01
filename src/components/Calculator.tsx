@@ -230,52 +230,52 @@ export const Calculator: React.FC = () => {
 			{/* Cursor Buttons */}
 			<div className='flex flex-auto max-h-12 dark:bg-base-200'>
 				{/* To Start */}
-				<button
-					className='flex flex-auto rounded items-center hover:bg-gray-200 p-4'
+				<Button
+					className='flex flex-auto rounded items-center  p-4'
 					onClick={() => {
 						moveCursorToStart();
 					}}
 				>
 					<IconChevronsLeft className='mx-auto text-gray-500'></IconChevronsLeft>
-				</button>
+				</Button>
 
 				{/* To Left */}
-				<button
-					className=' flex flex-auto p-4 rounded items-center hover:bg-gray-200'
+				<Button
+					className=' flex flex-auto p-4 rounded items-center '
 					onClick={() => {
 						leftCursor();
 					}}
 				>
 					<IconChevronLeft className='mx-auto text-gray-500'></IconChevronLeft>
-				</button>
+				</Button>
 
 				{/* Space */}
-				<button
-					className='flex flex-auto p-4 rounded items-center hover:bg-gray-200'
+				<Button
+					className='flex flex-auto p-4 rounded items-center '
 					onClick={() => {
 						addCalc(' ');
 					}}
 				>
 					<IconSpace className='text-gray-500 mx-auto'></IconSpace>
-				</button>
+				</Button>
 
 				{/* To Right */}
-				<button
-					className='flex flex-auto rounded p-4 items-center hover:bg-gray-200'
+				<Button
+					className='flex flex-auto rounded p-4 items-center '
 					onClick={() => {
 						rightCursor();
 					}}
 				>
 					<IconChevronRight className='mx-auto text-gray-500'></IconChevronRight>
-				</button>
-				<button
-					className={`flex flex-auto rounded p-4 items-center hover:bg-gray-200`}
+				</Button>
+				<Button
+					className={`flex flex-auto rounded p-4 items-center `}
 					onClick={() => {
 						moveCursorToEnd();
 					}}
 				>
 					<IconChevronsRight className='mx-auto text-gray-500'></IconChevronsRight>
-				</button>
+				</Button>
 			</div>
 		</>
 	);

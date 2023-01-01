@@ -12,10 +12,11 @@ export const DarkModeButton: React.FC<{ className?: string }> = ({
 	return (
 		<Swap
 			rotate
+			active={darkMode}
 			className={` hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full p-4 ${className}`}
 			onChange={() => toggleDarkMode()}
-			onElement={<IconMoon className='dark:text-white'></IconMoon>}
-			offElement={<IconSun></IconSun>}
+			offElement={<IconMoon className='dark:text-white'></IconMoon>}
+			onElement={<IconSun className='dark:text-white'></IconSun>}
 		></Swap>
 	);
 };
