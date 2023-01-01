@@ -2,6 +2,7 @@ import { IconArrowDown, IconTrash } from '@tabler/icons';
 import React, { useEffect, useRef } from 'react';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
 import { Button } from './Button';
+import { ExpressionViewer } from './ExpressionViewer';
 
 export const History: React.FC = () => {
 	/* Store States and Actions */
@@ -45,9 +46,11 @@ export const History: React.FC = () => {
 							key={i}
 							onClick={() => setCalc(el.calc)}
 						>
-							<p className='font-bold text-2xl  break-words whitespace-pre-wrap  dark:text-white'>
-								{el.calc}
-							</p>
+							<ExpressionViewer
+								className='text-2xl'
+								value={el.calc}
+							></ExpressionViewer>
+
 							<p className='text-xs text-gray-500'>{el.dateTime}</p>
 						</div>
 					))
