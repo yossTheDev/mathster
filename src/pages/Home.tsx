@@ -10,6 +10,7 @@ import { Calculator } from '../components/Calculator';
 import { MenuButton } from '../components/MenuButton';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
 import { Clipboard } from '@capacitor/clipboard';
+import { Share } from '@capacitor/share';
 import { Toast } from '@capacitor/toast';
 
 export const Home: React.FC = () => {
@@ -55,6 +56,15 @@ export const Home: React.FC = () => {
 									let data = await Clipboard.read();
 									console.log(data);
 									if (data.type === 'text/plain') setCalc(data.value);
+								}}
+							>
+								<IconClipboard></IconClipboard>
+								<p>Paste from clipboard</p>
+							</Dropdown.Item>
+
+							<Dropdown.Item
+								onClick={async () => {
+									await Share.share({ text: calc });
 								}}
 							>
 								<IconClipboard></IconClipboard>

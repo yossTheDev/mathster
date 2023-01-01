@@ -44,7 +44,7 @@ export const About: React.FC = () => {
 					</div>
 				</div>
 				{/* Hero Card*/}
-				<div className='flex flex-col shadow-xl p-6 rounded mx-6 '>
+				<div className='flex flex-col shadow-xl p-6 rounded mx-6 dark:text-white'>
 					<img src={yoss} className='rounded-full h-36 mx-auto'></img>
 					<p className='text-3xl font-bold m-2'>Hi! 👋</p>
 					<p className='font-semibold m-2'>I am Yoannis Sánchez Soto</p>
