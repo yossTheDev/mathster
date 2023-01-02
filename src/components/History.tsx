@@ -40,7 +40,7 @@ export const History: React.FC = () => {
 				className=' h-full flex flex-col overflow-y-scroll overflow-x-hidden'
 			>
 				{history.length > 0 ? (
-					history.slice(0, 10).map((el, i) => (
+					history.map((el, i) => (
 						<div
 							className='dark:hover:bg-gray-800 dark:bg-gray-700 bg-gray-200 shadow rounded hover:bg-white hover:rounded p-2 m-2 select-none'
 							key={i}
