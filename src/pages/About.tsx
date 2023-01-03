@@ -43,8 +43,9 @@ export const About: React.FC = () => {
 						<p className='mx-auto text-gray-500'>v 0.0.4 r</p>
 					</div>
 				</div>
+
 				{/* Hero Card*/}
-				<div className='flex flex-col shadow-xl p-6 rounded mx-6 dark:text-white'>
+				<div className='flex flex-col shadow-xl p-6 rounded-2xl mt-2 mx-6 dark:text-white bg-gray-100 dark:bg-gray-800/20'>
 					<img src={yoss} className='rounded-full h-36 mx-auto'></img>
 					<p className='text-3xl font-bold m-2'>Hi! 👋</p>
 					<p className='font-semibold m-2'>I am Yoannis Sánchez Soto</p>
@@ -57,7 +58,7 @@ export const About: React.FC = () => {
 						<a
 							href='https://t.me/yossthedev'
 							target={'_blank'}
-							className='shadow rounded-full inline-block m-2 p-2 dark:bg-gray-900 bg-gray-50 hover:bg-gray-300'
+							className='shadow rounded-full inline-block m-2 p-2 dark:bg-gray-800/30 bg-gray-50 hover:bg-gray-300'
 						>
 							<IconBrandTelegram className='dark:text-white'></IconBrandTelegram>
 						</a>
@@ -65,7 +66,7 @@ export const About: React.FC = () => {
 						<a
 							href='https://twitter.com/yossthedev'
 							target={'_blank'}
-							className='shadow rounded-full inline-block m-2 p-2 dark:bg-gray-900 bg-gray-50 hover:bg-gray-300'
+							className='shadow rounded-full inline-block m-2 p-2 dark:bg-gray-800/30 bg-gray-50 hover:bg-gray-300'
 						>
 							<IconBrandTwitter className='dark:text-white'></IconBrandTwitter>
 						</a>
@@ -73,7 +74,7 @@ export const About: React.FC = () => {
 						<a
 							href='https://github.com/yossthedev'
 							target={'_blank'}
-							className='shadow rounded-full inline-block m-2 p-2 dark:bg-gray-900 bg-gray-50 hover:bg-gray-300'
+							className='shadow rounded-full inline-block m-2 p-2 dark:bg-gray-800/30 bg-gray-50 hover:bg-gray-300'
 						>
 							<IconBrandGithub className='dark:text-white'></IconBrandGithub>
 						</a>

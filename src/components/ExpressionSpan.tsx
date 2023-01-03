@@ -32,10 +32,7 @@ const Span: React.FC<SpanProps> = ({ children, index }: SpanProps) => {
 	const setCursor = useStoreActions((state) => state.setCursor);
 
 	return (
-		<span
-			className='transition ease-in-out delay-150  duration-300 dark:hover:bg-gray-600 hover:bg-gray-200 hover:rounded dark:text-white'
-			onClick={() => setCursor(index)}
-		>
+		<span className='dark:text-white' onClick={() => setCursor(index)}>
 			{children}
 		</span>
 	);

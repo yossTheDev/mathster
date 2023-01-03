@@ -48,7 +48,7 @@ export const Donations: React.FC = () => {
 				</p>
 
 				<div className='flex flex-wrap  items-center  mx-2'>
-					<div className='flex flex-auto shadow rounded-2xl  dark:bg-gray-800 m-2 p-4 bg-gray-200 hover:bg-gray-300'>
+					<div className='flex flex-auto shadow rounded-2xl  dark:bg-gray-800/40 m-2 p-4 bg-gray-200 hover:bg-gray-300'>
 						<IconCreditCard
 							size={36}
 							className='text-green-600 mx-auto'
@@ -58,7 +58,7 @@ export const Donations: React.FC = () => {
 						></IconCreditCard>
 					</div>
 
-					<div className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800  m-2 p-4 bg-gray-200 hover:bg-gray-300'>
+					<div className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40  m-2 p-4 bg-gray-200 hover:bg-gray-300'>
 						<IconPhone
 							size={36}
 							className='text-blue-600 mx-auto'
@@ -68,7 +68,7 @@ export const Donations: React.FC = () => {
 						></IconPhone>
 					</div>
 
-					<div className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800 m-2 p-4 bg-gray-200 hover:bg-gray-300'>
+					<div className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-200 hover:bg-gray-300'>
 						<IconCoinBitcoin
 							size={36}
 							className='text-yellow-400 mx-auto'
@@ -78,7 +78,7 @@ export const Donations: React.FC = () => {
 						></IconCoinBitcoin>
 					</div>
 
-					<div className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800 m-2 p-4 bg-gray-200 hover:bg-gray-300'>
+					<div className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-200 hover:bg-gray-300'>
 						<IconCurrencyDogecoin
 							size={36}
 							className='text-yellow-700 mx-auto'
@@ -91,7 +91,7 @@ export const Donations: React.FC = () => {
 					<a
 						href='https://qvapay.com/payme/yoannisgnw'
 						target={'_blank'}
-						className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800 m-2 p-4 bg-gray-200 hover:bg-gray-300'
+						className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-200 hover:bg-gray-300'
 					>
 						<img className='text-yellow-700 mx-auto h-8' src={qvapay}></img>
 					</a>

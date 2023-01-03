@@ -18,8 +18,9 @@ export const History: React.FC = () => {
 	const reference = useRef<HTMLDivElement>(null);
 
 	return (
-		<div className='overflow-hidden  flex flex-auto flex-col w-full'>
-			<p className='flex flex-row'>
+		<div className='overflow-hidden  flex flex-auto h-full flex-col w-full'>
+			{/* Header */}
+			<p className='flex flex-row mb-2'>
 				<p className='font-bold text-3xl dark:text-white'>History</p>
 				<div className='flex flex-row ml-auto'>
 					<Button onClick={() => clearHistory()}>
@@ -35,19 +36,20 @@ export const History: React.FC = () => {
 				</div>
 			</p>
 
+			{/* List */}
 			<div
 				ref={reference}
-				className=' h-full flex flex-col overflow-y-scroll overflow-x-hidden'
+				className='flex flex-auto flex-col overflow-y-scroll overflow-x-hidden  mx-auto'
 			>
 				{history.length > 0 ? (
 					history.map((el, i) => (
 						<div
-							className='dark:hover:bg-gray-800 dark:bg-gray-700 bg-gray-200 shadow rounded hover:bg-white hover:rounded p-2 m-2 select-none'
+							className='dark:hover:bg-gray-600 dark:bg-gray-800/20 bg-gray-200 shadow rounded hover:bg-white hover:rounded p-4 m-2 select-none w-64'
 							key={i}
 							onClick={() => setCalc(el.calc)}
 						>
 							<ExpressionViewer
-								className='text-2xl'
+								className='text-2xl mb-4'
 								value={el.calc}
 							></ExpressionViewer>
 

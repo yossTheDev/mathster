@@ -10,21 +10,14 @@ interface Props {
 export const ExpressionViewer: React.FC<Props> = ({ className, value }) => {
 	return (
 		<div className={`whitespace-pre-wrap select-none ${className}`}>
-			{parseExpression(value).map((elem, i) =>
-				elem.value !== '_' ? (
-					<ExpressionSpan
-						key={i}
-						value={elem.value}
-						type={elem.type as string}
-						index={elem.index}
-					></ExpressionSpan>
-				) : (
-					<span
-						key={'cursor'}
-						className={`relative animate-pulse h-2 p-0.5 bg-red-400`}
-					></span>
-				)
-			)}
+			{parseExpression(value).map((elem, i) => (
+				<ExpressionSpan
+					key={i}
+					value={elem.value}
+					type={elem.type as string}
+					index={elem.index}
+				></ExpressionSpan>
+			))}
 		</div>
 	);
 };
