@@ -77,7 +77,7 @@ export const Home: React.FC = () => {
 									await Share.share({
 										dialogTitle: 'Share',
 										title: 'Solve this problem with Mathster',
-										text: calc,
+										text: 'Solve this problem with Mathster: ' + calc,
 										url: 'https://github.com/yossTheDev/mathster',
 									});
 								}}

@@ -1,8 +1,10 @@
 import * as ce from '@cortex-js/compute-engine';
-import { IconClipboardCopy, IconEqual } from '@tabler/icons';
+import { IconClipboardCopy, IconCopy, IconEqual } from '@tabler/icons';
+import { parse } from 'mathjs';
 import nerdamer from 'nerdamer/all.js';
 import React, { useEffect, useState } from 'react';
 import MathView from 'react-math-view';
+import { ExpressionViewer } from './ExpressionViewer';
 
 export const AlgebraResultContainer: React.FC<{
 	value: string;
@@ -26,12 +28,12 @@ export const AlgebraResultContainer: React.FC<{
 			const ces = new ce.ComputeEngine();
 
 			// Get numeric result of the expression resolved by Nerdamer
-			const t = ces
+			let t = ces
 				.parse(r.toTeX().replace('[', '').replace(']', '') as string)
 				.N().latex;
 
-			setResult(r.toTeX());
-			setNumericResult(t);
+			setResult(r.toString().replace('[', '').replace(']', ''));
+			setNumericResult(t.replace('"', '').replace('"', ''));
 
 			//console.log(r.text());
 		} catch (error) {
@@ -39,21 +41,24 @@ export const AlgebraResultContainer: React.FC<{
 		}
 	}, [variable, expression]);
 	return result !== '[]' && result !== '[0]' ? (
-		<div className='m-4 bg-white rounded shadow p-2'>
-			<p className='poppins-font-family  mb-4'>
-				Results for <span className='text-2xl text-red-400'>{variable}</span>
+		<div className='m-4 bg-gray-100 rounded-2xl shadow p-4 dark:bg-gray-800/30'>
+			<p className='poppins-font-family text-2xl m-2  mb-4 dark:text-white'>
+				Results for
+				<span className='text-xl text-red-400 ml-2'>{variable}</span>
 			</p>
-			<MathView readOnly className='text-2xl' value={result}></MathView>
 
-			<div className='flex flex-row container bg-gray-100 rounded mt-4'>
-				<IconEqual className='mx-2 mt-auto mb-auto'></IconEqual>
+			<ExpressionViewer className='text-2xl' value={result}></ExpressionViewer>
+
+			<div className='flex flex-row bg-gray-100 dark:bg-gray-800/50 rounded mt-4'>
+				<IconEqual className='flex mx-2 mt-auto mb-auto'></IconEqual>
+
 				<MathView
 					readOnly
-					className='text-2xl overflow-scroll mt-auto mb-auto '
+					className='text-2xl dark:text-white overflow-scroll w-8 flex flex-auto mt-auto mb-auto'
 					value={numericResult}
 				></MathView>
 
-				<IconClipboardCopy className='mb-auto mt-auto ml-auto'></IconClipboardCopy>
+				<IconCopy className='mb-auto mt-auto hover:bg-white/5 rounded dark:text-white ml-2 mr-2'></IconCopy>
 			</div>
 		</div>
 	) : (

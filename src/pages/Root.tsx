@@ -1,17 +1,16 @@
+import { StatusBar, Style } from '@capacitor/status-bar';
 import {
 	IconCalculator,
+	IconCoin,
 	IconInfoCircle,
-	IconMoneybag,
 	IconSuperscript,
 } from '@tabler/icons';
-import React, { useEffect } from 'react';
-import { Button, Drawer } from 'react-daisyui';
+import React from 'react';
+import { Drawer } from 'react-daisyui';
 import { NavLink, Outlet } from 'react-router-dom';
-import math from '../assets/newlogo.svg';
 import { DarkModeButton } from '../components/DarkModeButton';
 import { MathsterLogo } from '../components/Icons';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
-import { StatusBar, Style } from '@capacitor/status-bar';
 
 const Side: React.FC<{ className?: string }> = ({ className }) => (
 	<>
@@ -28,30 +27,29 @@ const Side: React.FC<{ className?: string }> = ({ className }) => (
 				Mathster
 			</p>
 
-			<li className='lg:w-5'>
+			<li className='lg:w-5 my-2'>
 				<NavLink className={'dark:text-white'} to={'/'}>
 					<IconCalculator></IconCalculator>
 					<p className='lg:hidden'>Home</p>
 				</NavLink>
 			</li>
 
-			<li className='lg:w-5'>
-				<NavLink className={'hidden'} to={'/algebra'}>
+			<li className='lg:w-5  my-2'>
+				<NavLink className={'dark:text-white'} to={'/algebra'}>
 					<IconSuperscript></IconSuperscript>
-					<p>Algebra</p>
-				</NavLink>
-			</li>
-
-			<li className='lg:w-5'>
-				<NavLink className={'dark:text-white'} to={'/donations'}>
-					<IconMoneybag></IconMoneybag>
-					<p className='lg:hidden'>Donations</p>
+					<p className='lg:hidden'>Algebra</p>
 				</NavLink>
 			</li>
 
 			<div className='mt-auto'>
 				<div className='bg-gray-200 dark:bg-gray-800 h-0.5 m-2'></div>
-				<li className='lg:w-5'>
+				<li className='lg:w-5  my-2'>
+					<NavLink className={'dark:text-white'} to={'/donations'}>
+						<IconCoin></IconCoin>
+						<p className='lg:hidden'>Donations</p>
+					</NavLink>
+				</li>
+				<li className='lg:w-5  my-2'>
 					<NavLink className={'dark:text-white'} to={'/about'}>
 						<IconInfoCircle></IconInfoCircle>
 						<p className='lg:hidden'>About</p>

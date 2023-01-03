@@ -11,6 +11,7 @@ import qvapay from '../assets/qvapay.svg';
 import { Navbar } from 'react-daisyui';
 import { MenuButton } from '../components/MenuButton';
 import { Clipboard } from '@capacitor/clipboard';
+import { Toast } from '@capacitor/toast';
 
 export const Donations: React.FC = () => {
 	return (
@@ -48,50 +49,63 @@ export const Donations: React.FC = () => {
 				</p>
 
 				<div className='flex flex-wrap  items-center  mx-2'>
-					<div className='flex flex-auto shadow rounded-2xl  dark:bg-gray-800/40 m-2 p-4 bg-gray-200 hover:bg-gray-300'>
+					<div
+						onClick={async () => {
+							await Toast.show({ text: 'Copied!' });
+							await Clipboard.write({ string: '9238129970601219' });
+						}}
+						className='flex flex-auto shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-100 hover:bg-gray-300 hover:dark:bg-white/5'
+					>
 						<IconCreditCard
 							size={36}
 							className='text-green-600 mx-auto'
-							onClick={async () =>
-								await Clipboard.write({ string: '9238129970601219' })
-							}
 						></IconCreditCard>
 					</div>
 
-					<div className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40  m-2 p-4 bg-gray-200 hover:bg-gray-300'>
-						<IconPhone
-							size={36}
-							className='text-blue-600 mx-auto'
-							onClick={async () =>
-								await Clipboard.write({ string: '58389251' })
-							}
-						></IconPhone>
+					<div
+						onClick={async () => {
+							await Toast.show({ text: 'Copied!' });
+							await Clipboard.write({ string: '58389251' });
+						}}
+						className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40  m-2 p-4 bg-gray-100 hover:bg-gray-300 hover:dark:bg-white/5'
+					>
+						<IconPhone size={36} className='text-blue-600 mx-auto'></IconPhone>
 					</div>
 
-					<div className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-200 hover:bg-gray-300'>
+					<div
+						onClick={async () => {
+							await Toast.show({ text: 'Copied!' });
+							await Clipboard.write({
+								string: 'bc1qwr6wltxvpvuqhx94lqjrdr090747yz9rw5mpec',
+							});
+						}}
+						className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-100 hover:bg-gray-300 hover:dark:bg-white/5'
+					>
 						<IconCoinBitcoin
 							size={36}
 							className='text-yellow-400 mx-auto'
-							onClick={async () =>
-								await Clipboard.write({ string: '58389251' })
-							}
 						></IconCoinBitcoin>
 					</div>
 
-					<div className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-200 hover:bg-gray-300'>
+					<div
+						onClick={async () => {
+							await Toast.show({ text: 'Copied!' });
+							await Clipboard.write({
+								string: 'DFUAWcJLiqYKmZydxFsowdsEZio5ue9JYC',
+							});
+						}}
+						className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-100 hover:bg-gray-300 hover:dark:bg-white/5'
+					>
 						<IconCurrencyDogecoin
 							size={36}
 							className='text-yellow-700 mx-auto'
-							onClick={async () =>
-								await Clipboard.write({ string: '58389251' })
-							}
 						></IconCurrencyDogecoin>
 					</div>
 
 					<a
 						href='https://qvapay.com/payme/yoannisgnw'
 						target={'_blank'}
-						className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-200 hover:bg-gray-300'
+						className='flex flex-auto  shadow rounded-2xl dark:bg-gray-800/40 m-2 p-4 bg-gray-100 hover:bg-gray-300 hover:dark:bg-white/5'
 					>
 						<img className='text-yellow-700 mx-auto h-8' src={qvapay}></img>
 					</a>

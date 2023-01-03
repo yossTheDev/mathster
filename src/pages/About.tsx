@@ -30,11 +30,11 @@ export const About: React.FC = () => {
 				<Navbar.End></Navbar.End>
 			</Navbar>
 
-			<div className='overflow-scroll flex flex-auto flex-col select-none dark:bg-base-200'>
+			<div className='overflow-scroll flex flex-auto md:flex-row flex-col select-none dark:bg-base-200'>
 				{/* App Card*/}
-				<div className='mx-auto mt-6 flex-row flex'>
-					<div className='flex flex-auto flex-col'>
-						<MathsterLogo className='dark:fill-white h-20 w-20'></MathsterLogo>
+				<div className='mx-auto mt-6 flex-row flex md:m-2 md:mt-auto md:mb-auto md:flex-col'>
+					<div className='flex flex-auto flex-col mx-auto md:ml-20 md:mr-16'>
+						<MathsterLogo className='dark:fill-white h-20 w-20 mx-auto md:h-36 md:w-36'></MathsterLogo>
 					</div>
 					<div className='flex flex-auto flex-col m-2 mt-6'>
 						<p className='mx-auto font-bold text-2xl dark:text-white'>
@@ -45,7 +45,7 @@ export const About: React.FC = () => {
 				</div>
 
 				{/* Hero Card*/}
-				<div className='flex flex-col shadow-xl p-6 rounded-2xl mt-2 mx-6 dark:text-white bg-gray-100 dark:bg-gray-800/20'>
+				<div className='flex flex-col shadow-xl p-6 rounded-2xl mt-2 mx-6  dark:text-white bg-gray-100 dark:bg-gray-800/20'>
 					<img src={yoss} className='rounded-full h-36 mx-auto'></img>
 					<p className='text-3xl font-bold m-2'>Hi! 👋</p>
 					<p className='font-semibold m-2'>I am Yoannis Sánchez Soto</p>

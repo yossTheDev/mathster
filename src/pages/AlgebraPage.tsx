@@ -1,18 +1,10 @@
-import { IconClipboardCopy, IconSubscript, IconTrash } from '@tabler/icons';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Input, Navbar } from 'react-daisyui';
-import { MenuButton } from '../components/MenuButton';
-//import mathsteps from 'mathsteps';
-//import algebra from 'algebra.js';
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-import nerdamer from 'nerdamer/all.js';
-//import * as CQ from 'coffeequate';
-import TeX from '@matejmazur/react-katex';
+import { IconClipboardCopy, IconTrash } from '@tabler/icons';
 import 'katex/dist/katex.min.css';
+import React, { useEffect, useRef, useState } from 'react';
+import { Input, Navbar } from 'react-daisyui';
 import MathView, { MathViewRef } from 'react-math-view';
 import { AlgebraResultContainer } from '../components/AlgebraResultContainer';
-import { Button } from '../components/Button';
+import { MenuButton } from '../components/MenuButton';
 
 function onlyUnique(value: string, index: any, self: any) {
 	return self.indexOf(value) === index;
@@ -102,115 +94,112 @@ export const AlgebraPage: React.FC = () => {
 	return (
 		<>
 			{/* Nav Bar */}
-			<Navbar>
+			<Navbar className='dark:bg-base-200'>
 				<Navbar.Start>
 					<MenuButton></MenuButton>
 				</Navbar.Start>
-				<div className='flex-auto flex w-full '>
-					<div className='flex-row flex mx-auto'>
-						<p className='poppins-font-family normal-cas font-bold  text-2xl text-center'>
+
+				<Navbar.Center>
+					<div className='flex-auto flex w-full mx-auto'>
+						<p className='poppins-font-family normal-cas font-bold  text-2xl text-center dark:text-white'>
 							Algebra
 						</p>
 					</div>
-				</div>
+				</Navbar.Center>
+
+				<Navbar.End></Navbar.End>
 			</Navbar>
 
-			<div className='overflow-scroll flex flex-auto flex-col select-none mt-2'>
+			<div className='overflow-scroll flex flex-auto flex-col select-none dark:bg-base-200'>
+				{/* Input */}
 				<div className='flex flex-row mx-auto'>
 					<Input
-						className='border-gray-500 hover:border-2'
+						className='border-gray-500 dark:text-white bg-gray-100 hover:border-red-600 hover:border dark:bg-gray-800/20 border-0'
 						onInput={(e) => setValue(e.currentTarget.value)}
 						value={value}
 					></Input>
 					<div
 						onClick={() => setValue('')}
-						className='mt-auto mb-auto hover:bg-gray-100 p-3 rounded'
+						className='mt-auto mb-auto m-2 hover:bg-gray-100 hover:dark:bg-gray-800/30 p-3 rounded'
 					>
-						<IconTrash></IconTrash>
+						<IconTrash className='dark:text-white'></IconTrash>
 					</div>
 				</div>
 
-				<MathView
-					ref={ref}
-					onInput={(e) =>
-						console.log(
-							e.currentTarget.getValue('ascii-math').replace('⋅', '*')
-						)
-					}
-					className='bg-slate-500 hidden text-3xl'
-					letterShapeStyle='iso'
-					aria-multiline
-					value={value}
-				></MathView>
+				{/* Results and Examples */}
+				<div className='flex flex-col flex-auto h-40 w-full  overflow-scroll'>
+					{variables.length > 0 ? (
+						variables.map((el, i) => (
+							<AlgebraResultContainer
+								key={i}
+								value={el}
+								expression={value}
+							></AlgebraResultContainer>
+						))
+					) : (
+						<div className='m-6 dark:text-white'>
+							<p className='font-bold'>Some Examples</p>
 
-				{variables.length > 0 ? (
-					variables.map((el, i) => (
-						<AlgebraResultContainer
-							key={i}
-							value={el}
-							expression={value}
-						></AlgebraResultContainer>
-					))
-				) : (
-					<div className='m-6'>
-						<p className='font-bold'>Some Examples</p>
+							<div
+								className='hover:bg-gray-100 dark:hover:bg-gray-800/30 flex  rounded p-2 select-none'
+								onClick={() => setValue('3x-5')}
+							>
+								<MathView className='select-none' readOnly>
+									3x-5
+								</MathView>
 
-						<div
-							className='hover:bg-gray-100 flex  rounded p-2 select-none'
-							onClick={() => setValue('3x-5')}
-						>
-							<MathView className='select-none' readOnly>
-								3x-5
-							</MathView>
+								<button className='ml-auto' onClick={() => setValue('3x-5')}>
+									<IconClipboardCopy></IconClipboardCopy>
+								</button>
+							</div>
 
-							<button className='ml-auto' onClick={() => setValue('3x-5')}>
-								<IconClipboardCopy></IconClipboardCopy>
-							</button>
-						</div>
+							<div
+								className='hover:bg-gray-100 flex  dark:hover:bg-gray-800/30  rounded p-2 select-none'
+								onClick={() => setValue('2x+5y=7')}
+							>
+								<MathView className='select-none' readOnly>
+									2x+5y=7
+								</MathView>
 
-						<div
-							className='hover:bg-gray-100 flex  rounded p-2 select-none'
-							onClick={() => setValue('2x+5y=7')}
-						>
-							<MathView className='select-none' readOnly>
-								2x+5y=7
-							</MathView>
+								<button className='ml-auto' onClick={() => setValue('2x+5y=7')}>
+									<IconClipboardCopy></IconClipboardCopy>
+								</button>
+							</div>
 
-							<button className='ml-auto' onClick={() => setValue('2x+5y=7')}>
-								<IconClipboardCopy></IconClipboardCopy>
-							</button>
-						</div>
+							<div
+								className='hover:bg-gray-100 flex dark:hover:bg-gray-800/30   rounded p-2 select-none'
+								onClick={() => setValue('2^2+5y=z')}
+							>
+								<MathView className='select-none' readOnly>
+									{'2^2+5y=z'}
+								</MathView>
 
-						<div
-							className='hover:bg-gray-100 flex  rounded p-2 select-none'
-							onClick={() => setValue('2^2+5y=z')}
-						>
-							<MathView className='select-none' readOnly>
-								{'2^2+5y=z'}
-							</MathView>
+								<button
+									className='ml-auto'
+									onClick={() => setValue('2^2+5y=z')}
+								>
+									<IconClipboardCopy></IconClipboardCopy>
+								</button>
+							</div>
 
-							<button className='ml-auto' onClick={() => setValue('2^2+5y=z')}>
-								<IconClipboardCopy></IconClipboardCopy>
-							</button>
-						</div>
-
-						<div
-							className='hover:bg-gray-100 flex  rounded p-2 select-none'
-							onClick={() => setValue('cos(30)+6y=x')}
-						>
-							<MathView className='select-none' readOnly>
-								{'cos(30)+6y=x'}
-							</MathView>
-
-							<button
-								className='ml-auto'
+							<div
+								className='hover:bg-gray-100 flex dark:hover:bg-gray-800/30   rounded p-2 select-none'
 								onClick={() => setValue('cos(30)+6y=x')}
 							>
-								<IconClipboardCopy></IconClipboardCopy>
-							</button>
+								<MathView className='select-none' readOnly>
+									{'cos(30)+6y=x'}
+								</MathView>
+
+								<button
+									className='ml-auto'
+									onClick={() => setValue('cos(30)+6y=x')}
+								>
+									<IconClipboardCopy></IconClipboardCopy>
+								</button>
+							</div>
 						</div>
-					</div>
-				)}
+					)}
+				</div>
 			</div>
 		</>
 	);
