@@ -2,4 +2,11 @@
 	white-space: pre-wrap;
 	overflow-y: scroll;
 	overflow-wrap: break-word;
+	max-width: 20rem;
+}
+
+@media (min-width: 1024px) {
+	.container-wrap {
+		max-width: 512px;
+	}
 }

@@ -12,45 +12,49 @@ import { DarkModeButton } from '../components/DarkModeButton';
 import { MathsterLogo } from '../components/Icons';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
 import { StatusBar, Style } from '@capacitor/status-bar';
-const side = (
-	<>
-		<ul className='menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content dark:bg-base-200'>
-			<DarkModeButton className='absolute mr-auto'></DarkModeButton>
 
+const Side: React.FC<{ className?: string }> = ({ className }) => (
+	<>
+		<ul
+			className={`menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content dark:bg-base-200  ${className}`}
+		>
 			<div className='rounded mx-auto p-2'>
-				<MathsterLogo className='dark:fill-white h-16 w-16'></MathsterLogo>
+				<MathsterLogo className='dark:fill-white lg:h-8 lg:w-8 h-16 w-16'></MathsterLogo>
 			</div>
-			<p className='poppins-font-family text-2xl m-1 mb-2 font-bold mx-auto dark:text-white'>
+
+			<DarkModeButton className='absolute lg:relative lg:mb-2 mr-auto'></DarkModeButton>
+
+			<p className='lg:hidden poppins-font-family text-2xl m-1 mb-2 font-bold mx-auto dark:text-white'>
 				Mathster
 			</p>
 
-			<li>
+			<li className='lg:w-5'>
 				<NavLink className={'dark:text-white'} to={'/'}>
 					<IconCalculator></IconCalculator>
-					<p>Home</p>
+					<p className='lg:hidden'>Home</p>
 				</NavLink>
 			</li>
 
-			<li>
+			<li className='lg:w-5'>
 				<NavLink className={'hidden'} to={'/algebra'}>
 					<IconSuperscript></IconSuperscript>
 					<p>Algebra</p>
 				</NavLink>
 			</li>
 
-			<li>
+			<li className='lg:w-5'>
 				<NavLink className={'dark:text-white'} to={'/donations'}>
 					<IconMoneybag></IconMoneybag>
-					<p>Donations</p>
+					<p className='lg:hidden'>Donations</p>
 				</NavLink>
 			</li>
 
 			<div className='mt-auto'>
 				<div className='bg-gray-200 dark:bg-gray-800 h-0.5 m-2'></div>
-				<li>
+				<li className='lg:w-5'>
 					<NavLink className={'dark:text-white'} to={'/about'}>
 						<IconInfoCircle></IconInfoCircle>
-						<p>About</p>
+						<p className='lg:hidden'>About</p>
 					</NavLink>
 				</li>
 			</div>
@@ -80,11 +84,21 @@ export const Root: React.FC = () => {
 
 	return (
 		<div>
-			<Drawer onClickOverlay={toggleVisibiliy} side={side} open={drawerOpen}>
+			<Drawer
+				onClickOverlay={toggleVisibiliy}
+				side={<Side></Side>}
+				open={drawerOpen}
+			>
 				<div className='h-screen w-screen flex flex-auto flex-col overflow-hidden'>
 					{/* Content */}
 					<div className='flex flex-col flex-auto h-full'>
-						<Outlet></Outlet>
+						<div className='lg:flex-row flex-auto flex flex-col'>
+							<Side className='relative w-24  lg:flex hidden shrink-0 grow-0'></Side>
+
+							<div className='flex flex-col flex-auto '>
+								<Outlet></Outlet>
+							</div>
+						</div>
 					</div>
 				</div>
 			</Drawer>

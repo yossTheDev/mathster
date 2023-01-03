@@ -11,7 +11,7 @@ import { CalcButton } from './CalcButton';
 
 export const QuickAccessBar: React.FC = () => {
 	return (
-		<div className='flex shrink-0 grow-0 w-full max-h-8 overflow-y-hidden overflow-x-scroll text-gray-500'>
+		<div className='flex shrink-0 grow-0 lg:max-h-full w-full max-h-8 overflow-y-hidden overflow-x-scroll text-gray-500'>
 			<CalcButton className='flex h-6 p-4' operation='['></CalcButton>
 			<CalcButton className='flex h-6 p-4' operation=']'></CalcButton>
 			<CalcButton className='flex h-6 p-4' operation='{'></CalcButton>

@@ -33,7 +33,7 @@ const Span: React.FC<SpanProps> = ({ children, index }: SpanProps) => {
 
 	return (
 		<span
-			className='transition ease-in-out delay-150  duration-300 hover:bg-gray-100 hover:rounded dark:text-white'
+			className='transition ease-in-out delay-150  duration-300 dark:hover:bg-gray-600 hover:bg-gray-200 hover:rounded dark:text-white'
 			onClick={() => setCursor(index)}
 		>
 			{children}

@@ -1,4 +1,4 @@
-import './App.css';
+import('./App.css');
 import { StoreProvider } from 'easy-peasy';
 import { CalcStore } from './stores/CalcStore';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { Home } from './pages/Home';
 import { AlgebraPage } from './pages/AlgebraPage';
 import { ErrorPage } from './pages/ErrorPage';
 import { Donations } from './pages/Donations';
+import { Capacitor } from '@capacitor/core';
 
 const router = createBrowserRouter([
 	{
@@ -43,6 +44,8 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+	if (Capacitor.getPlatform() === 'web') import('./utils.css');
+
 	return (
 		<StoreProvider store={CalcStore}>
 			<RouterProvider router={router} />

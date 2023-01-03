@@ -15,7 +15,7 @@ export const ResultItem: React.FC<Props> = ({ value }) => {
 			onClick={() => {
 				setCalc(value);
 			}}
-			className='transition ease-in-out delay-150  duration-300  shadow hover:bg-gradient-to-tl bg-gradient-to-br from-red-400 to-red-500 text-white font-semibold rounded-2xl text-right m-2 p-2 inline-block max-h-14 h-auto max-w-xs overflow-hidden'
+			className='transition ease-in-out delay-150  duration-300  shadow hover:bg-gradient-to-tl bg-gradient-to-br from-red-400 to-red-500 text-white font-semibold rounded-2xl text-right m-2 p-2 inline-block max-h-14 h-auto max-w-xs min-w-max overflow-hidden'
 		>
 			{value.toString().includes('.')
 				? format(evaluate(value), { precision: 14 })

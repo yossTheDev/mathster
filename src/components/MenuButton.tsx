@@ -10,7 +10,7 @@ export const MenuButton: React.FC = () => {
 
 	return (
 		<Button
-			className=''
+			className='lg:hidden'
 			onClick={() => toggleVisibiliy()}
 			shape='square'
 			color='ghost'
