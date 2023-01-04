@@ -1,7 +1,7 @@
 import { IconMenu2 } from '@tabler/icons';
 import React from 'react';
 import { Button } from 'react-daisyui';
-import { useStoreActions } from '../stores/Hooks';
+import { useStoreActions } from '../../stores/Hooks';
 
 export const MenuButton: React.FC = () => {
 	const toggleVisibiliy = useStoreActions(

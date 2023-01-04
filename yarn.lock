@@ -775,6 +775,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@juggle/resize-observer@npm:^3.3.1":
+  version: 3.4.0
+  resolution: "@juggle/resize-observer@npm:3.4.0"
+  checksum: 2505028c05cc2e17639fcad06218b1c4b60f932a4ebb4b41ab546ef8c157031ae377e3f560903801f6d01706dbefd4943b6c4704bf19ed86dfa1c62f1473a570
+  languageName: node
+  linkType: hard
+
 "@kurkle/color@npm:^0.3.0":
   version: 0.3.1
   resolution: "@kurkle/color@npm:0.3.1"
@@ -980,6 +987,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc/helpers@npm:^0.4.14":
+  version: 0.4.14
+  resolution: "@swc/helpers@npm:0.4.14"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: 273fd3f3fc461a92f3790cc551ea054745c6d6959afbe1232e6d7aa1c722bbc114d308aab96bef5c78fc0303c85c7b472ef00e2253251cc89737f3b1af56e5a5
+  languageName: node
+  linkType: hard
+
 "@tabler/icons@npm:^1.116.0":
   version: 1.116.0
   resolution: "@tabler/icons@npm:1.116.0"
@@ -1106,6 +1122,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/plotly.js@npm:*":
+  version: 2.12.11
+  resolution: "@types/plotly.js@npm:2.12.11"
+  checksum: afe3747534ac0b7cc8dd1b062b68c75c7aab1ca405b95e58b2e04ec3bd6b16165987650afd542dcada15ad7ffa5358ac7ccf08afbb3a68f7504d722a3acb8695
+  languageName: node
+  linkType: hard
+
 "@types/prop-types@npm:*":
   version: 15.7.5
   resolution: "@types/prop-types@npm:15.7.5"
@@ -1119,6 +1142,16 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 522e5e949d05f35c6037a2290838c9c7ff92a9d06f7d96b993c7c3f5a86d8f3a6337e059c94e6fb0920227f445e5d1ce10fbfe3d9bbd95fb82a5539249d90646
+  languageName: node
+  linkType: hard
+
+"@types/react-plotly.js@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "@types/react-plotly.js@npm:2.5.2"
+  dependencies:
+    "@types/plotly.js": "*"
+    "@types/react": "*"
+  checksum: 0aa528801bc81e05d63aee7f51c05b389912937ad26cf7ca33c491d98b4099fbecf42b7958f409711529ad2b4758a24db9098e8212c9cfd39240c705b77dba31
   languageName: node
   linkType: hard
 
@@ -1280,6 +1313,24 @@ __metadata:
     "@typescript-eslint/types": 5.42.1
     eslint-visitor-keys: ^3.3.0
   checksum: d36c59da7bf3b3c150c12cbe4b0331edc15253f59599ec3d8b873b2a3d9fc7a4fea11490c1b20d972afcdc9c842deb5ada527ea9c538aa7e87555699d9a59f24
+  languageName: node
+  linkType: hard
+
+"@use-gesture/core@npm:10.2.23":
+  version: 10.2.23
+  resolution: "@use-gesture/core@npm:10.2.23"
+  checksum: 2516eb82ee3355b40f1e4eb6fb218082f8196486245a6794d10e13a3698b7d3a7501c57a1e8f61c9958105ee80255b266618242fdc80056f7ab6d62ae1ef2169
+  languageName: node
+  linkType: hard
+
+"@use-gesture/react@npm:^10.2.23":
+  version: 10.2.23
+  resolution: "@use-gesture/react@npm:10.2.23"
+  dependencies:
+    "@use-gesture/core": 10.2.23
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: 44127907ecc5b87296d14cd0cc86b6031d87ee11ae98df33810e4d986aa58290ec48624010776eeb50c13f2ad62b3439a549c02fba4cef5913b6c8b21b72222e
   languageName: node
   linkType: hard
 
@@ -5237,6 +5288,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mafs@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "mafs@npm:0.8.0"
+  dependencies:
+    "@swc/helpers": ^0.4.14
+    "@use-gesture/react": ^10.2.23
+    tiny-invariant: ^1.3.1
+    use-resize-observer: ^9.0.0
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 5cace9f57ce62b7f55166378393bca025f939c57d07cfda7422ba17ea64b9c7ba0fe3259d8de4bd2a125171435f1993395ef3fcdbb40b108b5410132db0105ef
+  languageName: node
+  linkType: hard
+
 "magic-string@npm:^0.26.7":
   version: 0.26.7
   resolution: "magic-string@npm:0.26.7"
@@ -7781,6 +7847,7 @@ __metadata:
     "@types/luxon": ^3.1.0
     "@types/react": ^18.0.24
     "@types/react-dom": ^18.0.8
+    "@types/react-plotly.js": ^2.5.2
     "@types/react-swipeable-views": ^0.13.1
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@vitejs/plugin-react": ^2.2.0
@@ -7799,6 +7866,7 @@ __metadata:
     function-plot: ^1.23.2
     katex: ^0.16.4
     luxon: ^3.1.1
+    mafs: ^0.8.0
     mathjax-react: ^2.0.1
     mathjs: ^11.4.0
     mathlive: ^0.86.0
@@ -7866,6 +7934,13 @@ __metadata:
   version: 2.1.0
   resolution: "tiny-emitter@npm:2.1.0"
   checksum: fbcfb5145751a0e3b109507a828eb6d6d4501352ab7bb33eccef46e22e9d9ad3953158870a6966a59e57ab7c3f9cfac7cab8521db4de6a5e757012f4677df2dd
+  languageName: node
+  linkType: hard
+
+"tiny-invariant@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "tiny-invariant@npm:1.3.1"
+  checksum: 872dbd1ff20a21303a2fd20ce3a15602cfa7fcf9b228bd694a52e2938224313b5385a1078cb667ed7375d1612194feaca81c4ecbe93121ca1baebe344de4f84c
   languageName: node
   linkType: hard
 
@@ -8198,6 +8273,18 @@ __metadata:
   dependencies:
     punycode: ^2.1.0
   checksum: 7167432de6817fe8e9e0c9684f1d2de2bb688c94388f7569f7dbdb1587c9f4ca2a77962f134ec90be0cc4d004c939ff0d05acc9f34a0db39a3c797dada262633
+  languageName: node
+  linkType: hard
+
+"use-resize-observer@npm:^9.0.0":
+  version: 9.1.0
+  resolution: "use-resize-observer@npm:9.1.0"
+  dependencies:
+    "@juggle/resize-observer": ^3.3.1
+  peerDependencies:
+    react: 16.8.0 - 18
+    react-dom: 16.8.0 - 18
+  checksum: 92be0ac34a3b3cf884cd55847c90792b5b44833dc258e96d650152815ad246afe45825aa223332203004d836535a927ab74f18dc0313229e2c7c69510eddf382
   languageName: node
   linkType: hard
 

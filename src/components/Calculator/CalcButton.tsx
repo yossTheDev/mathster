@@ -3,7 +3,7 @@ import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
 import { IconInfoCircle } from '@tabler/icons';
 import { index } from 'mathjs';
 import React, { ReactNode, useState } from 'react';
-import { useStoreActions, useStoreState } from '../stores/Hooks';
+import { useStoreActions, useStoreState } from '../../stores/Hooks';
 
 interface ButtonProps {
 	className?: string;

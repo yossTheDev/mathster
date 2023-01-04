@@ -14,7 +14,7 @@ import {
 	IconX,
 } from '@tabler/icons';
 import React, { ReactNode } from 'react';
-import { useStoreActions, useStoreState } from '../stores/Hooks';
+import { useStoreActions } from '../../stores/Hooks';
 
 interface Props {
 	value: string;

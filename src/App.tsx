@@ -5,10 +5,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Root } from './pages/Root';
 import { About } from './pages/About';
 import { Home } from './pages/Home';
-import { AlgebraPage } from './pages/AlgebraPage';
+import { Algebra } from './pages/Algebra';
 import { ErrorPage } from './pages/ErrorPage';
 import { Donations } from './pages/Donations';
 import { Capacitor } from '@capacitor/core';
+import { Plotting } from './pages/Plotting';
 
 const router = createBrowserRouter([
 	{
@@ -33,7 +34,12 @@ const router = createBrowserRouter([
 
 			{
 				path: '/algebra',
-				element: <AlgebraPage />,
+				element: <Algebra />,
+			},
+
+			{
+				path: '/plotting',
+				element: <Plotting />,
 			},
 		],
 	},
@@ -44,7 +50,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-	if (Capacitor.getPlatform() === 'web') import('./utils.css');
+	if (
+		Capacitor.getPlatform() === 'web' ||
+		Capacitor.getPlatform() === 'electron'
+	)
+		import('./utils.css');
+
+	console.log(Capacitor.getPlatform());
 
 	return (
 		<StoreProvider store={CalcStore}>

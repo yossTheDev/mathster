@@ -9,9 +9,9 @@ import {
 import React from 'react';
 import qvapay from '../assets/qvapay.svg';
 import { Navbar } from 'react-daisyui';
-import { MenuButton } from '../components/MenuButton';
 import { Clipboard } from '@capacitor/clipboard';
 import { Toast } from '@capacitor/toast';
+import { MenuButton } from '../components/General/MenuButton';
 
 export const Donations: React.FC = () => {
 	return (

@@ -4,7 +4,7 @@ import { parse } from 'mathjs';
 import nerdamer from 'nerdamer/all.js';
 import React, { useEffect, useState } from 'react';
 import MathView from 'react-math-view';
-import { ExpressionViewer } from './ExpressionViewer';
+import { ExpressionViewer } from '../Calculator/ExpressionViewer';
 
 export const AlgebraResultContainer: React.FC<{
 	value: string;

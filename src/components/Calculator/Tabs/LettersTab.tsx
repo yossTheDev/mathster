@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalcButton } from './CalcButton';
+import { CalcButton } from '../CalcButton';
 
 export const LettersTab: React.FC = () => {
 	// Constants

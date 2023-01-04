@@ -1,14 +1,15 @@
 import React from 'react';
 import { Navbar } from 'react-daisyui';
-import { MenuButton } from '../components/MenuButton';
 import {
 	IconBrandGithub,
 	IconBrandTelegram,
 	IconBrandTwitter,
 } from '@tabler/icons';
 
+import { CartesianCoordinates, FunctionGraph, Mafs } from 'mafs';
 import yoss from '../assets/yoss.png';
-import { MathsterLogo } from '../components/Icons';
+import { MathsterLogo } from '../components/General/Icons';
+import { MenuButton } from '../components/General/MenuButton';
 
 export const About: React.FC = () => {
 	return (

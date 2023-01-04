@@ -3,14 +3,14 @@ import 'katex/dist/katex.min.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { Input, Navbar } from 'react-daisyui';
 import MathView, { MathViewRef } from 'react-math-view';
-import { AlgebraResultContainer } from '../components/AlgebraResultContainer';
-import { MenuButton } from '../components/MenuButton';
+import { AlgebraResultContainer } from '../components/Algebra/AlgebraResultContainer';
+import { MenuButton } from '../components/General/MenuButton';
 
 function onlyUnique(value: string, index: any, self: any) {
 	return self.indexOf(value) === index;
 }
 
-export const AlgebraPage: React.FC = () => {
+export const Algebra: React.FC = () => {
 	const allLetters = [
 		'a',
 		'b',

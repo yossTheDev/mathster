@@ -1,7 +1,7 @@
 import { IconArrowDown, IconTrash } from '@tabler/icons';
 import React, { useEffect, useRef } from 'react';
-import { useStoreActions, useStoreState } from '../stores/Hooks';
-import { Button } from './Button';
+import { useStoreActions, useStoreState } from '../../stores/Hooks';
+import { Button } from '../General/Button';
 import { ExpressionViewer } from './ExpressionViewer';
 
 export const History: React.FC = () => {

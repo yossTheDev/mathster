@@ -1,5 +1,5 @@
 import React from 'react';
-import { parseExpression } from '../utils/MathExpresions';
+import { parseExpression } from '../../utils/MathExpresions';
 import { ExpressionSpan } from './ExpressionSpan';
 
 interface Props {

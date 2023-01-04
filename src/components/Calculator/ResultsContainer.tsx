@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { isResultSet } from 'mathjs';
-import { ResultSetToArray } from '../utils/ResultSetToArray';
+import { ResultSetToArray } from '../../utils/ResultSetToArray';
 import { ResultItem } from './ResultItem';
 
 interface ContainerProps {

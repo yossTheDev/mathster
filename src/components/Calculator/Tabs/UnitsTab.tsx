@@ -17,7 +17,7 @@ import {
 	IconBinary,
 } from '@tabler/icons';
 import React from 'react';
-import { CalcButton } from './CalcButton';
+import { CalcButton } from '../CalcButton';
 
 export const UnitsTab: React.FC = () => {
 	return (

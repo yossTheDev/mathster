@@ -10,7 +10,7 @@ import {
 	IconSuperscript,
 } from '@tabler/icons';
 import React from 'react';
-import { CalcButton } from './CalcButton';
+import { CalcButton } from '../CalcButton';
 
 export const FunctionsTab: React.FC = () => {
 	return (

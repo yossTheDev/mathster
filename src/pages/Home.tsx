@@ -8,13 +8,13 @@ import {
 } from '@tabler/icons';
 import React, { useState } from 'react';
 import { Dropdown, Modal, Navbar } from 'react-daisyui';
-import { Calculator } from '../components/Calculator';
-import { MenuButton } from '../components/MenuButton';
+import { Calculator } from '../components/Calculator/Calculator';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
 import { Clipboard } from '@capacitor/clipboard';
 import { Share } from '@capacitor/share';
 import { Toast } from '@capacitor/toast';
 import QRCode from 'react-qr-code';
+import { MenuButton } from '../components/General/MenuButton';
 
 export const Home: React.FC = () => {
 	// Component State

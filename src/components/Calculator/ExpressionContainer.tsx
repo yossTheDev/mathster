@@ -1,8 +1,9 @@
 import { fix, isResultSet, string } from 'mathjs';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTabs } from 'react-headless-tabs';
-import { useStoreActions, useStoreState } from '../stores/Hooks';
-import { parseExpression } from '../utils/MathExpresions';
+import { useStoreActions, useStoreState } from '../../stores/Hooks';
+import { parseExpression } from '../../utils/MathExpresions';
+
 import './ExpressionContainer.css';
 import { ExpressionSpan } from './ExpressionSpan';
 

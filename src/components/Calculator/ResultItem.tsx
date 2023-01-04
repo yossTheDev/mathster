@@ -1,6 +1,6 @@
 import { evaluate, format } from 'mathjs';
 import React from 'react';
-import { useStoreActions } from '../stores/Hooks';
+import { useStoreActions } from '../../stores/Hooks';
 
 interface Props {
 	value: string;

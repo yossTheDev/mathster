@@ -1,7 +1,7 @@
 import { IconMoon, IconSun } from '@tabler/icons';
 import React from 'react';
 import { Button, Swap } from 'react-daisyui';
-import { useStoreActions, useStoreState } from '../stores/Hooks';
+import { useStoreActions, useStoreState } from '../../stores/Hooks';
 
 export const DarkModeButton: React.FC<{ className?: string }> = ({
 	className,

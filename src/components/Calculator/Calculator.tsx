@@ -2,10 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { TabPanel, useTabs } from 'react-headless-tabs';
 import { Preferences } from '@capacitor/preferences';
-import { ExpressionContainer } from '../components/ExpressionContainer';
-import { ResultsContainer } from '../components/ResultsContainer';
-import { TabSelector } from '../components/TabSelector';
-import { useStoreActions, useStoreState } from '../stores/Hooks';
+import { ResultsContainer } from './ResultsContainer';
+import { TabSelector } from './Tabs/TabSelector';
+import { useStoreActions, useStoreState } from '../../stores/Hooks';
 import {
 	IconAbc,
 	IconBackspace,
@@ -18,14 +17,15 @@ import {
 	IconScale,
 	IconSpace,
 } from '@tabler/icons';
-import { Button } from '../components/Button';
-import { UnitsTab } from './UnitsTab';
+import { Button } from '../General/Button';
 import { evaluate, isResultSet } from 'mathjs';
-import { LettersTab } from './LettersTab';
-import { FunctionsTab } from './FunctionsTab';
-import { NumbersPad } from './NumbersPad';
 import SwipeableViews from 'react-swipeable-views';
 import { History } from './History';
+import { FunctionsTab } from './Tabs/FunctionsTab';
+import { LettersTab } from './Tabs/LettersTab';
+import { NumbersPad } from './Tabs/NumbersPad';
+import { UnitsTab } from './Tabs/UnitsTab';
+import { ExpressionContainer } from './ExpressionContainer';
 
 export const Calculator: React.FC = () => {
 	// Tabs

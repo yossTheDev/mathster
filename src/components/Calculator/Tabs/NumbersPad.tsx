@@ -8,8 +8,8 @@ import {
 	IconCornerDownLeft,
 } from '@tabler/icons';
 import React from 'react';
-import { CalcButton } from './CalcButton';
-import { QuickAccessBar } from './QuickAccessBar';
+import { CalcButton } from '../CalcButton';
+import { QuickAccessBar } from '../QuickAccessBar';
 
 export const NumbersPad: React.FC = () => {
 	return (

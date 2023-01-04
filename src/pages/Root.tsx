@@ -4,12 +4,13 @@ import {
 	IconCoin,
 	IconInfoCircle,
 	IconSuperscript,
+	IconX,
 } from '@tabler/icons';
 import React from 'react';
 import { Drawer } from 'react-daisyui';
 import { NavLink, Outlet } from 'react-router-dom';
-import { DarkModeButton } from '../components/DarkModeButton';
-import { MathsterLogo } from '../components/Icons';
+import { DarkModeButton } from '../components/General/DarkModeButton';
+import { MathsterLogo } from '../components/General/Icons';
 import { useStoreActions, useStoreState } from '../stores/Hooks';
 
 const Side: React.FC<{ className?: string }> = ({ className }) => (
@@ -27,14 +28,21 @@ const Side: React.FC<{ className?: string }> = ({ className }) => (
 				Mathster
 			</p>
 
-			<li className='lg:w-5 my-2'>
+			<li className='lg:w-5 my-0.5'>
 				<NavLink className={'dark:text-white'} to={'/'}>
 					<IconCalculator></IconCalculator>
 					<p className='lg:hidden'>Home</p>
 				</NavLink>
 			</li>
 
-			<li className='lg:w-5  my-2'>
+			<li className='lg:w-5  my-0.5'>
+				<NavLink className={'dark:text-white'} to={'/plotting'}>
+					<IconX></IconX>
+					<p className='lg:hidden'>Plotting</p>
+				</NavLink>
+			</li>
+
+			<li className='lg:w-5  my-0.5'>
 				<NavLink className={'dark:text-white'} to={'/algebra'}>
 					<IconSuperscript></IconSuperscript>
 					<p className='lg:hidden'>Algebra</p>
@@ -43,13 +51,13 @@ const Side: React.FC<{ className?: string }> = ({ className }) => (
 
 			<div className='mt-auto'>
 				<div className='bg-gray-200 dark:bg-gray-800 h-0.5 m-2'></div>
-				<li className='lg:w-5  my-2'>
+				<li className='lg:w-5  my-1'>
 					<NavLink className={'dark:text-white'} to={'/donations'}>
 						<IconCoin></IconCoin>
 						<p className='lg:hidden'>Donations</p>
 					</NavLink>
 				</li>
-				<li className='lg:w-5  my-2'>
+				<li className='lg:w-5  my-1'>
 					<NavLink className={'dark:text-white'} to={'/about'}>
 						<IconInfoCircle></IconInfoCircle>
 						<p className='lg:hidden'>About</p>
